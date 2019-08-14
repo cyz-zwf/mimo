@@ -256,12 +256,130 @@
             <span class="more_facilities more_span">已安装mimo智能门锁</span>
           </p>
           <ul class="facilitie_ul">
-            
+            <li>
+              <i class="iconfont icon-linyu facilitie_icon"></i>
+              <p class="facilitie_linyu">热水淋浴</p>
+            </li>
+            <li>
+              <i class="iconfont icon-wifi facilitie_icon"></i>
+              <p class="facilitie_wifi">无线网络</p>
+            </li>
+            <li>
+              <i class="iconfont icon-kongdiao facilitie_icon"></i>
+              <p class="facilitie_kongdiao">空调</p>
+            </li>
+            <li>
+              <i class="iconfont icon-TV facilitie_icon"></i>
+              <p class="facilitie_TV">电视</p>
+            </li>
+            <li>
+              <i class="iconfont icon-dianti facilitie_icon"></i>
+              <p class="facilitie_dianti">电梯</p>
+            </li>
+            <li>
+              <i class="iconfont icon-menjin facilitie_icon"></i>
+              <p class="facilitie_menjin">门禁系统</p>
+            </li>
+            <li>
+              <i class="iconfont icon-icon-xiyiji facilitie_icon"></i>
+              <p class="facilitie_xiyiji">洗衣机</p>
+            </li>
+            <li>
+              <i class="iconfont icon-bingxiang facilitie_icon"></i>
+              <p class="facilitie_bingxiang">冰箱</p>
+            </li>
+            <li>
+              <i class="iconfont icon-bingxiang facilitie_icon"></i>
+              <p class="facilitie_bingxiang">停车位</p>
+            </li>
+            <li>
+              <i class="iconfont icon-taiyangtianqi facilitie_icon"></i>
+              <p class="facilitie_taiyang">暖气</p>
+            </li>
+            <li>
+              <i class="iconfont icon-tuoxie facilitie_icon"></i>
+              <p class="facilitie_tuoxie">拖鞋</p>
+            </li>
+            <li>
+              <i class="iconfont icon-juanzhi facilitie_icon"></i>
+              <p class="facilitie_juanzhi">手纸</p>
+            </li>
+            <li>
+              <i class="iconfont icon-yaju facilitie_icon"></i>
+              <p class="facilitie_yaju">牙具</p>
+            </li>
+            <li>
+              <i class="iconfont icon-maojin facilitie_icon"></i>
+              <p class="facilitie_maojin">毛巾</p>
+            </li>
+            <li>
+              <i class="iconfont icon-muyulou facilitie_icon"></i>
+              <p class="facilitie_muyulou">浴液</p>
+            </li>
+            <li>
+              <i class="iconfont icon-meishi facilitie_icon"></i>
+              <p class="facilitie_meishi">允许做饭</p>
+            </li>
+            <li>
+              <i class="iconfont icon-yingyuanxinxiertongpiao facilitie_icon"></i>
+              <p class="facilitie_ertong">适宜儿童</p>
+            </li>
+            <li>
+              <i class="iconfont icon-laoren facilitie_icon"></i>
+              <p class="facilitie_laoren">适宜老人</p>
+            </li>
+            <li>
+              <i class="iconfont icon-yinshuiji- facilitie_icon facilitie_hide"></i>
+              <p class="facilitie_yinshuiji">饮水设备</p>
+            </li>
+            <li>
+              <i class="iconfont icon-yugang1 facilitie_icon facilitie_hide"></i>
+              <p class="facilitie_yugang">浴缸</p>
+            </li>
+            <li>
+              <i class="iconfont icon-xiyan facilitie_icon facilitie_hide"></i>
+              <p class="facilitie_xiyan">允许吸烟</p>
+            </li>
+            <li>
+              <i class="iconfont icon-jiubei facilitie_icon facilitie_hide"></i>
+              <p class="facilitie_jiubei">允许聚会</p>
+            </li>
+            <li>
+              <i class="iconfont icon-chongwu facilitie_icon facilitie_hide"></i>
+              <p class="facilitie_chongwu">允许带宠物</p>
+            </li>
+            <li>
+              <i class="iconfont icon-lunyi facilitie_icon facilitie_hide"></i>
+              <p class="facilitie_lunyi">适宜残疾人</p>
+            </li>
           </ul>
         </div>
         <!-- Part8 -->
         <img class="banner_img" src="http://127.0.0.1:5050/detail/yuanben4.jpg">
+        <!-- Part9 -->
+        <div class="info_colunm">
+          <p class="p_left">
+            <span class="info_title">交易规则</span>
+          </p>
+        </div>
+        <!-- Part10 -->
+        <div class="info_colunm">
+          <p class="p_left">
+            <span class="info_title">退订须知</span>
+          </p>
+        </div>
+        <!-- Part9 -->
+        <div class="info_colunm">
+          <p class="p_left">
+            <span class="info_title">推荐房源</span>
+          </p>
+        </div>
       </div>
+    </div>
+    <!-- 底部固定栏 -->
+    <div class="order_btn">
+      <div class="order_btn_chat"><i></i><p>聊天</p></div>
+      <div class="order_btn_submit">立即预定 <i></i></div>
     </div>
   </div>
 </template>
@@ -270,12 +388,21 @@ export default {
   data(){
     return{
       explain:0,
-      descri:true
+      descri:true,
+      isCollect:true,
     }
   },
   methods:{
     collection(){
-
+      var btn=document.getElementsByClassName("heart")[0];
+      this.isCollect=!this.isCollect
+      if(!this.isCollect){
+        btn.style.background="url('http://127.0.0.1:5050/detail/det_heart_selected.png') no-repeat";
+        btn.style.backgroundSize="100%";
+      }else{
+        btn.style.background="url('http://127.0.0.1:5050/detail/det_heart.png') no-repeat";
+        btn.style.backgroundSize="100%";
+      }
     },
     explain0(){
       this.explain=0
@@ -460,7 +587,8 @@ export default {
 }
 .info_owner{
   background: #fff;
-  padding-top: .8rem;
+  background: #eee;
+  padding: .8rem;
   /* margin-top: 10px; */
 }
 .owner_img{
@@ -602,4 +730,90 @@ export default {
 .banner_img{
   width: 100%;
 }
+/* Part7 */
+.facilitie_ul{
+  width: 100%;
+  margin-top: .4rem;
+  list-style-type: none;
+  padding: 0;
+}
+.facilitie_ul::after{
+  content: "";
+  display: block;
+  clear: both;
+}
+.facilitie_ul li{
+  float: left;
+  width: 25%;
+  height: 2.08rem;
+  box-sizing: border-box;
+  font-size: .32rem;
+  color: #000;
+  position: relative;
+  text-align: center;
+}
+.facilitie_icon{
+  font-size: .64rem;
+}
+.facilitie_hide{
+  color: #ccc;
+}
+.facilitie_ul li p{
+  margin: .053333rem auto 0;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  top: .8rem;
+}
+/* 底部 */
+.order_btn{
+  position: fixed;
+  width: 100%;
+  height: 1.33333rem;
+  background: #F16B80;
+  color: #fff;
+  bottom: 0;
+  z-index: 100;
+  box-shadow: 0 -0.05333rem 0.213333rem rgb(235, 173, 182);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.order_btn_chat{
+  background: #E64966;
+  width: 1.013333rem;
+  height: 1.013333rem;
+  border-radius: 4px;
+  font-size: 12px;
+  /* display:flex; 
+  flex-direction: column; */
+  text-align: center;
+  position: relative;
+}
+.order_btn_chat i{
+  display: block;
+  width: .6rem;
+  height: .6rem;
+  background: url("http://127.0.0.1:5050/detail/det_message.png") no-repeat;
+  background-size: 100%;
+  position: absolute;
+  left: .2rem;
+}
+.order_btn_chat p{
+  font-size: 12px;
+  position: absolute;
+  bottom: 0;
+  left: .2rem;
+}
+.order_btn_submit{
+  font-size: .4266667rem;
+}
+/* .order_btn_submit i{
+  background: url("http://127.0.0.1:5050/detail/det_more.png") no-repeat;
+  background-size: 100%;
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  vertical-align: text-bottom;
+} */
 </style>

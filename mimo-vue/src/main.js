@@ -5,6 +5,8 @@ import store from './store'
 import axios from 'axios'
 import MintUi from 'mint-ui'
 import "mint-ui/lib/style.css"
+// 引入iconfont
+import "./font/iconfont.css"
 
 
 
