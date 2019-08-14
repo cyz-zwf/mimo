@@ -11,7 +11,7 @@
                 消息
             </mt-tab-container-item>
             <mt-tab-container-item id="Mine">
-                我
+                <me></me>
             </mt-tab-container-item>
         </mt-tab-container>
         <!-- 底部导航条 -->
@@ -54,9 +54,11 @@
 </template>
 <script>
 import Tabbaricon from './Tabbaricon.vue'
+import Me from './Me/Me'
 export default {
     components:{
-        tabbaricon:Tabbaricon
+        tabbaricon:Tabbaricon,
+        me:Me
     },
     data(){
         return {
