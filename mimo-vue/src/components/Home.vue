@@ -42,8 +42,8 @@
             </mt-tab-item>
             <mt-tab-item id="Mine"  @click.native="change(3)">
                 <tabbaricon 
-                :selected="require('../assets/ic_cat_selected.png')"
-                :normal="require('../assets/ic_cat_normal.png')"
+                :selected="require('../assets/ic_smile_selected.png')"
+                :normal="require('../assets/ic_smile_normal.png')"
                 :focused="currentIndex[3].isSelect"
                 ></tabbaricon>
                 我
@@ -94,6 +94,6 @@ export default {
 /* 修改组件选择的样式 */
 .mint-tabbar > .mint-tab-item.is-selected {
   background-color: transparent;
-  color: #ff1e32;
+  color: #e64966;
 }
 </style>
