@@ -361,14 +361,51 @@
           <p class="p_left">
             <span class="info_title">交易规则</span>
           </p>
+          <p class="rule_title">
+            <i></i>
+            <span>预定方式</span>
+          </p>
+          <p class="rule_detail">下单即可入住，无需房东确认</p>
+          <p class="rule_title">
+            <i></i>
+            <span>入住天数</span>
+          </p>
+          <p class="rule_detail">最少入住一天，最多入住不限天</p>
+          <p class="rule_title">
+            <i></i>
+            <span>在线定金比</span>
+          </p>
+          <p class="rule_detail">订单确认后，在线支付房款的100%作为定金</p>
+          <p class="rule_title">
+            <span class="no_icon">押金</span>
+          </p>
+          <p class="rule_detail cashfree">￥1000，立即认证免押 ></p>
+          <p class="rule_title">
+            <span class="no_icon">加客</span>
+          </p>
+          <p class="rule_detail">允许加客1人，加客费用线下收取舒适上限入住为七个成年人，或者七个成年人带3个孩子。超过8人按每多一人收取费用</p>
+          <p class="rule_title">
+            <i></i>
+            <span>入住须知</span>
+          </p>
+          <p class="rule_detail">独立卫生间，允许做饭，不允许吸烟，不允许聚会，不允许带宠物，接待境外人士</p>
+          <p class="more_rule">入住细则 ></p>
         </div>
-        <!-- Part10 -->
-        <div class="info_colunm">
+        <!-- Part10 退订 -->
+        <div class="info_colunm unsubscribe">
           <p class="p_left">
             <span class="info_title">退订须知</span>
           </p>
+          <div class="unsubscribe_rule">
+            <p class="iconP iconP1">
+              <i class="ruleicon"><img src="http://127.0.0.1:5050/detail/det_time.png"></i>
+              入住前7天14.00前取消，所有金额全部退还</p>
+            <p class="iconP">
+              <i class="ruleicon"><img src="http://127.0.0.1:5050/detail/det_time.png"></i>
+              入住前7天14.00后取消，扣除未入住首日房费，以及剩余房费的50%</p>
+          </div>
         </div>
-        <!-- Part9 -->
+        <!-- Part11 推荐 -->
         <div class="info_colunm">
           <p class="p_left">
             <span class="info_title">推荐房源</span>
@@ -605,7 +642,7 @@ export default {
 .info_colunm{
   overflow: hidden;
   border-top: .026667rem solid #eee;
-  padding: .4rem 0 0;
+  padding: .4rem 0 .2rem;
 }
 .detail .p_left{
   line-height: .613333rem;
@@ -733,6 +770,7 @@ export default {
 /* Part7 */
 .facilitie_ul{
   width: 100%;
+  margin: 0;
   margin-top: .4rem;
   list-style-type: none;
   padding: 0;
@@ -765,6 +803,69 @@ export default {
   width: 100%;
   top: .8rem;
 }
+/* part10 */
+.detail .unsubscribe_rule{
+  margin-left: .266667rem;
+}
+.detail .rule_title{
+  font-size: .373333rem;
+  line-height: .533333rem;
+  color: #333;
+}
+.detail .rule_title span{
+  line-height: .613333rem;
+  vertical-align: top;
+  font-weight: 700;
+}
+.detail .no_icon{
+  margin-left: .853333rem;
+}
+.detail .rule_title i{
+  display: inline-block;
+  width: .546667rem;
+  height: .586667rem;
+  background: url("http://127.0.0.1:5050/detail/det_reservation.png") no-repeat;
+  background-size: 100%;
+  margin-right: .323333rem;
+  line-height: .586667rem;
+}
+.detail .rule_detail{
+  margin-left: .853333rem;
+  margin-bottom: .266667rem;
+}
+.cashfree{
+  color: #2baca1;
+}
+.more_rule{
+  color: #F16B80;
+}
+/* Part8 退订 */
+.iconP{
+  position: relative;
+  padding-left: .4rem;
+}
+.iconP1{
+  border-left: .266vw solid #212121;
+  padding-bottom: .8rem;
+}
+.ruleicon{
+  background: #fff;
+  display: inline-block;
+  width: .533333rem;
+  height: .533333rem;
+  border-radius: 50%;
+  text-align: center;
+  box-sizing: border-box;
+  position: absolute;
+  left: -.266667rem;
+  top: -.05333rem;
+  border: .08rem solid transparent;
+  border-bottom: .53333rem solid transparent;
+}
+.ruleicon img{
+  width: 100%;
+}
+
 /* 底部 */
 .order_btn{
   position: fixed;
