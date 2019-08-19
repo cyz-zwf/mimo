@@ -65,7 +65,7 @@ a {
   height: 400px;
   position: absolute;
   left: 50%;
-  top: -200px;
+  /* top: -200px; */
   margin-left: -150px;
   /* margin-top: -205px; */
 }
@@ -139,7 +139,7 @@ a {
   position: absolute;
   display: block;
   width: 100%;
-  top: 265px;
+  top: 450px;
   font-size: 14px;
   color: #008489;
   font-weight: 600;
