@@ -101,10 +101,13 @@ export default {
   height: 8rem;
   font-family: Avenirregular, sans-serif !important;
   font-size: 0.4rem;
-  padding: 0 0.5rem;
   position: relative;
   color: #fff;
   background: linear-gradient(to top, #f16b80 0%, rgb(230, 171, 171) 100%);
+}
+.top::before{
+  content: "";
+  display: table;
 }
 .imgSZ {
   width: 0.8rem;
@@ -117,9 +120,9 @@ export default {
 }
 .middle {
   height: 3rem;
-  /* border: 1px solid #000; */
   position: absolute;
   top: 25%;
+  left:5%;
   width: 90%;
 }
 .lt {
@@ -153,10 +156,6 @@ export default {
   border-radius: 50%;
 }
 .bottom {
-  width: 90%;
-  height: 1.2rem;
-  position: absolute;
-  bottom: 0;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
   color: blanchedalmond;
@@ -166,12 +165,17 @@ export default {
     rgb(83, 73, 37) 78%,
     rgb(36, 31, 2) 100%
   );
+  margin: 0 0.5rem;
+  margin-top: 6.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 .txt {
   line-height: 1.2rem;
-  padding-left: 1.2rem;
 }
-.open {
+.bottom div.open {
+  height: 60%;
   color: #000;
   font-size: 0.1rem;
   padding: 0.19rem;
@@ -181,9 +185,6 @@ export default {
     rgb(236, 218, 159) 0%,
     rgb(226, 224, 96) 100%
   );
-  position: absolute;
-  top: 0.29rem;
-  right: 0.5rem;
 }
 /* 我的订单 */
 .bg_box {
@@ -204,6 +205,7 @@ export default {
   list-style-type: none;
   display: flex;
   justify-content: space-around;
+  margin-top:0.7rem;
 }
 .order ul li {
   width: 30%;
