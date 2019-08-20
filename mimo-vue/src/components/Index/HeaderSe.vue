@@ -59,7 +59,7 @@
       </div>
       <div class="search-button">搜&nbsp;&nbsp;索</div>
     </div>
-    <div style="width:100%;height:200px;background:#f00;"></div>
+    <div style="width:100%;height:200px"></div>
   </div>
 </template>
 

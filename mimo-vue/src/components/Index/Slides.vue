@@ -116,7 +116,7 @@ export default {
 @import url(../../assets/css/swiper.min.css);
 #slide {
   position: relative;
-  top: 200px;
+  /* top: 200px; */
   /* left: 0; */
   height: 540px;
   margin-left: 24px !important;
