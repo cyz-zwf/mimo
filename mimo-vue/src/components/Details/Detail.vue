@@ -240,6 +240,7 @@
             <span class="info_title">房源位置</span>
             <span class="more_position more_span">地理位置和周边交通<i></i></span>
           </p>
+          <div></div>
         </div>
         <!-- Part5 -->
         <div class="info_colunm">
@@ -416,7 +417,11 @@
     <!-- 底部固定栏 -->
     <div class="order_btn">
       <div class="order_btn_chat"><i></i><p>聊天</p></div>
-      <div class="order_btn_submit">立即预定 <i></i></div>
+      <div class="order_btn_submit">
+        <span>立即预定</span>
+        <i></i>
+      </div>
+      <div style="width:20%"></div>
     </div>
   </div>
 </template>
@@ -875,10 +880,10 @@ export default {
   color: #fff;
   bottom: 0;
   z-index: 100;
-  box-shadow: 0 -0.05333rem 0.213333rem rgb(235, 173, 182);
+  box-shadow: 0 -0.05333rem 0.213333rem rgb(240, 199, 205);
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content:space-around;
 }
 .order_btn_chat{
   background: #E64966;
@@ -886,8 +891,6 @@ export default {
   height: 1.013333rem;
   border-radius: 4px;
   font-size: 12px;
-  /* display:flex; 
-  flex-direction: column; */
   text-align: center;
   position: relative;
 }
@@ -905,16 +908,24 @@ export default {
   position: absolute;
   bottom: 0;
   left: .2rem;
+  
 }
 .order_btn_submit{
   font-size: .4266667rem;
+  position: relative; 
+  
 }
-/* .order_btn_submit i{
-  background: url("http://127.0.0.1:5050/detail/det_more.png") no-repeat;
+.order_btn_submit span{
+  padding-left: 1rem;
+}
+.order_btn_submit i{
+  background: url("http://127.0.0.1:5050/detail/det_more1.png") no-repeat;
   background-size: 100%;
   display: inline-block;
-  width: 0.8rem;
-  height: 0.8rem;
+  width: 0.6rem;
+  height: 0.6rem;
   vertical-align: text-bottom;
-} */
+  position: absolute;
+  top: -0.05rem;
+}
 </style>
