@@ -5,8 +5,8 @@
       <router-link to="/" slot="left">
         <mt-button icon="back"></mt-button>
       </router-link>
-      <mt-button slot="right" class="share"></mt-button>
-      <mt-button slot="right" class="heart" @click="collection"></mt-button>
+      <mt-button slot="right" class="share" ></mt-button>
+      <mt-button slot="right" class="heart" :class="{'is_collect':isCollect}" @click="collection"></mt-button>
     </mt-header>
     <!-- 主体部分 -->
     <div class="detail_main">
@@ -490,9 +490,9 @@ export default {
   data() {
     return {
       explain: 0,
-      isWhite:false,
+      isWhite:false, //顶部栏的背景颜色
       descri: true,
-      isCollect: true,
+      isCollect: false, //是否收藏
       date: "" //当前选中日期
     };
   },
@@ -500,15 +500,6 @@ export default {
     collection() {
       var btn = document.getElementsByClassName("heart")[0];
       this.isCollect = !this.isCollect;
-      if (!this.isCollect) {
-        btn.style.background =
-          "url('http://127.0.0.1:5050/detail/det_heart_selected.png') no-repeat";
-        btn.style.backgroundSize = "100%";
-      } else {
-        btn.style.background =
-          "url('http://127.0.0.1:5050/detail/det_heart.png') no-repeat";
-        btn.style.backgroundSize = "100%";
-      }
     },
     explain0() {
       this.explain = 0;
@@ -564,8 +555,8 @@ export default {
           }
           var choosedate = document.getElementsByClassName("layui-this")[0];
           choosedate.classList.add("cur_date");
-          var curDate = document.getElementsByClassName("cur_date")[0];
-          curDate.innerHTML = "今";
+          // var curDate = document.getElementsByClassName("cur_date")[0];
+          // curDate.innerHTML = "今";
         },
         change: function(value, date, endDate) {
           this.date = value; //得到日期生成的值
@@ -575,27 +566,21 @@ export default {
       });
     },
     handleScroll: function() {
-      // let clientHeight =
-      //   document.documentElement.clientHeight || document.body.clientHeight;
-      // // 设备/屏幕高度
-      // let scrollObj = document.getElementById(div); // 滚动区域
-      // let scrollTop = scrollObj.scrollTop; // div 到头部的距离
-      // let scrollHeight = scrollObj.scrollHeight; // 滚动条的总高度
-      // console.log(
-      //   clientHeight,
-      //   scrollTop,
-      //   scrollHeight
-      // )
-      //滚动条到底部的条件
-      // if (scrollTop + clientHeight == scrollHeight) {
-      //   // div 到头部的距离 + 屏幕高度 = 可滚动的总高度
-      // }
+      this.scroll = document.documentElement.scrollTop || document.body.scrollTop;
+      // console.log(this.scroll)
+      if(this.scroll>=300){
+        this.isWhite=true
+      }else{
+        this.isWhite=false
+      }
     }
   },
   mounted() {
     this.map();
     this.calendar();
     window.addEventListener("scroll", this.handleScroll, true); // 监听（绑定）滚轮滚动事件
+    var curDate = document.getElementsByClassName("cur_date")[0];
+    curDate.innerHTML = "今";
   },
   // 离开页面时
   destroyed() {
@@ -613,24 +598,44 @@ export default {
   margin: 0;
   line-height: 0.533333rem;
 }
+/* 顶部栏 */
+button.mint-button--default{
+  color: #fff !important;
+}
+.is_white button.mint-button--default{
+  color: #000 !important;
+}
 .mint-header {
   background-color: transparent;
   z-index: 2;
 }
 .is_white{
   background: #fff;
+  border-bottom: 1px solid #ddd;
 }
 .share {
-  background: url("http://127.0.0.1:5050/detail/det_share.png") no-repeat;
+  background-image: url("http://127.0.0.1:5050/detail/det_share.png");
+  background-repeat:  no-repeat;
   background-size: 100%;
   width: 0.6rem;
   margin-top: 0.45rem;
   margin-right: 0.25rem;
 }
 .heart {
-  background: url("http://127.0.0.1:5050/detail/det_heart.png") no-repeat;
+  background-image: url("http://127.0.0.1:5050/detail/det_heart.png");
+  background-repeat:  no-repeat;
   background-size: 100%;
   width: 0.6rem;
+}
+
+.is_white .share{
+  background-image: url("http://127.0.0.1:5050/detail/det_share_black.png");
+}
+.is_white .heart{
+  background-image: url("http://127.0.0.1:5050/detail/det_heart_black.png");
+}
+.detail .is_collect{
+  background-image: url("http://127.0.0.1:5050/detail/det_heart_selected.png");
 }
 .detail_main {
   width: 100%;
@@ -673,7 +678,6 @@ export default {
 .icon_div span img {
   width: 0.32rem;
   position: relative;
-  top: 0.053333rem;
 }
 .detail_title {
   font-weight: normal;
@@ -912,6 +916,9 @@ export default {
 .mint-button--default {
   color: #000 !important;
   font-size: 14px;
+}
+.info_colunm .mint-button--default{
+  color: #000 !important;
 }
 
 .banner_img {
