@@ -74,7 +74,7 @@ a {
   background-size: cover;
 }
 .swiper-slide a div:first-child {
-  background-image: url(http://127.1:5050/inhome/homeimg/home1.jpg);
+  background-image: url(http://127.1:5050/images/inhome/homeimg/home1.jpg);
   background-repeat: no-repeat;
   background-size: 300px 300px;
   width: 300px;
@@ -85,7 +85,7 @@ a {
 }
 /* .swiper-slide a div:last-child div:first-child  */
 .comment {
-  background-image: url(http://127.1:5050/inhome/homeimg/star.png);
+  background-image: url(http://127.1:5050/images/inhome/homeimg/star.png);
   height: 32px !important;
   width: 90px !important;
   background-size: auto 16px !important;

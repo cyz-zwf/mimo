@@ -5,8 +5,8 @@
       <router-link to="/" slot="left">
         <mt-button icon="back"></mt-button>
       </router-link>
-      <mt-button slot="right" class="share"></mt-button>
-      <mt-button slot="right" class="heart" @click="collection"></mt-button>
+      <mt-button slot="right" class="share" ></mt-button>
+      <mt-button slot="right" class="heart" :class="{'is_collect':isCollect}" @click="collection"></mt-button>
     </mt-header>
     <!-- 主体部分 -->
     <div class="detail_main">
@@ -14,19 +14,19 @@
       <div class="detail_top">
         <mt-swipe :auto="4000">
           <mt-swipe-item>
-            <img src="http://127.0.0.1:5050/detail/yuanben1.jpg" class="swipe_img" />
+            <img src="http://127.0.0.1:5050/images/detail/yuanben1.jpg" class="swipe_img" />
           </mt-swipe-item>
           <mt-swipe-item>
-            <img src="http://127.0.0.1:5050/detail/yuanben2.jpg" class="swipe_img" />
+            <img src="http://127.0.0.1:5050/images/detail/yuanben2.jpg" class="swipe_img" />
           </mt-swipe-item>
           <mt-swipe-item>
-            <img src="http://127.0.0.1:5050/detail/yuanben3.jpg" class="swipe_img" />
+            <img src="http://127.0.0.1:5050/images/detail/yuanben3.jpg" class="swipe_img" />
           </mt-swipe-item>
           <mt-swipe-item>
-            <img src="http://127.0.0.1:5050/detail/yuanben4.jpg" class="swipe_img" />
+            <img src="http://127.0.0.1:5050/images/detail/yuanben4.jpg" class="swipe_img" />
           </mt-swipe-item>
           <mt-swipe-item>
-            <img src="http://127.0.0.1:5050/detail/yuanben5.jpg" class="swipe_img" />
+            <img src="http://127.0.0.1:5050/images/detail/yuanben5.jpg" class="swipe_img" />
           </mt-swipe-item>
         </mt-swipe>
       </div>
@@ -37,16 +37,16 @@
           <!-- 标签 -->
           <div class="icon_div">
             <span>
-              <img src="http://127.0.0.1:5050/detail/det_icon.png" />速订
+              <img src="http://127.0.0.1:5050/images/detail/det_icon.png" />速订
             </span>
             <span>
-              <img src="http://127.0.0.1:5050/detail/det_icon.png" />长租
+              <img src="http://127.0.0.1:5050/images/detail/det_icon.png" />长租
             </span>
             <span>
-              <img src="http://127.0.0.1:5050/detail/det_icon.png" />优品
+              <img src="http://127.0.0.1:5050/images/detail/det_icon.png" />优品
             </span>
             <span>
-              <img src="http://127.0.0.1:5050/detail/det_icon.png" />商旅首选
+              <img src="http://127.0.0.1:5050/images/detail/det_icon.png" />商旅首选
             </span>
           </div>
           <!-- 标题 -->
@@ -63,24 +63,24 @@
               <span class="spec_act">9折畅游</span>
               <span class="spec_act">满30天8折</span>
               <span class="spec_act">满7天9折</span>
-              <img class="active_icon" src="http://127.0.0.1:5050/detail/det_act_more.png" />
+              <img class="active_icon" src="http://127.0.0.1:5050/images/detail/det_act_more.png" />
             </p>
           </div>
           <!-- 信息 -->
           <div class="detail_info">
             <div class="info_threeicon">
               <div @click="explain0">
-                <img src="http://127.0.0.1:5050/detail/det_house.png" />
+                <img src="http://127.0.0.1:5050/images/detail/det_house.png" />
                 <p>整套出租</p>
                 <div class="info_arrow" v-if="explain==0"></div>
               </div>
               <div @click="explain1">
-                <img src="http://127.0.0.1:5050/detail/det_people.png" />
+                <img src="http://127.0.0.1:5050/images/detail/det_people.png" />
                 <p>宜住7人</p>
                 <div class="info_arrow" v-if="explain==1"></div>
               </div>
               <div @click="explain2">
-                <img src="http://127.0.0.1:5050/detail/det_bed.png" />
+                <img src="http://127.0.0.1:5050/images/detail/det_bed.png" />
                 <p>共3张</p>
                 <div class="info_arrow" v-if="explain==2"></div>
               </div>
@@ -97,7 +97,7 @@
               <p>榻榻米 2.2m宽 × 3.6m长 × 1张</p>
             </div>
             <div class="info_owner">
-              <img src="http://127.0.0.1:5050/detail/det_owner.jpg" class="owner_img" />
+              <img src="http://127.0.0.1:5050/images/detail/det_owner.jpg" class="owner_img" />
               <p class="room_name">mimo原本民宿</p>
               <p class="realIdentity">已实名认证</p>
             </div>
@@ -228,19 +228,19 @@
           <div class="show_comment">
             <div class="stars">
               <span>
-                <img src="http://127.0.0.1:5050/detail/det_star.png" />
+                <img src="http://127.0.0.1:5050/images/detail/det_star.png" />
               </span>
               <span>
-                <img src="http://127.0.0.1:5050/detail/det_star.png" />
+                <img src="http://127.0.0.1:5050/images/detail/det_star.png" />
               </span>
               <span>
-                <img src="http://127.0.0.1:5050/detail/det_star.png" />
+                <img src="http://127.0.0.1:5050/images/detail/det_star.png" />
               </span>
               <span>
-                <img src="http://127.0.0.1:5050/detail/det_star.png" />
+                <img src="http://127.0.0.1:5050/images/detail/det_star.png" />
               </span>
               <span>
-                <img src="http://127.0.0.1:5050/detail/det_star.png" />
+                <img src="http://127.0.0.1:5050/images/detail/det_star.png" />
               </span>
             </div>
             <div class="rate_core">
@@ -255,9 +255,9 @@
               class="tenant_comment"
             >给房东一个大大的好评，沟通非常轻松，回复问题很快，各种贴士做的简单易懂，朋友们都说我会选。逛街出行交通方便，去的这两天温度低，但房间里暖气很足，房子不管是硬件还是软件都深得朋友们喜爱，住着不想走了，下次带家人出行还选你家哦！</p>
             <p class="comm_imgs">
-              <img src="http://127.0.0.1:5050/detail/det_comm1.jpg" />
-              <img src="http://127.0.0.1:5050/detail/det_comm2.jpg" />
-              <img src="http://127.0.0.1:5050/detail/det_comm3.jpg" />
+              <img src="http://127.0.0.1:5050/images/detail/det_comm1.jpg" />
+              <img src="http://127.0.0.1:5050/images/detail/det_comm2.jpg" />
+              <img src="http://127.0.0.1:5050/images/detail/det_comm3.jpg" />
               <span>+7</span>
             </p>
           </div>
@@ -268,9 +268,9 @@
               class="tenant_comment"
             >给房东一个大大的好评，沟通非常轻松，回复问题很快，各种贴士做的简单易懂，朋友们都说我会选。逛街出行交通方便，去的这两天温度低，但房间里暖气很足，房子不管是硬件还是软件都深得朋友们喜爱，住着不想走了，下次带家人出行还选你家哦！</p>
             <p class="comm_imgs">
-              <img src="http://127.0.0.1:5050/detail/det_comm1.jpg" />
-              <img src="http://127.0.0.1:5050/detail/det_comm2.jpg" />
-              <img src="http://127.0.0.1:5050/detail/det_comm3.jpg" />
+              <img src="http://127.0.0.1:5050/images/detail/det_comm1.jpg" />
+              <img src="http://127.0.0.1:5050/images/detail/det_comm2.jpg" />
+              <img src="http://127.0.0.1:5050/images/detail/det_comm3.jpg" />
               <span>+7</span>
             </p>
           </div>
@@ -300,7 +300,7 @@
           <div id="calendar"></div>
         </div>
         <!-- Part6 -->
-        <img class="banner_img" src="http://127.0.0.1:5050/detail/yuanben2.jpg" />
+        <img class="banner_img" src="http://127.0.0.1:5050/images/detail/yuanben2.jpg" />
         <!-- Part7 设施 -->
         <div class="info_colunm">
           <p class="p_left">
@@ -407,7 +407,7 @@
           </ul>
         </div>
         <!-- Part8 -->
-        <img class="banner_img" src="http://127.0.0.1:5050/detail/yuanben4.jpg" />
+        <img class="banner_img" src="http://127.0.0.1:5050/images/detail/yuanben4.jpg" />
         <!-- Part9 规则 -->
         <div class="info_colunm">
           <p class="p_left">
@@ -451,13 +451,13 @@
           <div class="unsubscribe_rule">
             <p class="iconP iconP1">
               <i class="ruleicon">
-                <img src="http://127.0.0.1:5050/detail/det_time.png" />
+                <img src="http://127.0.0.1:5050/images/detail/det_time.png" />
               </i>
               入住前7天14.00前取消，所有金额全部退还
             </p>
             <p class="iconP">
               <i class="ruleicon">
-                <img src="http://127.0.0.1:5050/detail/det_time.png" />
+                <img src="http://127.0.0.1:5050/images/detail/det_time.png" />
               </i>
               入住前7天14.00后取消，扣除未入住首日房费，以及剩余房费的50%
             </p>
@@ -490,9 +490,9 @@ export default {
   data() {
     return {
       explain: 0,
-      isWhite:false,
+      isWhite:false, //顶部栏的背景颜色
       descri: true,
-      isCollect: true,
+      isCollect: false, //是否收藏
       date: "" //当前选中日期
     };
   },
@@ -500,15 +500,6 @@ export default {
     collection() {
       var btn = document.getElementsByClassName("heart")[0];
       this.isCollect = !this.isCollect;
-      if (!this.isCollect) {
-        btn.style.background =
-          "url('http://127.0.0.1:5050/detail/det_heart_selected.png') no-repeat";
-        btn.style.backgroundSize = "100%";
-      } else {
-        btn.style.background =
-          "url('http://127.0.0.1:5050/detail/det_heart.png') no-repeat";
-        btn.style.backgroundSize = "100%";
-      }
     },
     explain0() {
       this.explain = 0;
@@ -529,7 +520,7 @@ export default {
       map.centerAndZoom(point, 19);
       map.enableScrollWheelZoom(true); //利用鼠标滚轮控制大小
       var myIcon = new BMap.Icon(
-        "http://127.0.0.1:5050/detail/det_marker.png",
+        "http://127.0.0.1:5050/images/detail/det_marker.png",
         new BMap.Size(23, 40)
       );
       var marker = new BMap.Marker(point, { icon: myIcon });
@@ -564,8 +555,8 @@ export default {
           }
           var choosedate = document.getElementsByClassName("layui-this")[0];
           choosedate.classList.add("cur_date");
-          var curDate = document.getElementsByClassName("cur_date")[0];
-          curDate.innerHTML = "今";
+          // var curDate = document.getElementsByClassName("cur_date")[0];
+          // curDate.innerHTML = "今";
         },
         change: function(value, date, endDate) {
           this.date = value; //得到日期生成的值
@@ -575,27 +566,21 @@ export default {
       });
     },
     handleScroll: function() {
-      // let clientHeight =
-      //   document.documentElement.clientHeight || document.body.clientHeight;
-      // // 设备/屏幕高度
-      // let scrollObj = document.getElementById(div); // 滚动区域
-      // let scrollTop = scrollObj.scrollTop; // div 到头部的距离
-      // let scrollHeight = scrollObj.scrollHeight; // 滚动条的总高度
-      // console.log(
-      //   clientHeight,
-      //   scrollTop,
-      //   scrollHeight
-      // )
-      //滚动条到底部的条件
-      // if (scrollTop + clientHeight == scrollHeight) {
-      //   // div 到头部的距离 + 屏幕高度 = 可滚动的总高度
-      // }
+      this.scroll = document.documentElement.scrollTop || document.body.scrollTop;
+      // console.log(this.scroll)
+      if(this.scroll>=300){
+        this.isWhite=true
+      }else{
+        this.isWhite=false
+      }
     }
   },
   mounted() {
     this.map();
     this.calendar();
     window.addEventListener("scroll", this.handleScroll, true); // 监听（绑定）滚轮滚动事件
+    var curDate = document.getElementsByClassName("cur_date")[0];
+    curDate.innerHTML = "今";
   },
   // 离开页面时
   destroyed() {
@@ -613,24 +598,44 @@ export default {
   margin: 0;
   line-height: 0.533333rem;
 }
+/* 顶部栏 */
+button.mint-button--default{
+  color: #fff !important;
+}
+.is_white button.mint-button--default{
+  color: #000 !important;
+}
 .mint-header {
   background-color: transparent;
   z-index: 2;
 }
 .is_white{
   background: #fff;
+  border-bottom: 1px solid #ddd;
 }
 .share {
-  background: url("http://127.0.0.1:5050/detail/det_share.png") no-repeat;
+  background-image: url("http://127.0.0.1:5050/images/detail/det_share.png");
+  background-repeat:  no-repeat;
   background-size: 100%;
   width: 0.6rem;
   margin-top: 0.45rem;
   margin-right: 0.25rem;
 }
 .heart {
-  background: url("http://127.0.0.1:5050/detail/det_heart.png") no-repeat;
+  background-image: url("http://127.0.0.1:5050/images/detail/det_heart.png");
+  background-repeat:  no-repeat;
   background-size: 100%;
   width: 0.6rem;
+}
+
+.is_white .share{
+  background-image: url("http://127.0.0.1:5050/images/detail/det_share_black.png");
+}
+.is_white .heart{
+  background-image: url("http://127.0.0.1:5050/images/detail/det_heart_black.png");
+}
+.detail .is_collect{
+  background-image: url("http://127.0.0.1:5050/images/detail/det_heart_selected.png");
 }
 .detail_main {
   width: 100%;
@@ -673,7 +678,6 @@ export default {
 .icon_div span img {
   width: 0.32rem;
   position: relative;
-  top: 0.053333rem;
 }
 .detail_title {
   font-weight: normal;
@@ -830,7 +834,7 @@ export default {
   line-height: 0.666667rem;
 }
 .more_span i {
-  background: url("http://127.0.0.1:5050/detail/det_more.png") no-repeat;
+  background: url("http://127.0.0.1:5050/images/detail/det_more.png") no-repeat;
   background-size: 100%;
   display: inline-block;
   width: 0.4rem;
@@ -913,6 +917,9 @@ export default {
   color: #000 !important;
   font-size: 14px;
 }
+.info_colunm .mint-button--default{
+  color: #000 !important;
+}
 
 .banner_img {
   width: 100%;
@@ -931,7 +938,7 @@ export default {
   width: 0.426667rem;
   height: 0.426667rem;
   margin-right: 0.05333rem;
-  background: url("http://127.0.0.1:5050/detail/det_marker_sm.png") no-repeat;
+  background: url("http://127.0.0.1:5050/images/detail/det_marker_sm.png") no-repeat;
   background-size: 100%;
   position: relative;
   top: 0.0366667rem;
@@ -994,7 +1001,7 @@ export default {
   display: inline-block;
   width: 0.546667rem;
   height: 0.586667rem;
-  background: url("http://127.0.0.1:5050/detail/det_reservation.png") no-repeat;
+  background: url("http://127.0.0.1:5050/images/detail/det_reservation.png") no-repeat;
   background-size: 100%;
   margin-right: 0.323333rem;
   line-height: 0.586667rem;
@@ -1063,7 +1070,7 @@ export default {
   display: block;
   width: 0.6rem;
   height: 0.6rem;
-  background: url("http://127.0.0.1:5050/detail/det_message.png") no-repeat;
+  background: url("http://127.0.0.1:5050/images/detail/det_message.png") no-repeat;
   background-size: 100%;
   position: absolute;
   left: 0.2rem;
@@ -1082,7 +1089,7 @@ export default {
   padding-left: 1rem;
 }
 .order_btn_submit i {
-  background: url("http://127.0.0.1:5050/detail/det_more1.png") no-repeat;
+  background: url("http://127.0.0.1:5050/images/detail/det_more1.png") no-repeat;
   background-size: 100%;
   display: inline-block;
   width: 0.6rem;

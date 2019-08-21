@@ -24,17 +24,17 @@
       <div>
         <ul>
           <li>
-            <img src="http://127.0.0.1:5050/Me/ic_dd.png" />
+            <img src="http://127.0.0.1:5050/images/Me/ic_dd.png" />
             <p>全部订单</p>
             <p class="bg_list">查看订单详情</p>
           </li>
           <li>
-            <img src="http://127.0.0.1:5050/Me/ic_fp.png" />
+            <img src="http://127.0.0.1:5050/images/Me/ic_fp.png" />
             <p>开具发票</p>
             <p class="bg_list">发票历史及抬头</p>
           </li>
           <li>
-            <img src="http://127.0.0.1:5050/Me/ic_ms.png" />
+            <img src="http://127.0.0.1:5050/images/Me/ic_ms.png" />
             <p>打开门锁</p>
             <p class="bg_list">预定后可使用</p>
           </li>
@@ -42,25 +42,25 @@
       </div>
     </div>
       <mt-swipe :auto="4000" class="swipe">
-          <mt-swipe-item><img src="http://127.0.0.1:5050/inhome/seimg/2f8.jpg" style="width:100%"></mt-swipe-item>
-          <mt-swipe-item><img src="http://127.0.0.1:5050/inhome/seimg/4c.jpg" style="width:100%"></mt-swipe-item>
-          <mt-swipe-item><img src="http://127.0.0.1:5050/inhome/seimg/ca38.jpg" style="width:100%"></mt-swipe-item>
+          <mt-swipe-item><img src="http://127.0.0.1:5050/images/inhome/seimg/2f8.jpg" style="width:100%"></mt-swipe-item>
+          <mt-swipe-item><img src="http://127.0.0.1:5050/images/inhome/seimg/4c.jpg" style="width:100%"></mt-swipe-item>
+          <mt-swipe-item><img src="http://127.0.0.1:5050/images/inhome/seimg/ca38.jpg" style="width:100%"></mt-swipe-item>
       </mt-swipe>
       <div class="order" v-for="(item,i ) of list" :key="i">
         <div v-cloak>{{item.title}}</div>
         <ul>
           <li>
-            <img :src="`http://127.0.0.1:5050/Me/${item.one.pic}`" />
+            <img :src="`http://127.0.0.1:5050/images/Me/${item.one.pic}`" />
             <p v-cloak>{{item.one.title}}</p>
             <p class="bg_list" v-cloak>{{item.one.desc}}</p>
           </li>
           <li>
-            <img :src="`http://127.0.0.1:5050/Me/${item.two.pic}`" />
+            <img :src="`http://127.0.0.1:5050/images/Me/${item.two.pic}`" />
             <p v-cloak>{{item.two.title}}</p>
             <p class="bg_list" v-cloak>{{item.two.desc}}</p>
           </li>
           <li>
-            <img :src="`http://127.0.0.1:5050/Me/${item.three.pic}`" />
+            <img :src="`http://127.0.0.1:5050/images/Me/${item.three.pic}`" />
             <p v-cloak>{{item.three.title}}</p>
             <p class="bg_list" v-cloak>{{item.three.desc}}</p>
           </li>
@@ -137,7 +137,7 @@ export default {
 .imgSZ {
   width: 0.8rem;
   height: 0.8rem;
-  background: url("http://127.0.0.1:5050/Me/ic_se.png") no-repeat;
+  background: url("http://127.0.0.1:5050/images/Me/ic_se.png") no-repeat;
   background-size: 100%;
   position: absolute;
   right: 0.3rem;
@@ -157,7 +157,7 @@ export default {
   float: right;
 }
 .jiaoyin {
-  background: url("http://127.0.0.1:5050/Me/ic_jiaoyin.png") no-repeat;
+  background: url("http://127.0.0.1:5050/images/Me/ic_jiaoyin.png") no-repeat;
   background-size: 100%;
   width: 0.5rem;
   height: 0.5rem;
@@ -175,8 +175,8 @@ export default {
 .touxian {
   width: 2.2rem;
   height: 2.2rem;
-  /* background: url("http://127.0.0.1:5050/Me/touxian.jpg"); */
-  background: url("http://127.0.0.1:5050/Me/huu.jpg");
+  /* background: url("http://127.0.0.1:5050/images/Me/touxian.jpg"); */
+  background: url("http://127.0.0.1:5050/images/Me/huu.jpg");
   background-size: 100%;
   border-radius: 50%;
 }

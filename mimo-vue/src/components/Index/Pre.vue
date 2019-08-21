@@ -57,7 +57,7 @@ a {
   width: 157.6px !important;
 }
 .swiper-slide a div:first-child {
-  background-image: url(http://127.1:5050/inhome/homeimg/home1.jpg);
+  background-image: url(http://127.1:5050/images/inhome/homeimg/home1.jpg);
   width: 100% !important;
   background-size: 200px 200px !important;
   background-position: 50% 50% !important;
@@ -110,7 +110,7 @@ a {
   width: 50px !important;
   background-size: auto 9px !important;
   background-repeat: no-repeat !important;
-  background-image: url(http://127.1:5050/inhome/homeimg/star.png);
+  background-image: url(http://127.1:5050/images/inhome/homeimg/star.png);
   background-position: left 5px !important;
 }
 ._j6pj0i {
