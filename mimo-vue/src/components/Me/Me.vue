@@ -162,7 +162,7 @@ export default {
   width: 0.5rem;
   height: 0.5rem;
   position: absolute;
-  top: 1.3rem;
+  top: 1.43rem;
   left: 0.3rem;
 }
 .qiandao {
@@ -249,7 +249,6 @@ export default {
 .order ul li p.bg_list {
   color: #999;
   font-size: 0.15rem;
-  margin-top: -0.2rem;
 }
 /* 轮播图 */
 .swipe{
