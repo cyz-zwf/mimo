@@ -1,7 +1,7 @@
 <template>
-  <div class="detail">
+  <div class="detail" id="div">
     <!-- 顶部条 -->
-    <mt-header fixed>
+    <mt-header fixed :class="{'is_white':isWhite}">
       <router-link to="/" slot="left">
         <mt-button icon="back"></mt-button>
       </router-link>
@@ -13,11 +13,21 @@
       <!-- 轮播图 -->
       <div class="detail_top">
         <mt-swipe :auto="4000">
-          <mt-swipe-item><img src="http://127.0.0.1:5050/detail/yuanben1.jpg" class="swipe_img"></mt-swipe-item>
-          <mt-swipe-item><img src="http://127.0.0.1:5050/detail/yuanben2.jpg" class="swipe_img"></mt-swipe-item>
-          <mt-swipe-item><img src="http://127.0.0.1:5050/detail/yuanben3.jpg" class="swipe_img"></mt-swipe-item>
-          <mt-swipe-item><img src="http://127.0.0.1:5050/detail/yuanben4.jpg" class="swipe_img"></mt-swipe-item>
-          <mt-swipe-item><img src="http://127.0.0.1:5050/detail/yuanben5.jpg" class="swipe_img"></mt-swipe-item>
+          <mt-swipe-item>
+            <img src="http://127.0.0.1:5050/detail/yuanben1.jpg" class="swipe_img" />
+          </mt-swipe-item>
+          <mt-swipe-item>
+            <img src="http://127.0.0.1:5050/detail/yuanben2.jpg" class="swipe_img" />
+          </mt-swipe-item>
+          <mt-swipe-item>
+            <img src="http://127.0.0.1:5050/detail/yuanben3.jpg" class="swipe_img" />
+          </mt-swipe-item>
+          <mt-swipe-item>
+            <img src="http://127.0.0.1:5050/detail/yuanben4.jpg" class="swipe_img" />
+          </mt-swipe-item>
+          <mt-swipe-item>
+            <img src="http://127.0.0.1:5050/detail/yuanben5.jpg" class="swipe_img" />
+          </mt-swipe-item>
         </mt-swipe>
       </div>
       <!-- 详情 -->
@@ -26,15 +36,26 @@
         <div class="center_div">
           <!-- 标签 -->
           <div class="icon_div">
-            <span><img src="http://127.0.0.1:5050/detail/det_icon.png">速订</span>
-            <span><img src="http://127.0.0.1:5050/detail/det_icon.png">长租</span>
-            <span><img src="http://127.0.0.1:5050/detail/det_icon.png">优品</span>
-            <span><img src="http://127.0.0.1:5050/detail/det_icon.png">商旅首选</span>
+            <span>
+              <img src="http://127.0.0.1:5050/detail/det_icon.png" />速订
+            </span>
+            <span>
+              <img src="http://127.0.0.1:5050/detail/det_icon.png" />长租
+            </span>
+            <span>
+              <img src="http://127.0.0.1:5050/detail/det_icon.png" />优品
+            </span>
+            <span>
+              <img src="http://127.0.0.1:5050/detail/det_icon.png" />商旅首选
+            </span>
           </div>
           <!-- 标题 -->
           <h2 class="detail_title">原本【空岛】奥帆，禅意智能海景民宿，地铁房</h2>
           <!-- 价格 -->
-          <p class="price_all">￥ 1790 <span class="price_all_count">起/晚</span></p>
+          <p class="price_all">
+            ￥ 1790
+            <span class="price_all_count">起/晚</span>
+          </p>
           <!-- 活动 -->
           <div class="detail_active">
             <p>
@@ -42,24 +63,24 @@
               <span class="spec_act">9折畅游</span>
               <span class="spec_act">满30天8折</span>
               <span class="spec_act">满7天9折</span>
-              <img class="active_icon" src="http://127.0.0.1:5050/detail/det_act_more.png">
+              <img class="active_icon" src="http://127.0.0.1:5050/detail/det_act_more.png" />
             </p>
           </div>
           <!-- 信息 -->
           <div class="detail_info">
             <div class="info_threeicon">
               <div @click="explain0">
-                <img src="http://127.0.0.1:5050/detail/det_house.png">
+                <img src="http://127.0.0.1:5050/detail/det_house.png" />
                 <p>整套出租</p>
                 <div class="info_arrow" v-if="explain==0"></div>
               </div>
               <div @click="explain1">
-                <img src="http://127.0.0.1:5050/detail/det_people.png">
+                <img src="http://127.0.0.1:5050/detail/det_people.png" />
                 <p>宜住7人</p>
                 <div class="info_arrow" v-if="explain==1"></div>
               </div>
               <div @click="explain2">
-                <img src="http://127.0.0.1:5050/detail/det_bed.png">
+                <img src="http://127.0.0.1:5050/detail/det_bed.png" />
                 <p>共3张</p>
                 <div class="info_arrow" v-if="explain==2"></div>
               </div>
@@ -76,13 +97,13 @@
               <p>榻榻米 2.2m宽 × 3.6m长 × 1张</p>
             </div>
             <div class="info_owner">
-              <img src="http://127.0.0.1:5050/detail/det_owner.jpg" class="owner_img">
+              <img src="http://127.0.0.1:5050/detail/det_owner.jpg" class="owner_img" />
               <p class="room_name">mimo原本民宿</p>
               <p class="realIdentity">已实名认证</p>
             </div>
           </div>
         </div>
-        <!-- Part2 -->
+        <!-- Part2 描述 -->
         <div class="info_colunm">
           <p class="p_left">
             <span class="info_title">房源描述</span>
@@ -90,75 +111,76 @@
           </p>
           <div v-if="descri">
             <p class="info_descri_short">
-              180度无敌海景&开敞阳台零距离! <br>
-              智能科技，绝佳体验，尊重人性放第一！<br>
-              复式大宅，上下分区，动静有秩又有序！<br>
-              卧室客厅皆南向，随心所欲沐阳光！<br>
-              房间皆为落地窗，日光倾海地暖房！<br>
-              海景花园？蔷薇漫步，诗意栖居！<br>
-              中国禅意风，时尚ins风?<br>
-              有民族,又国际,海纳百川般碰撞!<br>
-              拍!拍!拍!文艺青年怒刷朋友圈!<br>
-              品茗闻香,以茶会友,雅俗共同赏!<br>
+              180度无敌海景&开敞阳台零距离!
+              <br />智能科技，绝佳体验，尊重人性放第一！
+              <br />复式大宅，上下分区，动静有秩又有序！
+              <br />卧室客厅皆南向，随心所欲沐阳光！
+              <br />房间皆为落地窗，日光倾海地暖房！
+              <br />海景花园？蔷薇漫步，诗意栖居！
+              <br />中国禅意风，时尚ins风?
+              <br />有民族,又国际,海纳百川般碰撞!
+              <br />拍!拍!拍!文艺青年怒刷朋友圈!
+              <br />品茗闻香,以茶会友,雅俗共同赏!
+              <br />
             </p>
-            <Pre class="info_descri">
-            </Pre>
+            <Pre class="info_descri"></Pre>
           </div>
           <div v-else-if="!descri">
             <p class="info_descri">
-              |个性描述<br>
-              180度无敌海景&开敞阳台零距离!<br>
-              智能科技，绝佳体验，尊重人性放第一！<br>
-              复式大宅，上下分区，动静有秩又有序！<br>
-              卧室客厅皆南向，随心所欲沐阳光！<br>
-              房间皆为落地窗，日光倾海地暖房！<br>
-              海景花园？蔷薇漫步，诗意栖居<br>
-              中国禅意风，时尚ins风?<br>
-              有民族,又国际,海纳百川般碰撞!<br>
-              拍!拍!拍!文艺青年怒刷朋友圈!<br>
-              品茗闻香,以茶会友,雅俗共同赏!<br>
-              电玩无线，麻将桌游,聚会玩的爽<br>
-              炒菜水饺再火锅,吃嘛嘛都香!<br>
-              家庭出游,朋友聚会，商务旅行，绝佳好房！<br>
-              说完这段绕口令，我还是正常说话吧..<br>
-              我是一名建筑设计师,民宿名为空岛海舍,处于青岛繁华的市南
-              区中心，美丽海岸线中心处，可方便到达各个景点，配套相当<br>
-              完善。整个过程从设计到施工,房主都亲力亲为,以多年干设计<br>
-              的职业态度去审查这一切,只为了让您的海滨之旅更加舒适!<br>
-              您还在想隔着窗户看到大海就很满足吗?<br>
-              隔窗观海有如隔靴搔痒，但在这里，有两个宽敞的海景开敞阳<br>
-              台！无论是客厅,茶室,卧室,只要您想,就可以随心所欲的穿过<br>
-              超大落地窗走到阳台。您将能直接感受海洋的温度,嗅到气息!<br>
-              领略“星汉灿烂，若出其里”的气势！<br>
-              再到春天来临，这将变为花园，轻荡着秋千，在画板上随意涂<br>
-              抹，待你画出“面朝大海、春暖花开”的诗情画意。<br>
-              从日出到日落,从春夏到秋冬,您将能感受她每一刻带给您的不<br>
-              同魅力:<br>
-              霞彩漫天的日出,飞翔的海鸥,跳跃的阳光,清扬的帆船,婆娑的<br>
-              白纱帘,海风的静谧轻抚,夹杂海味的清新空气,荧光熠熠的波澜,<br>
-              远方的大小公岛,再待夜幕降临,观星星渔火,俯瞰城市繁华夜<br>
-              景...<br>
-              而您,只需要沏一壶茶,点一首喜欢的音乐,静静坐在那里,感受<br>
-              每一个浪漫时光,享受这一切悠闲与自在。<br>
-              有没有哪一种场景打动了您呢,我愿意与您分享这一切!<br>
-              ——————————分隔线——————————<br>
-              房子刚刚上线,所以没有积累什么评价。但房子绝对是市中心<br>
-              海景无敌的好房子,所以还是尽力的向大家推荐。<br>
-              在此说明照片就实论实!所见即所得！不妄谈！就算离得再近也<br>
-              不是民宿看到景色的图片一概不乱上传,这是原则!<br>
-              <br>|内部情况<br>
-              O.厨房除了基本厨具外,配备电器有电饭煲,微波炉,电磁火锅,<br>
-              包饺子套装，如有其它需求，可联系房东商议解决。<br>
-              O.对有小朋友的家庭,大号消毒柜为您餐具饮具的健康卫生保<br>
-              驾护航!儿童拖鞋,马桶,玩具,书,宝宝就餐椅都已备好!其他必<br>
-              需品可联系我随时准备。<br>
-              O.为了不破坏这安静的一切,我们采用了简约的设计风格,新中<br>
-              式杂糅一些现代时尚元素,饰品选用感受更多的禅意。材质多<br>
-              木,竹等绿色环保材料。家具涂刷基本上都是用德国进口木蜡<br>
-              免去甲醛污染担忧。<br>
-              O.屋内设置了一些米家智能设备,只要您喊一句“开灯”或者<br>
-              “关灯”,就可以方便的控制这大屋子里的电灯,所以不要乱动那<br>
-              些设备噢,不然就得麻烦您跑这跑那自己关灯了。
+              |个性描述
+              <br />180度无敌海景&开敞阳台零距离!
+              <br />智能科技，绝佳体验，尊重人性放第一！
+              <br />复式大宅，上下分区，动静有秩又有序！
+              <br />卧室客厅皆南向，随心所欲沐阳光！
+              <br />房间皆为落地窗，日光倾海地暖房！
+              <br />海景花园？蔷薇漫步，诗意栖居
+              <br />中国禅意风，时尚ins风?
+              <br />有民族,又国际,海纳百川般碰撞!
+              <br />拍!拍!拍!文艺青年怒刷朋友圈!
+              <br />品茗闻香,以茶会友,雅俗共同赏!
+              <br />电玩无线，麻将桌游,聚会玩的爽
+              <br />炒菜水饺再火锅,吃嘛嘛都香!
+              <br />家庭出游,朋友聚会，商务旅行，绝佳好房！
+              <br />说完这段绕口令，我还是正常说话吧..
+              <br />我是一名建筑设计师,民宿名为空岛海舍,处于青岛繁华的市南
+              区中心，美丽海岸线中心处，可方便到达各个景点，配套相当
+              <br />完善。整个过程从设计到施工,房主都亲力亲为,以多年干设计
+              <br />的职业态度去审查这一切,只为了让您的海滨之旅更加舒适!
+              <br />您还在想隔着窗户看到大海就很满足吗?
+              <br />隔窗观海有如隔靴搔痒，但在这里，有两个宽敞的海景开敞阳
+              <br />台！无论是客厅,茶室,卧室,只要您想,就可以随心所欲的穿过
+              <br />超大落地窗走到阳台。您将能直接感受海洋的温度,嗅到气息!
+              <br />领略“星汉灿烂，若出其里”的气势！
+              <br />再到春天来临，这将变为花园，轻荡着秋千，在画板上随意涂
+              <br />抹，待你画出“面朝大海、春暖花开”的诗情画意。
+              <br />从日出到日落,从春夏到秋冬,您将能感受她每一刻带给您的不
+              <br />同魅力:
+              <br />霞彩漫天的日出,飞翔的海鸥,跳跃的阳光,清扬的帆船,婆娑的
+              <br />白纱帘,海风的静谧轻抚,夹杂海味的清新空气,荧光熠熠的波澜,
+              <br />远方的大小公岛,再待夜幕降临,观星星渔火,俯瞰城市繁华夜
+              <br />景...
+              <br />而您,只需要沏一壶茶,点一首喜欢的音乐,静静坐在那里,感受
+              <br />每一个浪漫时光,享受这一切悠闲与自在。
+              <br />有没有哪一种场景打动了您呢,我愿意与您分享这一切!
+              <br />——————————分隔线——————————
+              <br />房子刚刚上线,所以没有积累什么评价。但房子绝对是市中心
+              <br />海景无敌的好房子,所以还是尽力的向大家推荐。
+              <br />在此说明照片就实论实!所见即所得！不妄谈！就算离得再近也
+              <br />不是民宿看到景色的图片一概不乱上传,这是原则!
+              <br />
+              <br />|内部情况
+              <br />O.厨房除了基本厨具外,配备电器有电饭煲,微波炉,电磁火锅,
+              <br />包饺子套装，如有其它需求，可联系房东商议解决。
+              <br />O.对有小朋友的家庭,大号消毒柜为您餐具饮具的健康卫生保
+              <br />驾护航!儿童拖鞋,马桶,玩具,书,宝宝就餐椅都已备好!其他必
+              <br />需品可联系我随时准备。
+              <br />O.为了不破坏这安静的一切,我们采用了简约的设计风格,新中
+              <br />式杂糅一些现代时尚元素,饰品选用感受更多的禅意。材质多
+              <br />木,竹等绿色环保材料。家具涂刷基本上都是用德国进口木蜡
+              <br />免去甲醛污染担忧。
+              <br />O.屋内设置了一些米家智能设备,只要您喊一句“开灯”或者
+              <br />“关灯”,就可以方便的控制这大屋子里的电灯,所以不要乱动那
+              <br />些设备噢,不然就得麻烦您跑这跑那自己关灯了。
               【一楼设施】
               1.榻榻米茶室超大号,茶具一应俱全,您可以在上面随意翻滚。
               如果要在这睡觉,请提前联系好我给您备好各种床品。
@@ -194,63 +216,92 @@
             </p>
           </div>
         </div>
-        <!-- Part3 -->
+        <!-- Part3 点评 -->
         <div class="info_colunm">
           <p class="p_left">
             <span class="info_title">房客点评</span>
-            <span class="more_comment more_span">全部点评<i></i></span>
+            <span class="more_comment more_span">
+              全部点评
+              <i></i>
+            </span>
           </p>
           <div class="show_comment">
             <div class="stars">
-              <span><img src="http://127.0.0.1:5050/detail/det_star.png"></span>
-              <span><img src="http://127.0.0.1:5050/detail/det_star.png"></span>
-              <span><img src="http://127.0.0.1:5050/detail/det_star.png"></span>
-              <span><img src="http://127.0.0.1:5050/detail/det_star.png"></span>
-              <span><img src="http://127.0.0.1:5050/detail/det_star.png"></span>
+              <span>
+                <img src="http://127.0.0.1:5050/detail/det_star.png" />
+              </span>
+              <span>
+                <img src="http://127.0.0.1:5050/detail/det_star.png" />
+              </span>
+              <span>
+                <img src="http://127.0.0.1:5050/detail/det_star.png" />
+              </span>
+              <span>
+                <img src="http://127.0.0.1:5050/detail/det_star.png" />
+              </span>
+              <span>
+                <img src="http://127.0.0.1:5050/detail/det_star.png" />
+              </span>
             </div>
-            <div class="rate_core">5<span class="core_arrow"></span></div>
+            <div class="rate_core">
+              5
+              <span class="core_arrow"></span>
+            </div>
           </div>
           <div class="comment_con">
             <p class="tenant_name">猫多和杰多</p>
             <p class="tenant_time">2019-07-15入住</p>
-            <p class="tenant_comment">给房东一个大大的好评，沟通非常轻松，回复问题很快，各种贴士做的简单易懂，朋友们都说我会选。逛街出行交通方便，去的这两天温度低，但房间里暖气很足，房子不管是硬件还是软件都深得朋友们喜爱，住着不想走了，下次带家人出行还选你家哦！</p>
+            <p
+              class="tenant_comment"
+            >给房东一个大大的好评，沟通非常轻松，回复问题很快，各种贴士做的简单易懂，朋友们都说我会选。逛街出行交通方便，去的这两天温度低，但房间里暖气很足，房子不管是硬件还是软件都深得朋友们喜爱，住着不想走了，下次带家人出行还选你家哦！</p>
             <p class="comm_imgs">
-              <img src="http://127.0.0.1:5050/detail/det_comm1.jpg">
-              <img src="http://127.0.0.1:5050/detail/det_comm2.jpg">
-              <img src="http://127.0.0.1:5050/detail/det_comm3.jpg">
+              <img src="http://127.0.0.1:5050/detail/det_comm1.jpg" />
+              <img src="http://127.0.0.1:5050/detail/det_comm2.jpg" />
+              <img src="http://127.0.0.1:5050/detail/det_comm3.jpg" />
               <span>+7</span>
             </p>
           </div>
           <div class="comment_con">
             <p class="tenant_name">猫多和杰多</p>
             <p class="tenant_time">2019-07-15入住</p>
-            <p class="tenant_comment">给房东一个大大的好评，沟通非常轻松，回复问题很快，各种贴士做的简单易懂，朋友们都说我会选。逛街出行交通方便，去的这两天温度低，但房间里暖气很足，房子不管是硬件还是软件都深得朋友们喜爱，住着不想走了，下次带家人出行还选你家哦！</p>
+            <p
+              class="tenant_comment"
+            >给房东一个大大的好评，沟通非常轻松，回复问题很快，各种贴士做的简单易懂，朋友们都说我会选。逛街出行交通方便，去的这两天温度低，但房间里暖气很足，房子不管是硬件还是软件都深得朋友们喜爱，住着不想走了，下次带家人出行还选你家哦！</p>
             <p class="comm_imgs">
-              <img src="http://127.0.0.1:5050/detail/det_comm1.jpg">
-              <img src="http://127.0.0.1:5050/detail/det_comm2.jpg">
-              <img src="http://127.0.0.1:5050/detail/det_comm3.jpg">
+              <img src="http://127.0.0.1:5050/detail/det_comm1.jpg" />
+              <img src="http://127.0.0.1:5050/detail/det_comm2.jpg" />
+              <img src="http://127.0.0.1:5050/detail/det_comm3.jpg" />
               <span>+7</span>
             </p>
           </div>
           <mt-button size="large" plain>查看全部65条评价</mt-button>
         </div>
-        <!-- Part4 -->
+        <!-- Part4 位置 -->
         <div class="info_colunm">
           <p class="p_left">
             <span class="info_title">房源位置</span>
-            <span class="more_position more_span">地理位置和周边交通<i></i></span>
+            <span class="more_position more_span" @click="toMap">
+              详细地理位置
+              <i></i>
+            </span>
           </p>
-          <div></div>
+          <!-- 地图 -->
+          <div id="allmap" @click="toMap"></div>
+          <p class="map_p">
+            <i></i>
+            <span>山东省青岛市市南区东海中路18号海悦中心</span>
+          </p>
         </div>
-        <!-- Part5 -->
+        <!-- Part5 日期 -->
         <div class="info_colunm">
           <p class="p_left">
             <span class="info_title">可租日期</span>
           </p>
+          <div id="calendar"></div>
         </div>
         <!-- Part6 -->
-        <img class="banner_img" src="http://127.0.0.1:5050/detail/yuanben2.jpg">
-        <!-- Part7 -->
+        <img class="banner_img" src="http://127.0.0.1:5050/detail/yuanben2.jpg" />
+        <!-- Part7 设施 -->
         <div class="info_colunm">
           <p class="p_left">
             <span class="info_title">配套设施</span>
@@ -356,8 +407,8 @@
           </ul>
         </div>
         <!-- Part8 -->
-        <img class="banner_img" src="http://127.0.0.1:5050/detail/yuanben4.jpg">
-        <!-- Part9 -->
+        <img class="banner_img" src="http://127.0.0.1:5050/detail/yuanben4.jpg" />
+        <!-- Part9 规则 -->
         <div class="info_colunm">
           <p class="p_left">
             <span class="info_title">交易规则</span>
@@ -399,11 +450,17 @@
           </p>
           <div class="unsubscribe_rule">
             <p class="iconP iconP1">
-              <i class="ruleicon"><img src="http://127.0.0.1:5050/detail/det_time.png"></i>
-              入住前7天14.00前取消，所有金额全部退还</p>
+              <i class="ruleicon">
+                <img src="http://127.0.0.1:5050/detail/det_time.png" />
+              </i>
+              入住前7天14.00前取消，所有金额全部退还
+            </p>
             <p class="iconP">
-              <i class="ruleicon"><img src="http://127.0.0.1:5050/detail/det_time.png"></i>
-              入住前7天14.00后取消，扣除未入住首日房费，以及剩余房费的50%</p>
+              <i class="ruleicon">
+                <img src="http://127.0.0.1:5050/detail/det_time.png" />
+              </i>
+              入住前7天14.00后取消，扣除未入住首日房费，以及剩余房费的50%
+            </p>
           </div>
         </div>
         <!-- Part11 推荐 -->
@@ -416,7 +473,10 @@
     </div>
     <!-- 底部固定栏 -->
     <div class="order_btn">
-      <div class="order_btn_chat"><i></i><p>聊天</p></div>
+      <div class="order_btn_chat">
+        <i></i>
+        <p>聊天</p>
+      </div>
       <div class="order_btn_submit">
         <span>立即预定</span>
         <i></i>
@@ -427,88 +487,173 @@
 </template>
 <script>
 export default {
-  data(){
-    return{
-      explain:0,
-      descri:true,
-      isCollect:true,
-    }
+  data() {
+    return {
+      explain: 0,
+      isWhite:false,
+      descri: true,
+      isCollect: true,
+      date: "" //当前选中日期
+    };
   },
-  methods:{
-    collection(){
-      var btn=document.getElementsByClassName("heart")[0];
-      this.isCollect=!this.isCollect
-      if(!this.isCollect){
-        btn.style.background="url('http://127.0.0.1:5050/detail/det_heart_selected.png') no-repeat";
-        btn.style.backgroundSize="100%";
-      }else{
-        btn.style.background="url('http://127.0.0.1:5050/detail/det_heart.png') no-repeat";
-        btn.style.backgroundSize="100%";
+  methods: {
+    collection() {
+      var btn = document.getElementsByClassName("heart")[0];
+      this.isCollect = !this.isCollect;
+      if (!this.isCollect) {
+        btn.style.background =
+          "url('http://127.0.0.1:5050/detail/det_heart_selected.png') no-repeat";
+        btn.style.backgroundSize = "100%";
+      } else {
+        btn.style.background =
+          "url('http://127.0.0.1:5050/detail/det_heart.png') no-repeat";
+        btn.style.backgroundSize = "100%";
       }
     },
-    explain0(){
-      this.explain=0
+    explain0() {
+      this.explain = 0;
     },
-    explain1(){
-      this.explain=1
+    explain1() {
+      this.explain = 1;
     },
-    explain2(){
-      this.explain=2
+    explain2() {
+      this.explain = 2;
     },
-    moreDescri(){
-      this.descri=!this.descri;
+    moreDescri() {
+      this.descri = !this.descri;
+    },
+    // 地图
+    map() {
+      var map = new BMap.Map("allmap");
+      var point = new BMap.Point(120.408772, 36.063611);
+      map.centerAndZoom(point, 19);
+      map.enableScrollWheelZoom(true); //利用鼠标滚轮控制大小
+      var myIcon = new BMap.Icon(
+        "http://127.0.0.1:5050/detail/det_marker.png",
+        new BMap.Size(23, 40)
+      );
+      var marker = new BMap.Marker(point, { icon: myIcon });
+      map.addOverlay(marker);
+      map.disableDragging(); //禁止拖拽
+    },
+    toMap() {
+      this.$router.push("/map"); //跳转去map组件
+    },
+    // 日历
+    calendar() {
+      laydate.render({
+        elem: "#calendar", //指定元素
+        // trigger: 'foucus',
+        value: new Date(),
+        theme: "#F16B80",
+        show: true,
+        position: "static",
+        showBottom: false,
+        min: 0, //7天前
+        ready: function(date) {
+          this.date = `${date.year}-${
+            date.month.length > 1 ? date.month : "0" + date.month
+          }-${date.date.length > 1 ? date.date : "0" + date.date}`;
+          var main = document.getElementsByClassName("layui-laydate-main")[0];
+          main.style.width = "340px";
+          var con = document.getElementsByClassName("layui-laydate-content")[0];
+          con.style.border = 0;
+          var date = document.querySelectorAll(".layui-laydate-content td");
+          for (var item of date) {
+            item.style.width = "60px";
+          }
+          var choosedate = document.getElementsByClassName("layui-this")[0];
+          choosedate.classList.add("cur_date");
+          var curDate = document.getElementsByClassName("cur_date")[0];
+          curDate.innerHTML = "今";
+        },
+        change: function(value, date, endDate) {
+          this.date = value; //得到日期生成的值
+          // var curDate = document.getElementsByClassName("cur_date")[0];
+          // curDate.innerHTML = "今";
+        }
+      });
+    },
+    handleScroll: function() {
+      // let clientHeight =
+      //   document.documentElement.clientHeight || document.body.clientHeight;
+      // // 设备/屏幕高度
+      // let scrollObj = document.getElementById(div); // 滚动区域
+      // let scrollTop = scrollObj.scrollTop; // div 到头部的距离
+      // let scrollHeight = scrollObj.scrollHeight; // 滚动条的总高度
+      // console.log(
+      //   clientHeight,
+      //   scrollTop,
+      //   scrollHeight
+      // )
+      //滚动条到底部的条件
+      // if (scrollTop + clientHeight == scrollHeight) {
+      //   // div 到头部的距离 + 屏幕高度 = 可滚动的总高度
+      // }
     }
+  },
+  mounted() {
+    this.map();
+    this.calendar();
+    window.addEventListener("scroll", this.handleScroll, true); // 监听（绑定）滚轮滚动事件
+  },
+  // 离开页面时
+  destroyed() {
+    window.removeEventListener("scroll", this.handleScroll); //  离开页面清除（移除）滚轮滚动事件
   }
-}
+};
 </script>
 <style scoped>
-.detail{
+.detail {
   width: 100%;
   padding-bottom: 1.46667rem;
 }
-.detail p{
-  font-size: .373333rem;
-  margin:0;
-  line-height: .533333rem;
+.detail p {
+  font-size: 0.373333rem;
+  margin: 0;
+  line-height: 0.533333rem;
 }
-.mint-header{
+.mint-header {
   background-color: transparent;
   z-index: 2;
 }
-.share{
+.is_white{
+  background: #fff;
+}
+.share {
   background: url("http://127.0.0.1:5050/detail/det_share.png") no-repeat;
   background-size: 100%;
-  width: .6rem;
+  width: 0.6rem;
   margin-top: 0.45rem;
   margin-right: 0.25rem;
 }
-.heart{
+.heart {
   background: url("http://127.0.0.1:5050/detail/det_heart.png") no-repeat;
   background-size: 100%;
-  width: .6rem;
+  width: 0.6rem;
 }
-.detail_main{
+.detail_main {
   width: 100%;
-} 
-.detail_top{
+}
+.detail_top {
   position: relative;
   line-height: 0;
   height: 6.66667rem;
   overflow: hidden;
 }
-.swipe_img{
+.swipe_img {
   width: 100%;
 }
-.detail_con{
+.detail_con {
   background: #fff;
-  margin:.266667rem .4rem 0;
-  border-radius: .213333rem;
+  margin: 0.266667rem 0.4rem 0;
+  border-radius: 0.213333rem;
 }
-.center_div{
+.center_div {
   text-align: center;
-  padding-bottom: .533333rem;
+  padding-bottom: 0.533333rem;
 }
-.icon_div{
+.icon_div {
   height: 0.853333rem;
   color: #999;
   text-align: left;
@@ -518,173 +663,173 @@ export default {
   overflow-y: hidden;
   margin-left: -0.053333rem;
 }
-.icon_div span{
+.icon_div span {
   display: inline-block;
-  font-size: .32rem;
+  font-size: 0.32rem;
   color: #750124;
-  margin-right: .23333rem;
+  margin-right: 0.23333rem;
   vertical-align: text-top;
 }
-.icon_div span img{
-  width: .32rem;
+.icon_div span img {
+  width: 0.32rem;
   position: relative;
-  top: .053333rem;
+  top: 0.053333rem;
 }
-.detail_title{
+.detail_title {
   font-weight: normal;
   margin: 0;
-  font-size: .486667rem;
+  font-size: 0.486667rem;
   color: #333;
   text-align: left;
-  line-height: .65rem;
+  line-height: 0.65rem;
 }
-.price_all{
+.price_all {
   text-align: left;
   color: #000;
-  margin-top: .23333rem;
-  margin-left: -.1rem;
+  margin-top: 0.23333rem;
+  margin-left: -0.1rem;
 }
-.price_all_count{
-  font-size: .26666rem;
+.price_all_count {
+  font-size: 0.26666rem;
   color: #757575;
 }
 /* 活动 */
-.detail_active{
+.detail_active {
   width: 100%;
-  padding-top:.26666rem; 
-  height: .53333rem;
+  padding-top: 0.26666rem;
+  height: 0.53333rem;
 }
-.detail_active p{
-  font-size: .25333rem;
+.detail_active p {
+  font-size: 0.25333rem;
 }
-.detail_active p::after{
+.detail_active p::after {
   content: "";
   display: block;
   clear: both;
 }
-.detail_active p span{
+.detail_active p span {
   float: left;
   color: #666;
 }
-.detail_active p span.spec_act{
+.detail_active p span.spec_act {
   padding: 0 3px;
   height: 16px;
-  margin-left: .2333rem;
-  background-color: #F16B80;
+  margin-left: 0.2333rem;
+  background-color: #f16b80;
   border-radius: 2px;
   color: #fff;
 }
-.detail_active p .active_icon{
+.detail_active p .active_icon {
   float: right;
-  width: .533333rem;
+  width: 0.533333rem;
   vertical-align: middle;
-  margin-top: .123333rem;
+  margin-top: 0.123333rem;
 }
 /* 信息 */
-.detail_info{
+.detail_info {
   width: 100%;
   background: #dfdfdf;
-  border-radius: .08rem;
-  margin: .53333rem 0;
+  border-radius: 0.08rem;
+  margin: 0.53333rem 0;
 }
-.info_threeicon{
+.info_threeicon {
   background: #f5f5f5;
   height: 2.4rem;
   display: flex;
   font-weight: bold;
   color: #222;
 }
-.info_threeicon>div{
+.info_threeicon > div {
   flex: 1 0 auto;
   position: relative;
-  padding-top: .4rem;
+  padding-top: 0.4rem;
 }
-.info_threeicon img{
+.info_threeicon img {
   width: 1.066667rem;
 }
-.info_threeicon p{
+.info_threeicon p {
   margin-top: -5px;
   font-size: 0.373333rem;
 }
-.info_arrow{
+.info_arrow {
   width: 0;
-  border-width: 0 .2rem .2rem;
+  border-width: 0 0.2rem 0.2rem;
   border-color: transparent transparent #dfdfdf;
   border-style: solid;
   position: absolute;
   left: 42%;
   bottom: -1px;
 }
-.info_explain{
-  padding: .4rem 0;
-  border-top: .5px solid #ccc;
+.info_explain {
+  padding: 0.4rem 0;
+  border-top: 0.5px solid #ccc;
 }
 /* .info_explain::before{
   content: "";
   display: table;
 } */
-.info_explain p{
+.info_explain p {
   font-size: 13px;
   color: #666;
 }
-.info_owner{
+.info_owner {
   background: #fff;
   background: #eee;
-  padding: .8rem;
+  padding: 0.8rem;
   /* margin-top: 10px; */
 }
-.owner_img{
+.owner_img {
   width: 1.6rem;
   border-radius: 50%;
 }
-.detail .room_name{
-  font-size: .48rem;
+.detail .room_name {
+  font-size: 0.48rem;
   font-weight: 700;
-  padding: .266667rem 0 .08rem;
+  padding: 0.266667rem 0 0.08rem;
   color: #333;
 }
 /* Part2 */
-.info_colunm{
+.info_colunm {
   overflow: hidden;
-  border-top: .026667rem solid #eee;
-  padding: .4rem 0 .2rem;
+  border-top: 0.026667rem solid #eee;
+  padding: 0.4rem 0 0.2rem;
 }
-.detail .p_left{
-  line-height: .613333rem;
-  margin-bottom: .166667rem;
+.detail .p_left {
+  line-height: 0.613333rem;
+  margin-bottom: 0.166667rem;
   position: relative;
   display: flex;
   justify-content: space-between;
 }
-.info_title{
+.info_title {
   display: inline-block;
   color: #666;
   font-weight: 700;
-  font-size: .436667rem;
-  margin-bottom: .266667rem;
-  margin-top: .266667rem;
+  font-size: 0.436667rem;
+  margin-bottom: 0.266667rem;
+  margin-top: 0.266667rem;
 }
-.more_span{
-  color: #E64966;
+.more_span {
+  color: #e64966;
   font-size: 12px;
-  margin-top: .266667rem;
+  margin-top: 0.266667rem;
 }
-.info_descri_short{
+.info_descri_short {
   display: -webkit-box;
   text-overflow: ellipsis;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 5;
   overflow: hidden;
-  font-size: .373333px;
-  line-height: .666667rem;
+  font-size: 0.373333px;
+  line-height: 0.666667rem;
   text-align: left;
 }
-.info_descri{
-  font-size: .373333px;
+.info_descri {
+  font-size: 0.373333px;
   text-align: left;
-  line-height: .666667rem;
+  line-height: 0.666667rem;
 }
-.more_span i{
+.more_span i {
   background: url("http://127.0.0.1:5050/detail/det_more.png") no-repeat;
   background-size: 100%;
   display: inline-block;
@@ -692,54 +837,54 @@ export default {
   height: 0.4rem;
   vertical-align: text-bottom;
 }
-.show_comment{
+.show_comment {
   height: 1.333333rem;
-  border-radius: .106667rem;
+  border-radius: 0.106667rem;
   background: #ffedcb;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
-.stars span{
-  margin-right: .053333rem;
+.stars span {
+  margin-right: 0.053333rem;
 }
-.stars span img{
-  width: .73333rem;
+.stars span img {
+  width: 0.73333rem;
 }
-.core_arrow{
+.core_arrow {
   width: 0;
-  border-width: .2rem;
+  border-width: 0.2rem;
   border-color: transparent #ffd16f transparent transparent;
   border-style: solid;
   position: absolute;
   top: 11%;
   left: -43%;
 }
-.rate_core{
+.rate_core {
   display: inline-block;
-  width: .83333rem;
-  height: .53333rem;
-  border-radius: .06rem;
+  width: 0.83333rem;
+  height: 0.53333rem;
+  border-radius: 0.06rem;
   background: #ffd16f;
   color: #fff;
-  font-size: .346667rem;
+  font-size: 0.346667rem;
   text-align: center;
-  line-height: .53333rem;
+  line-height: 0.53333rem;
   position: relative;
-  margin-left: .3rem;
+  margin-left: 0.3rem;
 }
-.comment_con{
+.comment_con {
   margin-bottom: 0.43333rem;
 }
-.detail .tenant_name{
+.detail .tenant_name {
   color: #000;
 }
-.detail .tenant_time{
+.detail .tenant_time {
   font-size: 12px;
 }
-.detail .tenant_comment{
+.detail .tenant_comment {
   color: #333;
   margin-top: 0.23333em;
   display: -webkit-box;
@@ -748,14 +893,14 @@ export default {
   -webkit-line-clamp: 3;
   overflow: hidden;
 }
-.detail .comm_imgs{
-  margin-top: .2rem;
+.detail .comm_imgs {
+  margin-top: 0.2rem;
 }
-.comm_imgs img{
+.comm_imgs img {
   width: 1.5rem;
-  margin-right: .15rem;
+  margin-right: 0.15rem;
 }
-.comm_imgs span{
+.comm_imgs span {
   display: inline-block;
   width: 1.5rem;
   height: 1.5rem;
@@ -764,129 +909,149 @@ export default {
   text-align: center;
   line-height: 1.5rem;
 }
-.mint-button--default{
+.mint-button--default {
   color: #000 !important;
   font-size: 14px;
 }
 
-.banner_img{
+.banner_img {
   width: 100%;
 }
+/* Part4 地图 */
+#allmap {
+  height: 5.5rem;
+  width: 100%;
+}
+.map_p {
+  color: #333;
+  padding-top: 0.4rem;
+}
+.map_p i {
+  display: inline-block;
+  width: 0.426667rem;
+  height: 0.426667rem;
+  margin-right: 0.05333rem;
+  background: url("http://127.0.0.1:5050/detail/det_marker_sm.png") no-repeat;
+  background-size: 100%;
+  position: relative;
+  top: 0.0366667rem;
+}
+
 /* Part7 */
-.facilitie_ul{
+.facilitie_ul {
   width: 100%;
   margin: 0;
-  margin-top: .4rem;
+  margin-top: 0.4rem;
   list-style-type: none;
   padding: 0;
 }
-.facilitie_ul::after{
+.facilitie_ul::after {
   content: "";
   display: block;
   clear: both;
 }
-.facilitie_ul li{
+.facilitie_ul li {
   float: left;
   width: 25%;
   height: 2.08rem;
   box-sizing: border-box;
-  font-size: .32rem;
+  font-size: 0.32rem;
   color: #000;
   position: relative;
   text-align: center;
 }
-.facilitie_icon{
-  font-size: .64rem;
+.facilitie_icon {
+  font-size: 0.64rem;
 }
-.facilitie_hide{
+.facilitie_hide {
   color: #ccc;
 }
-.facilitie_ul li p{
-  margin: .053333rem auto 0;
+.facilitie_ul li p {
+  margin: 0.053333rem auto 0;
   text-align: center;
   position: absolute;
   width: 100%;
-  top: .8rem;
+  top: 0.8rem;
 }
 /* part10 */
-.detail .unsubscribe_rule{
-  margin-left: .266667rem;
+.detail .unsubscribe_rule {
+  margin-left: 0.266667rem;
 }
-.detail .rule_title{
-  font-size: .373333rem;
-  line-height: .533333rem;
+.detail .rule_title {
+  font-size: 0.373333rem;
+  line-height: 0.533333rem;
   color: #333;
 }
-.detail .rule_title span{
-  line-height: .613333rem;
+.detail .rule_title span {
+  line-height: 0.613333rem;
   vertical-align: top;
   font-weight: 700;
 }
-.detail .no_icon{
-  margin-left: .853333rem;
+.detail .no_icon {
+  margin-left: 0.853333rem;
 }
-.detail .rule_title i{
+.detail .rule_title i {
   display: inline-block;
-  width: .546667rem;
-  height: .586667rem;
+  width: 0.546667rem;
+  height: 0.586667rem;
   background: url("http://127.0.0.1:5050/detail/det_reservation.png") no-repeat;
   background-size: 100%;
-  margin-right: .323333rem;
-  line-height: .586667rem;
+  margin-right: 0.323333rem;
+  line-height: 0.586667rem;
 }
-.detail .rule_detail{
-  margin-left: .853333rem;
-  margin-bottom: .266667rem;
+.detail .rule_detail {
+  margin-left: 0.853333rem;
+  margin-bottom: 0.266667rem;
 }
-.cashfree{
+.cashfree {
   color: #2baca1;
 }
-.more_rule{
-  color: #F16B80;
+.more_rule {
+  color: #f16b80;
 }
 /* Part8 退订 */
-.iconP{
+.iconP {
   position: relative;
-  padding-left: .4rem;
+  padding-left: 0.4rem;
 }
-.iconP1{
-  border-left: .266vw solid #212121;
-  padding-bottom: .8rem;
+.iconP1 {
+  border-left: 0.266vw solid #212121;
+  padding-bottom: 0.8rem;
 }
-.ruleicon{
+.ruleicon {
   background: #fff;
   display: inline-block;
-  width: .533333rem;
-  height: .533333rem;
+  width: 0.533333rem;
+  height: 0.533333rem;
   border-radius: 50%;
   text-align: center;
   box-sizing: border-box;
   position: absolute;
-  left: -.266667rem;
-  top: -.05333rem;
-  border: .08rem solid transparent;
-  border-bottom: .53333rem solid transparent;
+  left: -0.266667rem;
+  top: -0.05333rem;
+  border: 0.08rem solid transparent;
+  border-bottom: 0.53333rem solid transparent;
 }
-.ruleicon img{
+.ruleicon img {
   width: 100%;
 }
 
 /* 底部 */
-.order_btn{
+.order_btn {
   position: fixed;
   width: 100%;
   height: 1.33333rem;
-  background: #F16B80;
+  background: #f16b80;
   color: #fff;
   bottom: 0;
   z-index: 100;
   box-shadow: 0 -0.05333rem 0.213333rem rgb(240, 199, 205);
   display: flex;
   align-items: center;
-  justify-content:space-around;
+  justify-content: space-around;
 }
-.order_btn_chat{
-  background: #E64966;
+.order_btn_chat {
+  background: #e64966;
   width: 1.013333rem;
   height: 1.013333rem;
   border-radius: 4px;
@@ -894,31 +1059,29 @@ export default {
   text-align: center;
   position: relative;
 }
-.order_btn_chat i{
+.order_btn_chat i {
   display: block;
-  width: .6rem;
-  height: .6rem;
+  width: 0.6rem;
+  height: 0.6rem;
   background: url("http://127.0.0.1:5050/detail/det_message.png") no-repeat;
   background-size: 100%;
   position: absolute;
-  left: .2rem;
+  left: 0.2rem;
 }
-.order_btn_chat p{
+.order_btn_chat p {
   font-size: 12px;
   position: absolute;
   bottom: 0;
-  left: .2rem;
-  
+  left: 0.2rem;
 }
-.order_btn_submit{
-  font-size: .4266667rem;
-  position: relative; 
-  
+.order_btn_submit {
+  font-size: 0.4266667rem;
+  position: relative;
 }
-.order_btn_submit span{
+.order_btn_submit span {
   padding-left: 1rem;
 }
-.order_btn_submit i{
+.order_btn_submit i {
   background: url("http://127.0.0.1:5050/detail/det_more1.png") no-repeat;
   background-size: 100%;
   display: inline-block;
@@ -927,5 +1090,23 @@ export default {
   vertical-align: text-bottom;
   position: absolute;
   top: -0.05rem;
+}
+
+#calendar {
+  width: 100%;
+  text-align: center;
+  height: 8.56667rem;
+}
+.p1r {
+  padding: 1rem;
+}
+</style>
+<style>
+/* 此样式用于去除左下角百度logo */
+.anchorBL {
+  display: none;
+}
+.BMap_cpyCtrl {
+  display: none;
 }
 </style>
