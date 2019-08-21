@@ -19,8 +19,33 @@
     </div>
     <!-- 我的订单 -->
     <div class="bg_box">
-      <!-- <melist></melist>
-      <melist></melist>-->
+      <div class="order">
+      <div>我的订单</div>
+      <div>
+        <ul>
+          <li>
+            <img src="http://127.0.0.1:5050/Me/ic_dd.png" />
+            <p>全部订单</p>
+            <p class="bg_list">查看订单详情</p>
+          </li>
+          <li>
+            <img src="http://127.0.0.1:5050/Me/ic_fp.png" />
+            <p>开具发票</p>
+            <p class="bg_list">发票历史及抬头</p>
+          </li>
+          <li>
+            <img src="http://127.0.0.1:5050/Me/ic_ms.png" />
+            <p>打开门锁</p>
+            <p class="bg_list">预定后可使用</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+      <mt-swipe :auto="4000" class="swipe">
+          <mt-swipe-item><img src="http://127.0.0.1:5050/inhome/seimg/2f8.jpg" style="width:100%"></mt-swipe-item>
+          <mt-swipe-item><img src="http://127.0.0.1:5050/inhome/seimg/4c.jpg" style="width:100%"></mt-swipe-item>
+          <mt-swipe-item><img src="http://127.0.0.1:5050/inhome/seimg/ca38.jpg" style="width:100%"></mt-swipe-item>
+      </mt-swipe>
       <div class="order" v-for="(item,i ) of list" :key="i">
         <div v-cloak>{{item.title}}</div>
         <ul>
@@ -41,32 +66,31 @@
           </li>
         </ul>
       </div>
+      <!-- 我要成为房东 -->
+      <div class="change">我要成为房东</div>
     </div>
-    <!-- 我的钱包 -->
-    <!-- <div class="momy">
-          <ul>
-            <li>
-              <img src="http://127.0.0.1:5050/Me/ic_dd.png" />
-              <p>全部订单</p>
-              <p class="bg_list">查看订单详情</p>
-            </li>
-          </ul>
-        </div>
-    </div>-->
   </div>
 </template>
 <script>
-import Melist from "./Melist";
 export default {
   data() {
     return {
       list: [
+<<<<<<< HEAD
+        // {
+        //   title: "我的订单",
+        //   one: { pic: "ic_dd.png", title: "全部订单", desc: "查看全部订单" },
+        //   two: { pic: "ic_fp.png", title: "开具发票", desc: "发票历史及抬头" },
+        //   three: { pic: "ic_ms.png", title: "打开门锁", desc: "预定后可使用" }
+        // },
+=======
         {
           title: "我的订单",
           one: { pic: "ic_dd.png", title: "全部订单", desc: "查看全部订单" },
           two: { pic: "ic_fp.png", title: "开具发票", desc: "发票历史及抬头" },
           three: { pic: "ic_ms.png", title: "打开门锁", desc: "预定后可使用" }
         },
+>>>>>>> 984bb2f352318035f799ff707edb2e976cebc6e3
         {
           title: "我的钱包",
           one: { pic: "ic_fx.png", title: "邀请好友", desc: "代金券多邀多得" },
@@ -85,11 +109,15 @@ export default {
           two: { pic: "ic_ren.png", title: "常用联系人", desc: "共0人入住" },
           three: { pic: "ic_call.png", title: "联系客服", desc: "在线解答疑问" }
         }
-      ]
+      ],
+      car:false,
     };
   },
-  components: {
-    melist: Melist
+  methods:{
+    
+  },
+  mounted() {
+    
   }
 };
 </script>
@@ -105,7 +133,7 @@ export default {
   color: #fff;
   background: linear-gradient(to top, #f16b80 0%, rgb(230, 171, 171) 100%);
 }
-.top::before{
+.top::before {
   content: "";
   display: table;
 }
@@ -122,7 +150,7 @@ export default {
   height: 3rem;
   position: absolute;
   top: 25%;
-  left:5%;
+  left: 5%;
   width: 90%;
 }
 .lt {
@@ -190,6 +218,7 @@ export default {
 .bg_box {
   padding: 0 0.5rem;
   background: #e8e8e8;
+  padding-bottom: 0.6rem;
 }
 .order {
   font-size: 0.4rem;
@@ -205,7 +234,7 @@ export default {
   list-style-type: none;
   display: flex;
   justify-content: space-around;
-  margin-top:0.7rem;
+  margin-top: 0.7rem;
 }
 .order ul li {
   width: 30%;
@@ -225,8 +254,24 @@ export default {
   font-size: 0.15rem;
   margin-top: -0.2rem;
 }
+<<<<<<< HEAD
+/* 轮播图 */
+.swipe{
+  height:5rem;
+  margin-bottom:0.4rem;
+}
+.change{
+  height:1.3rem;
+  background:#fff;
+  margin-bottom:1.3rem;
+  color:#666;
+  font-size:0.5rem;
+  text-align:center;
+  line-height:1.3rem;
+=======
 /* 我的钱包 */
 .momy {
   height: 2rem;
+>>>>>>> 984bb2f352318035f799ff707edb2e976cebc6e3
 }
 </style>
