@@ -33,6 +33,7 @@ export default new Router({
          path: '/test',
          component: Test
       },
+      {
          path: '/dates',
          component: Dates
       }
