@@ -6,6 +6,7 @@ import Detail from './components/Details/Detail.vue'
 import Map from './components/Details/Map.vue'
 import Test from './components/Details/test.vue' //主页面
 import Dates from './components/Index/Dates.vue'
+import Login from './components/Index/Login.vue'
 
 Vue.use(Router)
 
@@ -35,6 +36,10 @@ export default new Router({
       {
          path: '/dates',
          component: Dates
+      },
+      {
+         path: '/login',
+         component: Login
       }
    ]
 })

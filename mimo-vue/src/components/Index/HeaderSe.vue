@@ -2,7 +2,10 @@
   <div class="index-main">
     <div class="index-main-body">
       <div class="userdd-icon">
-        <img src="http://127.0.0.1:5050/images/inhome/seimg/userdd.jpg" alt />
+        <van-button type="primary" @click="showPopup">
+          <img src="http://127.0.0.1:5050/images/inhome/seimg/userdd.jpg" alt />
+        </van-button>
+        <van-popup v-model="show" position="right" :style="{width:'20%',height: '100%' }" />
       </div>
       <div class="finsh-icon">
         <img src="http://127.0.0.1:5050/images/inhome/seimg/finshss.png" alt />
@@ -66,9 +69,15 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      show: false
+    };
   },
-  methods: {}
+  methods: {
+    showPopup() {
+      this.show = true;
+    }
+  }
 };
 </script>
 
@@ -93,6 +102,13 @@ export default {
   width: 32px;
   height: 32px;
 }
+.userdd-icon .van-button--primary {
+  background-color: transparent;
+  border-style: none;
+}
+.userdd-icon .van-button {
+  margin: -10px;
+}
 .kk-swipe {
   position: relative;
   width: 100%;
@@ -110,7 +126,8 @@ export default {
   background-size: 100%;
 }
 .kk-three {
-  background: url("http://127.0.0.1:5050/images/inhome/seimg/ca38.jpg") no-repeat;
+  background: url("http://127.0.0.1:5050/images/inhome/seimg/ca38.jpg")
+    no-repeat;
   background-size: 100%;
 }
 .kk-swipe-img .kk-text {
@@ -226,7 +243,8 @@ export default {
   right: 0px;
   width: 17px;
   height: 17px;
-  background: url("http://127.0.0.1:5050/images/inhome/seimg/seerror.png") no-repeat;
+  background: url("http://127.0.0.1:5050/images/inhome/seimg/seerror.png")
+    no-repeat;
   background-size: 100%;
 }
 .place-holder {
