@@ -72,7 +72,6 @@
   </div>
 </template>
 <script>
-import Melist from "./Melist";
 export default {
   data() {
     return {
@@ -107,9 +106,6 @@ export default {
   },
   methods:{
     
-  },
-  components: {
-    melist: Melist
   },
   mounted() {
     
