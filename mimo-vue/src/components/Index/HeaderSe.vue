@@ -2,10 +2,10 @@
   <div class="index-main">
     <div class="index-main-body">
       <div class="userdd-icon">
-        <img src="http://127.0.0.1:5050/inhome/seimg/userdd.jpg" alt />
+        <img src="http://127.0.0.1:5050/images/inhome/seimg/userdd.jpg" alt />
       </div>
       <div class="finsh-icon">
-        <img src="http://127.0.0.1:5050/inhome/seimg/finshss.png" alt />
+        <img src="http://127.0.0.1:5050/images/inhome/seimg/finshss.png" alt />
       </div>
       <mt-swipe :auto="4000" class="kk-swipe">
         <mt-swipe-item class="kk-swipe-img kk-one">
@@ -35,7 +35,7 @@
             <i>上海</i>
           </div>
           <div class="located-area">
-            <img src="http://127.0.0.1:5050/inhome/seimg/addr1.png" alt />
+            <img src="http://127.0.0.1:5050/images/inhome/seimg/addr1.png" alt />
             <span>我的足迹</span>
           </div>
         </div>
@@ -102,15 +102,15 @@ export default {
   width: 100%;
 }
 .kk-one {
-  background: url("http://127.0.0.1:5050/inhome/seimg/2f8.jpg") no-repeat;
+  background: url("http://127.0.0.1:5050/images/inhome/seimg/2f8.jpg") no-repeat;
   background-size: 100%;
 }
 .kk-two {
-  background: url("http://127.0.0.1:5050/inhome/seimg/4c.jpg") no-repeat;
+  background: url("http://127.0.0.1:5050/images/inhome/seimg/4c.jpg") no-repeat;
   background-size: 100%;
 }
 .kk-three {
-  background: url("http://127.0.0.1:5050/inhome/seimg/ca38.jpg") no-repeat;
+  background: url("http://127.0.0.1:5050/images/inhome/seimg/ca38.jpg") no-repeat;
   background-size: 100%;
 }
 .kk-swipe-img .kk-text {
@@ -226,7 +226,7 @@ export default {
   right: 0px;
   width: 17px;
   height: 17px;
-  background: url("http://127.0.0.1:5050/inhome/seimg/seerror.png") no-repeat;
+  background: url("http://127.0.0.1:5050/images/inhome/seimg/seerror.png") no-repeat;
   background-size: 100%;
 }
 .place-holder {
