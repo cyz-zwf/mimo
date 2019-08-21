@@ -59,12 +59,17 @@
       </div>
       <div class="search-button">搜&nbsp;&nbsp;索</div>
     </div>
-    <div></div>
+    <div style="width:100%;height:200px"></div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {};
+  },
+  methods: {}
+};
 </script>
 
 <style scoped>
@@ -130,7 +135,7 @@ export default {};
   background: #fff;
   border-radius: 5px;
   position: absolute;
-  bottom: -160px;
+  bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
   box-shadow: 0px 5px 15px 0px #ddd;

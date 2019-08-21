@@ -76,12 +76,21 @@ export default {
   data() {
     return {
       list: [
+<<<<<<< HEAD
         // {
         //   title: "我的订单",
         //   one: { pic: "ic_dd.png", title: "全部订单", desc: "查看全部订单" },
         //   two: { pic: "ic_fp.png", title: "开具发票", desc: "发票历史及抬头" },
         //   three: { pic: "ic_ms.png", title: "打开门锁", desc: "预定后可使用" }
         // },
+=======
+        {
+          title: "我的订单",
+          one: { pic: "ic_dd.png", title: "全部订单", desc: "查看全部订单" },
+          two: { pic: "ic_fp.png", title: "开具发票", desc: "发票历史及抬头" },
+          three: { pic: "ic_ms.png", title: "打开门锁", desc: "预定后可使用" }
+        },
+>>>>>>> 984bb2f352318035f799ff707edb2e976cebc6e3
         {
           title: "我的钱包",
           one: { pic: "ic_fx.png", title: "邀请好友", desc: "代金券多邀多得" },
@@ -169,7 +178,8 @@ export default {
 .touxian {
   width: 2.2rem;
   height: 2.2rem;
-  background: url("http://127.0.0.1:5050/Me/touxian.jpg");
+  /* background: url("http://127.0.0.1:5050/Me/touxian.jpg"); */
+  background: url("http://127.0.0.1:5050/Me/huu.jpg");
   background-size: 100%;
   border-radius: 50%;
 }
@@ -244,6 +254,7 @@ export default {
   font-size: 0.15rem;
   margin-top: -0.2rem;
 }
+<<<<<<< HEAD
 /* 轮播图 */
 .swipe{
   height:5rem;
@@ -257,5 +268,10 @@ export default {
   font-size:0.5rem;
   text-align:center;
   line-height:1.3rem;
+=======
+/* 我的钱包 */
+.momy {
+  height: 2rem;
+>>>>>>> 984bb2f352318035f799ff707edb2e976cebc6e3
 }
 </style>

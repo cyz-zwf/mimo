@@ -3,6 +3,7 @@
     <mt-tab-container v-model="active">
       <mt-tab-container-item id="Find">
         <headerse></headerse>
+        <slides></slides>
       </mt-tab-container-item>
       <mt-tab-container-item id="Collection">收藏</mt-tab-container-item>
       <mt-tab-container-item id="Message">消息</mt-tab-container-item>
@@ -47,11 +48,13 @@
 import Tabbaricon from "./Tabbaricon.vue";
 import Me from "./Me/Me";
 import HeaderSe from "./Index/HeaderSe";
+import Slides from "./Index/Slides";
 export default {
   components: {
     tabbaricon: Tabbaricon,
     me: Me,
-    headerse: HeaderSe
+    headerse: HeaderSe,
+    slides: Slides
   },
   data() {
     return {
