@@ -4,6 +4,15 @@
       <div class="top-wrap">
         <span>注册</span>
       </div>
+      <div class="top-logo">
+        <img src="http://127.0.0.1:5050/images/inhome/seimg/toplogo.png" alt />
+      </div>
+      <div>
+        <div class="mint-navbar">
+          <div class="mint-tab-item">普通登录</div>
+          <div class="mint-tab-item">短信快捷登录</div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -20,7 +29,7 @@ export default {};
   margin: 0 auto;
   background: #eee;
 }
-.top-wrap {
+.log-box .top-wrap {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -28,5 +37,12 @@ export default {};
   color: #f05b72;
   line-height: 46px;
   flex-direction: row-reverse;
+}
+.log-box .top-logo {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.log-box .top-logo img {
+  width: 2.4rem;
 }
 </style>
