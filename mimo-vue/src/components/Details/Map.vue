@@ -26,7 +26,7 @@ export default {
       var point=new BMap.Point(this.longitude,this.latitude);
       map.centerAndZoom(point, 19);
       map.enableScrollWheelZoom(true); //利用鼠标滚轮控制大小
-      var myIcon = new BMap.Icon("http://127.0.0.1:5050/detail/det_marker.png", new BMap.Size(23, 40));
+      var myIcon = new BMap.Icon("http://127.0.0.1:5050/images/detail/det_marker.png", new BMap.Size(23, 40));
       var marker = new BMap.Marker(point, { icon: myIcon });
       map.addOverlay(marker);
 
@@ -94,11 +94,11 @@ export default {
   line-height: 0.82223rem;
 }
 .posi_btn .my_posi{
-  background: url("http://127.0.0.1:5050/detail/det_my_posi.png") no-repeat;
+  background: url("http://127.0.0.1:5050/images/detail/det_my_posi.png") no-repeat;
   background-size: 100%;
 }
 .posi_btn .room_posi{
-  background: url("http://127.0.0.1:5050/detail/det_room_posi.png") no-repeat;
+  background: url("http://127.0.0.1:5050/images/detail/det_room_posi.png") no-repeat;
   background-size: 100%;
 }
 </style>
