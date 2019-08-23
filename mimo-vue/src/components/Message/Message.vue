@@ -21,7 +21,7 @@
     <div class="MessageList" >
         <img src="http://127.0.0.1:5050/images/message/ic_youhui.png" class="image">
         <div class="MessageRight">
-            <div class="active">小猫订房助手<span>2019-8-10</span></div>
+            <div class="active">mimo订房助手<span>2019-8-10</span></div>
             <div class="mg-t">为您推荐位于广州的优秀房源,下单即可...</div>
         </div>
     </div>

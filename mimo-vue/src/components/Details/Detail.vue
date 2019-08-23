@@ -222,16 +222,16 @@
             </p>
           </div>
           <div class="comment_con">
-            <p class="tenant_name">猫多和杰多</p>
-            <p class="tenant_time">2019-07-15入住</p>
+            <p class="tenant_name">木木叶</p>
+            <p class="tenant_time">2017-06-03入住</p>
             <p
               class="tenant_comment"
-            >给房东一个大大的好评，沟通非常轻松，回复问题很快，各种贴士做的简单易懂，朋友们都说我会选。逛街出行交通方便，去的这两天温度低，但房间里暖气很足，房子不管是硬件还是软件都深得朋友们喜爱，住着不想走了，下次带家人出行还选你家哦！</p>
+            >来青岛找朋友玩的，找的时候还是挺谨慎本来想选住快捷酒店，后来朋友让我们找民宿还能一起玩，没想到性价比真的炒鸡高！我们四个人在这住的很舒服。哈哈，很喜欢的日式调调，装饰一看就是用了很多心思，很喜欢放在阳台上的秋千，可以边荡边看海。茶室感觉很安静惬意，喝着茶打个牌。出行真的离海边超近，步行一会就到了奥帆基地，附近吃饭的地方真的超多。感谢空岛海舍，让我们这次短暂青岛之旅更加圆满</p>
             <p class="comm_imgs">
-              <img src="http://127.0.0.1:5050/images/detail/det_comm1.jpg" />
-              <img src="http://127.0.0.1:5050/images/detail/det_comm2.jpg" />
-              <img src="http://127.0.0.1:5050/images/detail/det_comm3.jpg" />
-              <span>+7</span>
+              <img src="http://127.0.0.1:5050/images/detail/det_comm4.jpg" />
+              <img src="http://127.0.0.1:5050/images/detail/det_comm5.jpg" />
+              <img src="http://127.0.0.1:5050/images/detail/det_comm6.jpg" />
+              <span>+3</span>
             </p>
           </div>
           <mt-button size="large" plain>查看全部65条评价</mt-button>
@@ -863,6 +863,7 @@ button.mint-button--default{
 }
 .comm_imgs img {
   width: 1.5rem;
+  height: 1.5rem;
   margin-right: 0.15rem;
 }
 .comm_imgs span {
