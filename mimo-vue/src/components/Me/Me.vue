@@ -4,7 +4,7 @@
       <div class="imgSZ"></div>
       <div class="middle">
         <div class="lt">
-          <div>ia 不知不觉</div>
+          <div>您好，{{$store.getters.getCartCount}}</div>
           <div class="jiaoyin"></div>
           <div class="qiandao">签到</div>
         </div>
@@ -20,31 +20,37 @@
     <!-- 我的订单 -->
     <div class="bg_box">
       <div class="order">
-      <div>我的订单</div>
-      <div>
-        <ul>
-          <li>
-            <img src="http://127.0.0.1:5050/images/Me/ic_dd.png" />
-            <p>全部订单</p>
-            <p class="bg_list">查看订单详情</p>
-          </li>
-          <li>
-            <img src="http://127.0.0.1:5050/images/Me/ic_fp.png" />
-            <p>开具发票</p>
-            <p class="bg_list">发票历史及抬头</p>
-          </li>
-          <li>
-            <img src="http://127.0.0.1:5050/images/Me/ic_ms.png" />
-            <p>打开门锁</p>
-            <p class="bg_list">预定后可使用</p>
-          </li>
-        </ul>
+        <div>我的订单</div>
+        <div>
+          <ul>
+            <li>
+              <img src="http://127.0.0.1:5050/images/Me/ic_dd.png" />
+              <p>全部订单</p>
+              <p class="bg_list">查看订单详情</p>
+            </li>
+            <li>
+              <img src="http://127.0.0.1:5050/images/Me/ic_fp.png" />
+              <p>开具发票</p>
+              <p class="bg_list">发票历史及抬头</p>
+            </li>
+            <li>
+              <img src="http://127.0.0.1:5050/images/Me/ic_ms.png" />
+              <p>打开门锁</p>
+              <p class="bg_list">预定后可使用</p>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
       <mt-swipe :auto="4000" class="swipe">
-          <mt-swipe-item><img src="http://127.0.0.1:5050/images/inhome/seimg/2f8.jpg" style="width:100%"></mt-swipe-item>
-          <mt-swipe-item><img src="http://127.0.0.1:5050/images/inhome/seimg/4c.jpg" style="width:100%"></mt-swipe-item>
-          <mt-swipe-item><img src="http://127.0.0.1:5050/images/inhome/seimg/ca38.jpg" style="width:100%"></mt-swipe-item>
+        <mt-swipe-item>
+          <img src="http://127.0.0.1:5050/images/inhome/seimg/2f8.jpg" style="width:100%" />
+        </mt-swipe-item>
+        <mt-swipe-item>
+          <img src="http://127.0.0.1:5050/images/inhome/seimg/4c.jpg" style="width:100%" />
+        </mt-swipe-item>
+        <mt-swipe-item>
+          <img src="http://127.0.0.1:5050/images/inhome/seimg/ca38.jpg" style="width:100%" />
+        </mt-swipe-item>
       </mt-swipe>
       <div class="order" v-for="(item,i ) of list" :key="i">
         <div v-cloak>{{item.title}}</div>
@@ -107,15 +113,11 @@ export default {
           three: { pic: "ic_call.png", title: "联系客服", desc: "在线解答疑问" }
         }
       ],
-      car:false,
+      car: false
     };
   },
-  methods:{
-    
-  },
-  mounted() {
-    
-  }
+  methods: {},
+  mounted() {}
 };
 </script>
 <style scoped>
@@ -166,6 +168,7 @@ export default {
   left: 0.3rem;
 }
 .qiandao {
+  width: 1rem;
   border: 0.02rem solid #fff;
   margin-top: 0.7rem;
   padding: 0.2rem 0 0.2rem 0.9rem;
@@ -251,17 +254,17 @@ export default {
   font-size: 0.15rem;
 }
 /* 轮播图 */
-.swipe{
-  height:5rem;
-  margin-bottom:0.4rem;
+.swipe {
+  height: 5rem;
+  margin-bottom: 0.4rem;
 }
-.change{
-  height:1.3rem;
-  background:#fff;
-  margin-bottom:1.3rem;
-  color:#666;
-  font-size:0.5rem;
-  text-align:center;
-  line-height:1.3rem;
+.change {
+  height: 1.3rem;
+  background: #fff;
+  margin-bottom: 1.3rem;
+  color: #666;
+  font-size: 0.5rem;
+  text-align: center;
+  line-height: 1.3rem;
 }
 </style>

@@ -18,21 +18,71 @@
             @click="isSelected"
           >短信快捷登录</div>
         </div>
-        <div class="log-tab">
+        <!-- 短信验证登录 -->
+        <div class="log-tab" v-show="!isDiv">
           <div class="frame-box">
             <div class="log-tab-icon"></div>
-            <input type="text" class="log-tab-input" placeholder="手机号" v-model="phoneNum" />
+            <input
+              type="text"
+              maxlength="11"
+              class="log-tab-input"
+              placeholder="手机号"
+              v-model="phoneNum"
+              @blur="handle"
+            />
           </div>
-          <div class="log-tab-info">手机号格式错误</div>
+          <div class="log-tab-info" v-show="!isClassCode">
+            <span class="tab-info-icon"></span>
+            手机号格式错误,请输入11位有效数字
+          </div>
           <div class="frame-box">
-            <div class="log-tab-icon"></div>
-            <input type="text" class="log-tab-input" placeholder="请输入验证码" />
-            <div class="log-tab-ic"></div>
+            <div class="log-tab-icon log-tab-codeicon"></div>
+            <input
+              type="text"
+              maxlength="6"
+              class="log-tab-input"
+              placeholder="请输入验证码"
+              v-model="phoneCode"
+            />
+            <div :class="isClass?'log-tab-ic ices':'log-tab-ic'"></div>
             <div class="log-tab-code">
-              <button class="get-sms" @click="getCode">{{dataTime>0?`已发送(${dataTime}s)`:"获取验证码"}}</button>
+              <button
+                :disabled="!isClassCode"
+                :class="isClass?'get-sms ice':'get-sms'"
+                @click="getCode"
+              >{{dataTime>0?`已发送(${dataTime}s)`:"获取验证码"}}</button>
             </div>
           </div>
-          <div class="login-btn">登录</div>
+          <div class="login-btn" @click="loginCode">登录</div>
+        </div>
+        <!-- 密码登录 -->
+        <div class="log-tab" v-show="isDiv">
+          <div class="frame-box">
+            <div class="log-tab-icon"></div>
+            <input
+              type="text"
+              maxlength="11"
+              class="log-tab-input"
+              placeholder="手机号"
+              v-model="phoneNum"
+              @blur="handle"
+            />
+          </div>
+          <div class="log-tab-info" v-show="!isClassCode">
+            <span class="tab-info-icon"></span>
+            手机号格式错误,请输入11位有效数字
+          </div>
+          <div class="frame-box">
+            <div class="log-tab-icon log-tab-codeicon"></div>
+            <input
+              type="text"
+              maxlength="6"
+              class="log-tab-input"
+              placeholder="请输入密码"
+              v-model="phoneCode"
+            />
+          </div>
+          <div class="login-btn" @click="loginCode">登录</div>
         </div>
       </div>
     </div>
@@ -44,13 +94,18 @@ export default {
     return {
       isSelect: true,
       dataTime: 0, // 计时的时间
-      phoneNum: "",
-      intervalId: ""
+      phoneNum: "", // 手机号码
+      phoneCode: "", // 前台输入验证码
+      codeNum: "", // 后台发送的验证码
+      intervalId: "",
+      isDiv: true, // 显示普通或者短信登录
+      isClassCode: true
     };
   },
   methods: {
     isSelected() {
       this.isSelect = !this.isSelect;
+      this.isDiv = !this.isDiv;
     },
     getCode() {
       //  如果当前没有计时
@@ -66,19 +121,45 @@ export default {
         }, 1000);
         // 发送ajax请求(向指定手机号发送验证码)
         this.axios
-
-          .get("sms_code", { params: { phone: this.phoneNum } })
+          .get("sedsms", { params: { phone: this.phoneNum } })
           .then(res => {
             console.log(res);
+            this.codeNum = res.data;
           });
+      }
+    },
+    handle() {
+      // 鼠标离开输入框触发事件
+      var code = /^1[3-9]\d{9}$/.test(this.phoneNum);
+      if (code) {
+        this.isClassCode = true;
+      } else {
+        this.isClassCode = false;
+      }
+    },
+    loginCode() {
+      if (this.phoneCode == this.codeNum) {
+        this.$store.commit("increment", this.phoneNum);
+        this.$router.push("/");
+      } else {
+        this.$toast({
+          message: "没收到短信?请稍后试试再发送一次",
+          duration: 1500
+        });
       }
     }
   },
-  watch: {
-    phoneNum() {
-      console.log(this.phoneNum);
+  computed: {
+    isClass() {
+      return /^1[3-9]\d{9}$/.test(this.phoneNum);
     }
   }
+
+  //   watch: {
+  //     phoneNum() {
+  //       console.log(this.phoneNum);
+  //     }
+  //   }
 };
 </script>
 <style scoped>
@@ -116,9 +197,23 @@ export default {
   border-bottom: 0.053333rem solid;
   font-weight: 700;
 }
+.log-tab {
+  position: relative;
+}
 .log-tab .frame-box {
   position: relative;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+.log-tab .log-tab-info {
+  display: block;
+  position: absolute;
+  top: 1.2rem;
+  left: 0rem;
+  font-size: 0.3rem;
+  color: #f05b72;
+}
+.log-tab .nowphone {
+  display: block;
 }
 .frame-box .log-tab-input {
   width: 100%;
@@ -138,13 +233,19 @@ export default {
   top: 0.2444rem;
   left: 0.4rem;
 }
+.frame-box .log-tab-codeicon {
+  background-image: url("http://127.0.0.1:5050/images/inhome/seimg/loginicon2.png");
+  width: 0.45333rem;
+  height: 0.45333rem;
+}
+
 .frame-box .log-tab-ic {
   width: 0.02rem;
   height: 0.36rem;
   position: absolute;
   top: 0.31rem;
   right: 2.4rem;
-  background: #959ea7;
+  background: #cacaca;
 }
 .log-tab-code {
   position: absolute;
@@ -160,6 +261,13 @@ export default {
   font-size: 0.32222rem;
   background: none;
   border: none;
+  color: #cacaca;
+}
+.frame-box .ice {
+  color: #333333;
+}
+.frame-box .ices {
+  background: #333333;
 }
 input::-webkit-input-placeholder {
   color: #cacaca;
