@@ -5,7 +5,7 @@
       <div class="f_subTitle">精选舒适房源供你挑选</div>
       <div class="container">
         <div class="Listing" v-for="(item,i) of global_list" :key="i">
-          <img :src="`http://127.0.0.1:5050/imgs/inhome/${item.img_url}`" />
+          <img :src="`http://127.0.0.1:5050/images/inhome/global/${item.img_url}`" />
           <div class="s_title">{{item.title}}</div>
           <div class="s_title_e">{{item.subtitle}}</div>
           <div class="price">¥{{item.price}}</div>
@@ -15,14 +15,14 @@
           </div>
         </div>
       </div>
-      <mt-button size="large" plain type="danger">查看更多房源</mt-button>
+      <mt-button class="font_14" size="large" plain type="danger">查看更多房源</mt-button>
     </div>
     <div class="highScore">
       <div class="f_title">高分体验</div>
       <div class="f_subTitle">在下趟旅程中,不妨预定由本地达人组织的体验活动</div>
       <div class="container">
         <div class="Listing" v-for="(item,i) of highScore_list" :key="i">
-          <img :src="`http://127.0.0.1:5050/imgs/inhome/${item.img_url}`" />
+          <img :src="`http://127.0.0.1:5050/images/inhome/global/${item.img_url}`" />
           <div class="s_title">{{item.title}}</div>
           <div class="s_title_e">{{item.subtitle}}</div>
           <div class="price">¥{{item.price}}</div>
@@ -32,7 +32,7 @@
           </div>
         </div>
       </div>
-      <mt-button size="large" plain type="danger">查看更多体验</mt-button>
+      <mt-button class="font_14" size="large" plain type="danger">查看更多体验</mt-button>
     </div>
   </div>
 </template>
@@ -67,6 +67,10 @@ export default {
 }
 .flex {
   display: flex;
+}
+.font_14{
+  font-size: 0.373333rem;
+  font-weight: bold;
 }
 .f_title {
   font-size: 0.5rem;
@@ -109,7 +113,7 @@ export default {
   color: #f16b80;
 }
 .icon {
-  background: url(http://127.0.1:5050/imgs/inhome/5stars.png);
+  background: url(http://127.0.1:5050/images/inhome/global/5stars.png);
   background-repeat: no-repeat;
   background-size: 3.2rem 0.26666rem;
   height: 0.26666rem;
@@ -120,6 +124,6 @@ export default {
   margin-left: 0.1rem;
 }
 .highScore{
-  margin-top:2rem;
+  margin-top:1rem;
 }
 </style>
