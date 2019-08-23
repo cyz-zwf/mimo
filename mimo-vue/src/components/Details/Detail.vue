@@ -425,9 +425,10 @@
         </div>
         <!-- Part11 推荐 -->
         <div class="info_colunm">
-          <p class="p_left">
+          <!-- <p class="p_left">
             <span class="info_title">推荐房源</span>
-          </p>
+          </p> -->
+          <recommend></recommend>
         </div>
       </div>
     </div>
@@ -446,6 +447,7 @@
   </div>
 </template>
 <script>
+import Recommend from '../common/Recommend'
 export default {
   data() {
     return {
@@ -455,6 +457,9 @@ export default {
       isCollect: false, //是否收藏
       date: "" //当前选中日期
     };
+  },
+  components:{
+    "recommend":Recommend
   },
   methods: {
     collection() {
