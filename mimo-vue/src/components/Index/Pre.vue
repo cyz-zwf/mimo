@@ -1,19 +1,99 @@
 <template>
   <div id="pre">
     <swiper :options="swiperOption">
-      <swiper-slide v-for="item in 6" :key="item">
+      <swiper-slide>
         <a href="javascript:;">
-          <div></div>
+          <div style="background-image: url(http://127.1:5050/images/inhome/homeimg/slide1.jpg);"></div>
           <div class="_q1e9ikp" style="color:#714e33">整套公寓 · 1室1卫1床</div>
-          <div class="_8ij7mvh">邻长隆景区 .广州南站.大夫山.客村.地铁钟村站.落地窗舒适阳台大床房</div>
+          <div class="_8ij7mvh">MOHUANG|对面就是太古里春熙路和地铁站 下楼就吃小龙坎</div>
           <div class="_1c084z5a">
-            <span>￥201</span>
-            <s style="color:#aaa;">￥228</s>
+            <span>￥198</span>
+            <!-- <s style="color:#aaa;">￥196</s> -->
             每晚
           </div>
           <div class="comment">
             <span class="_1b3pg289"></span>
-            <span class="_j6pj0i">465</span>
+            <span class="_j6pj0i">196</span>
+          </div>
+        </a>
+      </swiper-slide>
+      <swiper-slide>
+        <a href="javascript:;">
+          <div style="background-image: url(http://127.1:5050/images/inhome/homeimg/slide2.jpg);"></div>
+          <div class="_q1e9ikp" style="color:#714e33">整套公寓 · 1室1卫2床</div>
+          <div class="_8ij7mvh">漫漫|拿铁 楼下就是太古里春熙路/市中心双地铁/家庭影院/北欧风精致套房</div>
+          <div class="_1c084z5a">
+            <span>￥298</span>
+            <!-- <s style="color:#aaa;">￥228</s> -->
+            每晚
+          </div>
+          <div class="comment">
+            <span class="_1b3pg289"></span>
+            <span class="_j6pj0i">210</span>
+          </div>
+        </a>
+      </swiper-slide>
+      <swiper-slide>
+        <a href="javascript:;">
+          <div style="background-image: url(http://127.1:5050/images/inhome/homeimg/slide3.jpg);"></div>
+          <div class="_q1e9ikp" style="color:#714e33">整套公寓 · 1室1卫1床</div>
+          <div class="_8ij7mvh">【北尧.幸】传统日式 和服秀榻榻米 步行春熙太古宽窄巷子/天府广场/锦里/武侯祠 地铁</div>
+          <div class="_1c084z5a">
+            <span>￥309</span>
+            <!-- <s style="color:#aaa;">￥228</s> -->
+            每晚
+          </div>
+          <div class="comment">
+            <span class="_1b3pg289"></span>
+            <span class="_j6pj0i">182</span>
+          </div>
+        </a>
+      </swiper-slide>
+      <swiper-slide>
+        <a href="javascript:;">
+          <div style="background-image: url(http://127.1:5050/images/inhome/homeimg/slide4.jpg);"></div>
+          <div class="_q1e9ikp" style="color:#714e33">整套公寓 · 1室1卫1床</div>
+          <div class="_8ij7mvh">留白 清新北欧风 靠近地铁站 地铁3､4号线市二医院站可到达 走路可到太古里 春熙路哦</div>
+          <div class="_1c084z5a">
+            <span>￥238</span>
+            <!-- <s style="color:#aaa;">￥228</s> -->
+            每晚
+          </div>
+          <div class="comment">
+            <span class="_1b3pg289"></span>
+            <span class="_j6pj0i">128</span>
+          </div>
+        </a>
+      </swiper-slide>
+      <swiper-slide>
+        <a href="javascript:;">
+          <div style="background-image: url(http://127.1:5050/images/inhome/homeimg/slide5.jpg);"></div>
+          <div class="_q1e9ikp" style="color:#714e33">整套公寓 · 1室1卫1床</div>
+          <div class="_8ij7mvh">(当幸福来敲门)高层落地窗,近IFS.太古里,迷人夜景,市中心地铁口｡</div>
+          <div class="_1c084z5a">
+            <span>￥208</span>
+            <!-- <s style="color:#aaa;">￥228</s> -->
+            每晚
+          </div>
+          <div class="comment">
+            <span class="_1b3pg289"></span>
+            <span class="_j6pj0i">207</span>
+          </div>
+        </a>
+      </swiper-slide>
+      <swiper-slide>
+        <a href="javascript:;">
+          <div style="background-image: url(http://127.1:5050/images/inhome/homeimg/slide6.jpg);"></div>
+          <div class="_q1e9ikp" style="color:#714e33">整套公寓 · 1室1卫1床</div>
+          <div class="_8ij7mvh">【和の町】春熙/太古里/兰桂坊 传统日式-和服主题-metro line2/3</div>
+          <div class="_1c084z5a">
+            <span>￥229</span>
+            <!-- <s style="color:#aaa;">￥228</s> -->
+            每晚
+          </div>
+          <div class="comment">
+            <span class="_1b3pg289"></span>
+            <span class="_j6pj0i">81</span>
           </div>
         </a>
       </swiper-slide>
@@ -27,8 +107,8 @@
 <script>
 import Vue from "vue";
 import VueAwesomeSwiper from "vue-awesome-swiper";
-import GlobalHouse from './GlobalHouse.vue';
-import Recommend from '../common/Recommend';
+import GlobalHouse from "./GlobalHouse.vue";
+import Recommend from "../common/Recommend";
 Vue.use(VueAwesomeSwiper);
 import { swiper, swiperSlide } from "vue-awesome-swiper";
 import { Button } from "mint-ui";
@@ -46,9 +126,9 @@ export default {
       }
     };
   },
-  components:{
-    "globalHouse":GlobalHouse,
-    "recommend":Recommend
+  components: {
+    globalHouse: GlobalHouse,
+    recommend: Recommend
   }
 };
 </script>
@@ -65,7 +145,6 @@ a {
   width: 157.6px !important;
 }
 .swiper-slide a div:first-child {
-  background-image: url(http://127.1:5050/images/inhome/homeimg/home1.jpg);
   width: 100% !important;
   background-size: 200px 200px !important;
   background-position: 50% 50% !important;
