@@ -451,11 +451,12 @@ import Recommend from '../common/Recommend'
 export default {
   data() {
     return {
+      url:"http://127.0.0.1:5050/images/detail/",
       explain: 0,
       isWhite:false, //顶部栏的背景颜色
       descri: true,
       isCollect: false, //是否收藏
-      date: "" //当前选中日期
+      date: "", //当前选中日期
     };
   },
   components:{
