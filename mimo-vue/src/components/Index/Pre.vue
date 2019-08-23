@@ -18,13 +18,17 @@
         </a>
       </swiper-slide>
     </swiper>
-    <mt-button size="large">显示更多广州的房源</mt-button>
+    <mt-button size="large" plain type="danger">显示更多广州的房源</mt-button>
+    <globalHouse style="margin-top:2.5rem"></globalHouse>
+    <recommend style="margin-bottom:1rem"></recommend>
   </div>
 </template>
 
 <script>
 import Vue from "vue";
 import VueAwesomeSwiper from "vue-awesome-swiper";
+import GlobalHouse from './GlobalHouse.vue';
+import Recommend from '../common/Recommend';
 Vue.use(VueAwesomeSwiper);
 import { swiper, swiperSlide } from "vue-awesome-swiper";
 import { Button } from "mint-ui";
@@ -41,6 +45,10 @@ export default {
         }
       }
     };
+  },
+  components:{
+    "globalHouse":GlobalHouse,
+    "recommend":Recommend
   }
 };
 </script>

@@ -18,7 +18,7 @@
         </a>
       </swiper-slide>
     </swiper>
-    <mt-button size="large">显示更多广州的房源</mt-button>
+    <mt-button size="large"  plain type="danger">显示更多广州的房源</mt-button>
   </div>
 </template>
 

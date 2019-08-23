@@ -15,7 +15,7 @@
           </div>
         </div>
       </div>
-      <mt-button size="large" plain type="danger">查看更多房源</mt-button>
+      <mt-button class="font_14" size="large" plain type="danger">查看更多房源</mt-button>
     </div>
     <div class="highScore">
       <div class="f_title">高分体验</div>
@@ -32,7 +32,7 @@
           </div>
         </div>
       </div>
-      <mt-button size="large" plain type="danger">查看更多体验</mt-button>
+      <mt-button class="font_14" size="large" plain type="danger">查看更多体验</mt-button>
     </div>
   </div>
 </template>
@@ -67,6 +67,10 @@ export default {
 }
 .flex {
   display: flex;
+}
+.font_14{
+  font-size: 0.373333rem;
+  font-weight: bold;
 }
 .f_title {
   font-size: 0.5rem;
@@ -120,6 +124,6 @@ export default {
   margin-left: 0.1rem;
 }
 .highScore{
-  margin-top:2rem;
+  margin-top:1rem;
 }
 </style>
