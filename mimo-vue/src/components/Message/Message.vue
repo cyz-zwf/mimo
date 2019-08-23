@@ -58,6 +58,8 @@ export default {
 }
 .MessageList .image{
   margin-right:0.5rem;
+  width:1.3rem;
+  height:1.3rem;
 }
 .active span{
   position:absolute;
