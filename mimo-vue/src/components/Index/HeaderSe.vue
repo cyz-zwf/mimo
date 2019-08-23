@@ -53,14 +53,14 @@
         </div>
         <div class="date-container">
           <div class="data-today">
-            <span class="today-value">08月17日</span>
+            <span class="today-value">08月24日</span>
             <span class="today-tip">今天</span>
           </div>
           <div class="data-night">
             <span class="night-count">1晚</span>
           </div>
           <div class="data-tomorrow">
-            <span class="today-value">08月17日</span>
+            <span class="today-value">08月24日</span>
             <span class="today-tip">明天</span>
           </div>
         </div>
