@@ -7,6 +7,10 @@ import MintUi from 'mint-ui'
 import "mint-ui/lib/style.css"
 // 引入iconfont
 import "./font/iconfont.css"
+/* 引入vant */
+import Vant from 'vant';
+import 'vant/lib/index.css';
+Vue.use(Vant);
 
 // 配置axios 设置默认路径
 axios.defaults.baseURL = "http://127.0.0.1:5050/"
