@@ -123,7 +123,6 @@ export default {
         this.axios
           .get("sedsms", { params: { phone: this.phoneNum } })
           .then(res => {
-            console.log(res);
             this.codeNum = res.data;
           });
       }

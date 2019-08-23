@@ -5,7 +5,16 @@
         <van-button type="primary" @click="showPopup">
           <img src="http://127.0.0.1:5050/images/inhome/seimg/userdd.jpg" alt />
         </van-button>
-        <van-popup v-model="show" position="right" :style="{width:'20%',height: '100%' }" />
+        <van-popup v-model="show" position="right" :style="{width:'25%',height: '100%' }">
+          <div class="index-user-login" @click="jumpLoginCom">
+            <img
+              class="index-user-img"
+              src="http://127.0.0.1:5050/images/inhome/seimg/indexlogin1.png"
+              alt
+            />
+            <span class="index-user-span">登录</span>
+          </div>
+        </van-popup>
       </div>
       <div class="finsh-icon">
         <img src="http://127.0.0.1:5050/images/inhome/seimg/finshss.png" alt />
@@ -76,6 +85,9 @@ export default {
   methods: {
     showPopup() {
       this.show = true;
+    },
+    jumpLoginCom() {
+      this.$router.push("/login");
     }
   }
 };
@@ -108,6 +120,15 @@ export default {
 }
 .userdd-icon .van-button {
   margin: -10px;
+}
+.userdd-icon .index-user-login {
+  text-align: center;
+  margin-top: 37px;
+}
+.index-user-login .index-user-span {
+  display: block;
+  color: #212121;
+  font-size: 17px;
 }
 .kk-swipe {
   position: relative;
