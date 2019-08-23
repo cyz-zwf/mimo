@@ -110,3 +110,27 @@ app.get("/highScore", (req, res) => {
       })
    });
 })
+
+//推荐房源
+app.get("/recommend", (req, res) => {
+   var sql = "SELECT img_url,title,subtitle,price from recommend";
+   pool.query(sql, (err, result) => {
+      if (err) throw err;
+      res.send({
+         code: 1,
+         msg: "查询成功",
+         data: result
+      })
+   });
+})
+app.get("/highScore", (req, res) => {
+   var sql = "SELECT img_url,title,subtitle,price,comment from high_score";
+   pool.query(sql, (err, result) => {
+      if (err) throw err;
+      res.send({
+         code: 1,
+         msg: "查询成功",
+         data: result
+      })
+   });
+})
