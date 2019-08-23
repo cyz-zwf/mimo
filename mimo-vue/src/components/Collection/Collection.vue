@@ -7,7 +7,7 @@
       <div>新建分组</div>
     </div>
     <div class="like">
-        <img src="http://127.0.0.1:5050/images/detail/yuanben1.jpg" class="image">
+        <router-link to='/detail'><img src="http://127.0.0.1:5050/images/detail/yuanben1.jpg" class="image"></router-link>
         <div class="mytext">
             <p>我喜欢的房源 <span>2个房源</span></p>
         </div>
