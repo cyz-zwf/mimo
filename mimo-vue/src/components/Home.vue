@@ -5,8 +5,14 @@
         <headerse></headerse>
         <slides></slides>
       </mt-tab-container-item>
-      <mt-tab-container-item id="Collection">收藏</mt-tab-container-item>
-      <mt-tab-container-item id="Message">消息</mt-tab-container-item>
+      <mt-tab-container-item id="Collection">
+        <!-- 收藏 -->
+        <collection></collection>
+      </mt-tab-container-item>
+      <mt-tab-container-item id="Message">
+        <!-- 消息 -->
+        <message></message>
+      </mt-tab-container-item>
       <mt-tab-container-item id="Mine">
         <me></me>
       </mt-tab-container-item>
@@ -49,12 +55,16 @@ import Tabbaricon from "./Tabbaricon.vue";
 import Me from "./Me/Me";
 import HeaderSe from "./Index/HeaderSe";
 import Slides from "./Index/Slides";
+import Collection from "./Collection/Collection";
+import Message from "./Message/Message";
 export default {
   components: {
     tabbaricon: Tabbaricon,
     me: Me,
     headerse: HeaderSe,
-    slides: Slides
+    slides: Slides,
+    collection:Collection ,
+    message:Message,
   },
   data() {
     return {

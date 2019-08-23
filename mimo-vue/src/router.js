@@ -2,16 +2,18 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import Home from './components/Home.vue' //主页面
-import Detail from './components/Details/Detail.vue'
+import Detail from './components/Details/Detail.vue' //主页面
+import HeaderSe from './components/Index/HeaderSe.vue' // 主页轮播图
+import GlobalHouse from "./components/Index/GlobalHouse.vue"
 import Map from './components/Details/Map.vue'
 import Test from './components/Details/test.vue' //主页面
 import Dates from './components/Index/Dates.vue'
+import Login from './components/Index/Login.vue'
 
 Vue.use(Router)
 
 export default new Router({
    routes: [
-
       {
          path: '/home',
          component: Home
@@ -25,6 +27,14 @@ export default new Router({
          component: Home
       },
       {
+         path: '/headerse',
+         component: HeaderSe
+      },
+      {
+         path:'/GlobalHouse',
+         component:GlobalHouse
+      },
+      {
          path: '/map',
          component: Map
       },
@@ -35,6 +45,10 @@ export default new Router({
       {
          path: '/dates',
          component: Dates
+      },
+      {
+         path: '/login',
+         component: Login
       }
    ]
 })
