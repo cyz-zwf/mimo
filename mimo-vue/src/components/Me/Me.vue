@@ -116,8 +116,17 @@ export default {
       car: false
     };
   },
-  methods: {},
-  mounted() {}
+  methods: {
+    loadLogin() {
+      this.axios("sessionInfo").then(result => {
+        console.log(result);
+      });
+    }
+  },
+  mounted() {},
+  created() {
+    this.loadLogin();
+  }
 };
 </script>
 <style scoped>
@@ -178,8 +187,8 @@ export default {
 .touxian {
   width: 2.2rem;
   height: 2.2rem;
-  /* background: url("http://127.0.0.1:5050/images/Me/touxian.jpg"); */
-  background: url("http://127.0.0.1:5050/images/Me/huu.jpg");
+  background: url("http://127.0.0.1:5050/images/Me/touxian.jpg");
+  /* background: url("http://127.0.0.1:5050/images/Me/huu.jpg"); */
   background-size: 100%;
   border-radius: 50%;
 }

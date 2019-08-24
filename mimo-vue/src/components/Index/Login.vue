@@ -123,6 +123,7 @@ export default {
         this.axios
           .get("sedsms", { params: { phone: this.phoneNum } })
           .then(res => {
+            // console.log(res);
             this.codeNum = res.data;
           });
       }
@@ -185,7 +186,7 @@ export default {
   margin-bottom: 30px;
 }
 .log-box .top-logo img {
-  width: 2.4rem;
+  width: 5rem;
 }
 .log-box .mint-navbar {
   color: #666;

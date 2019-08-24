@@ -26,6 +26,9 @@ app.use(
 //配置session
 app.use(session({
    secret: "128位字符串",
+   cookie: {
+      maxAge: 1000 * 60 * 60 * 24
+   },
    resave: true,
    saveUninitialized: true
 }))
@@ -56,6 +59,8 @@ app.get('/sedsms', function (req, res) {
    // console.log(req.stack);
    console.log(req.query);
    console.log(req.query.phone);
+   var $req = req;
+   var $res = res;
    // console.log(req.url);
    // console.log(req.query);
    var code = ('000000' + Math.floor(Math.random() * 999999)).slice(-6);
@@ -75,9 +80,25 @@ app.get('/sedsms', function (req, res) {
          if (Code === 'OK') {
             //处理返回参数
             console.log(res)
+            var phone = $req.query.phone;
+            var sql = "select uname from mimo_login where uname=?";
+            pool.query(sql, [phone], (err, result) => {
+               if (err) throw err;
+               if (result.length == 0) {
+                  var sql = `INSERT INTO mimo_login VALUES(null,${phone},123456)`;
+                  pool.query(sql, (err, result) => {
+                     if (err) throw err;
+                     $req.session.uname = phone;
+                     console.log("我是session中的:", $req.session.uname)
+                  })
+               } else {
+                  $req.session.uname = phone;
+               }
+            })
          }
       }, (err) => {
-         console.log(err)
+         console.log(err);
+         return;
       })
       .then(() => {
          res.send(code);
@@ -133,4 +154,26 @@ app.get("/highScore", (req, res) => {
          data: result
       })
    });
+})
+
+app.get("/sessionInfo", (req, res) => {
+
+   var uname = req.session.uname;
+   var sql = "SELECT uname from mimo_login where uname=?";
+   pool.query(sql, [uname], (err, result) => {
+
+      if (err) throw err;
+      if (result.length == 0) {
+         res.send({
+            code: -1,
+            msg: "查询失败"
+         });
+         return;
+      } else {
+         res.send({
+            code: 1,
+            msg: uname
+         });
+      }
+   })
 })
