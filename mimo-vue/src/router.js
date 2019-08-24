@@ -10,12 +10,12 @@ import Test from './components/Details/test.vue' //主页面
 import Dates from './components/Index/Dates.vue'
 import Login from './components/Index/Login.vue'
 import Recommend from './components/common/Recommend.vue'
+import Iframe from './components/Details/Iframe.vue'
 
 Vue.use(Router)
 
 export default new Router({
-   routes: [
-      {
+   routes: [{
          path: '/home',
          component: Home
       },
@@ -32,8 +32,8 @@ export default new Router({
          component: HeaderSe
       },
       {
-         path:'/GlobalHouse',
-         component:GlobalHouse
+         path: '/GlobalHouse',
+         component: GlobalHouse
       },
       {
          path: '/map',
@@ -52,8 +52,12 @@ export default new Router({
          component: Login
       },
       {
-         path:'/Recommend',
-         component:Recommend
+         path: '/Recommend',
+         component: Recommend
+      },
+      {
+         path: '/iframe',
+         component: Iframe
       }
    ]
 })
