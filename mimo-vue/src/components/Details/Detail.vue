@@ -1063,7 +1063,7 @@ button.mint-button--default{
   height: 0.6rem;
   vertical-align: text-bottom;
   position: absolute;
-  top: -0.05rem;
+  top: 0.029rem;
 }
 
 #calendar {
