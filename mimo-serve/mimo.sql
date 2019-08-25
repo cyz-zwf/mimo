@@ -1,8 +1,13 @@
-SET NAMES UTF8;
+﻿SET NAMES UTF8;
 DROP DATABASE IF EXISTS mimo;
 CREATE DATABASE mimo CHARSET=UTF8;
 USE mimo;
 
+CREATE TABLE mimo_login(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    uname VARCHAR(50),
+    upwd VARCHAR(32)
+);
 
 /*全球热门房源*/
 CREATE TABLE global_house(
