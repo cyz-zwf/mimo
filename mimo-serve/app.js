@@ -199,3 +199,44 @@ app.get("/sessionInfo", (req, res) => {
       }
    })
 })
+
+// 收藏房源
+app.get("/collect", (req, res) => {
+   var sql = "SELECT id,rid,img_url,title,price FROM mimo_collect";
+   pool.query(sql, (err, result) => {
+      if (err) throw err;
+      res.send(result);
+   })
+})
+app.get("/isCollect", (req, res) => {
+   var rid = req.query.rid;
+   var sql = "SELECT id FROM mimo_collect WHERE rid=?";
+   pool.query(sql, [rid], (err, result) => {
+      if (err) throw err;
+      if (result.length > 0) {
+         res.send({ code: 1, msg: "已收藏" })
+      } else {
+         res.send({ code: -1, msg: "未收藏" })
+      }
+   })
+})
+app.get("/addCollect", (req, res) => {
+   var rid = req.query.rid;
+   var img_url = req.query.img_url;
+   var title = req.query.title;
+   var price = req.query.price;
+   var sql = "INSERT INTO mimo_collect VALUES (null,?,?,?,?)";
+   pool.query(sql, [rid, img_url, title, price], (err, result) => {
+      if (err) throw err;
+      res.send({ code: 1, msg: "添加成功" })
+   })
+})
+//http://127.0.0.1:5050/addCollect?rid=116&img_url=home8.jpg&title=城市森林大床／动物园大马戏&price=545
+app.get("/delCollect", (req, res) => {
+   var rid = req.query.rid;
+   var sql = "DELETE FROM mimo_collect WHERE rid=?"
+   pool.query(sql, [rid], (err, result) => {
+      if (err) throw err;
+      res.send({ code: 1, msg: "删除成功" })
+   })
+})

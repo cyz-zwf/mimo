@@ -73,3 +73,18 @@ CREATE TABLE recommend(
 );
 
 INSERT INTO recommend VALUES(null,'rec01.jpg','C珠江新城双地铁3/5号线/美领事馆/广州塔','整体出租 1室1厅 宜住2人 - 5分/20点评',299),(null,'rec02.jpg','广州东站宝泰万佳有利金马沙河服装批发','整套出租 1室0厅 宜住2人 - 0分/1点评',259),(null,'rec03.jpg','【栖】珠江新城/美国领事馆/广交会/小蛮腰','整体出租 1室0厅 宜住2人 - 0分/0点评',268),(null,'rec04.jpg','广州东站天河城商圈/短租长租/温馨梦幻之家','整体出租 1室0厅 宜住2人 - 0分/3点评',328),(null,'rec05.jpg','简约装饰 独门独户套房 广州东站','整体出租 1室0厅 宜住2人 - 0分/1点评',298),(null,'rec06.jpg','北欧趣味风|浪漫影院房|毗邻体育西路.天河城','整体出租 1室1厅 宜住2人 - 0分/0点评',366),(null,'rec07.jpg','广州东站&珠江新城&长隆&北京路上下九&套房','整体出租 1室0厅 宜住2人 - 5分/5点评',258),(null,'rec08.jpg','『风廊』广州东站&广交会直达&双地铁大1居','整体出租 1室0厅 宜住2人 - 0分/2点评',338),(null,'rec09.jpg','东站，天河，艺术剧院、沙河商圈、一房厨卫整租','整体出租 1室2厅 宜住2人 - 0分/0点评',228);
+
+
+-- 收藏
+CREATE TABLE mimo_collect(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    rid INT Not Null Unique,
+    img_url VARCHAR(128) Not Null,
+    title VARCHAR(256) Not Null,
+    price INT Not Null
+);
+INSERT INTO mimo_collect VALUES
+-- (null,111,"yuanben1.jpg","原本【空岛】奥帆，禅意智能海景民宿，地铁房",698),
+(null,112,"home2.jpg","日式榻榻米和风影院双人大床",378),
+(null,113,"home7.jpg","天骄嘉园主题度假公寓精品豪华大床房",508),
+(null,114,"home8.jpg","城市森林大床／动物园大马戏",545);
