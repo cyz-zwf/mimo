@@ -108,8 +108,19 @@ app.get('/sedsms', function (req, res) {
 
 //主页全球热门房源
 app.get("/global", (req, res) => {
-   var sql = "SELECT img_url,title,subtitle,price,comment from global_house";
-   pool.query(sql, (err, result) => {
+   //接收客户端两个参数pno 页码  pageSize 页大小
+   var p = req.query.pno;
+   var ps = req.query.pageSize;
+   //设置参数默认值 pno:1 pageSize:4
+   if (!p) { p = 1 }
+   if (!ps) { ps = 4 }
+   //创建变量offset 计算数据库偏移量
+   var offset = (p-1)*ps;
+   //对pageSize转换整形 否则nodejs报错
+   ps = parseInt(ps);
+   //创建sql语句
+   var sql = "SELECT img_url,title,subtitle,price,comment FROM global_house LIMIT ?,?";
+   pool.query(sql, [offset,ps],(err, result) => {
       if (err) throw err;
       res.send({
          code: 1,
@@ -121,8 +132,19 @@ app.get("/global", (req, res) => {
 
 //高分体验
 app.get("/highScore", (req, res) => {
-   var sql = "SELECT img_url,title,subtitle,price,comment from high_score";
-   pool.query(sql, (err, result) => {
+   //接收客户端两个参数pno 页码  pageSize 页大小
+   var p = req.query.pno;
+   var ps = req.query.pageSize;
+   //设置参数默认值 pno:1 pageSize:4
+   if (!p) { p = 1 }
+   if (!ps) { ps = 4 }
+   //创建变量offset 计算数据库偏移量
+   var offset = (p-1)*ps;
+   //对pageSize转换整形 否则nodejs报错
+   ps = parseInt(ps);
+   //创建sql语句
+   var sql = "SELECT img_url,title,subtitle,price,comment from high_score LIMIT ?,?";
+   pool.query(sql, [offset,ps],(err, result) => {
       if (err) throw err;
       res.send({
          code: 1,
