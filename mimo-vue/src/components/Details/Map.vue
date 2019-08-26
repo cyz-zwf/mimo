@@ -10,6 +10,7 @@
       <i class="my_posi" @click="myPosi"></i>
       <i class="room_posi" @click="roomPosi"></i>
     </div>
+    <div class="addressInfo"></div>
   </div>
 </template>
 <script>
@@ -29,6 +30,8 @@ export default {
       var myIcon = new BMap.Icon("http://127.0.0.1:5050/images/detail/det_marker.png", new BMap.Size(23, 40));
       var marker = new BMap.Marker(point, { icon: myIcon });
       map.addOverlay(marker);
+      var addr=document.getElementsByClassName("addressInfo")[0];
+      addr.innerHTML="山东省青岛市市南区东海中路18号海悦中心"
 
       // var geolocation = new BMap.Geolocation();
       // geolocation.getCurrentPosition(function (r) {
@@ -50,6 +53,8 @@ export default {
       this.longitude=113.274001;
       this.latitude=23.121343;
       this.loadMap()
+      var addr=document.getElementsByClassName("addressInfo")[0];
+      addr.innerHTML="广东省广州市越秀区海珠广场侨光路8号华侨大厦"
     }
   },
   mounted(){
@@ -71,20 +76,19 @@ export default {
   background-color: rgba(5, 5, 5, 0.15);
   z-index: 2;
 }
-.mintui-back:before{
-  /* color: #000; */
-}
 .posi_btn{
   width: .9rem;
-  height: 2rem;
+  height: 1.8rem;
   position: absolute;
   background: rgba(5, 5, 5, 0.15);
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.8);
   /* background: #fff; */
   z-index: 2;
   bottom: .8rem;
-  right: .5rem;
+  right: .3rem;
   text-align: center;
+  border-radius: .086667rem;
+  box-shadow: 1px 1px 2px 0px #999;
 
 }
 .posi_btn i{
@@ -100,5 +104,20 @@ export default {
 .posi_btn .room_posi{
   background: url("http://127.0.0.1:5050/images/detail/det_room_posi.png") no-repeat;
   background-size: 100%;
+}
+
+/* 地址信息 */
+.addressInfo{
+  position: fixed;
+  bottom: 1.066667rem;
+  width: 69%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  background: rgba(5, 5, 5, 0.6);
+  color: #fff;
+  font-size: 12px;
+  padding: .13333rem;
+  border-radius: .1066667rem;
 }
 </style>

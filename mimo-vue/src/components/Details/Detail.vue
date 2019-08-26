@@ -5,7 +5,7 @@
       <router-link to="/" slot="left">
         <mt-button icon="back"></mt-button>
       </router-link>
-      <mt-button slot="right" class="share" ></mt-button>
+      <mt-button slot="right" class="share"></mt-button>
       <mt-button slot="right" class="heart" :class="{'is_collect':isCollect}" @click="collection"></mt-button>
     </mt-header>
     <!-- 主体部分 -->
@@ -141,7 +141,8 @@
               <br />电玩无线，麻将桌游,聚会玩的爽
               <br />炒菜水饺再火锅,吃嘛嘛都香!
               <br />家庭出游,朋友聚会，商务旅行，绝佳好房！
-              <br /><strong>【一楼设施】</strong> 
+              <br />
+              <strong>【一楼设施】</strong>
               <br />1.榻榻米茶室超大号,茶具一应俱全,您可以在上面随意翻滚。
               如果要在这睡觉,请提前联系好我给您备好各种床品。
               2.客厅宽敞明亮,配备了空调,电视,电视盒子,游戏机,集合了
@@ -160,7 +161,8 @@
               办,也拿来与您一起分享了。
               8.阳台风景很好,风花雪月可以,不要嬉戏打闹,不要高空抛物,
               请注意安全!
-              <br /><strong>【二楼设施】</strong> 
+              <br />
+              <strong>【二楼设施】</strong>
               <br />1.休闲厅里有自动麻将桌,同时准备了三国杀桌游等，随时可以
               跟朋友激情互动。
               2.卧室在二楼,可以与一楼动静分离,互不打扰,该嗨就嗨。
@@ -427,7 +429,7 @@
         <div class="info_colunm">
           <!-- <p class="p_left">
             <span class="info_title">推荐房源</span>
-          </p> -->
+          </p>-->
           <recommend></recommend>
         </div>
       </div>
@@ -447,25 +449,39 @@
   </div>
 </template>
 <script>
-import Recommend from '../common/Recommend'
+import Recommend from "../common/Recommend";
 export default {
   data() {
     return {
-      url:"http://127.0.0.1:5050/images/detail/",
+      url: "http://127.0.0.1:5050/images/detail/",
       explain: 0,
-      isWhite:false, //顶部栏的背景颜色
+      isWhite: false, //顶部栏的背景颜色
       descri: true,
       isCollect: false, //是否收藏
-      date: "", //当前选中日期
+      date: "" //当前选中日期
     };
   },
-  components:{
-    "recommend":Recommend
+  components: {
+    recommend: Recommend
   },
   methods: {
     collection() {
       var btn = document.getElementsByClassName("heart")[0];
       this.isCollect = !this.isCollect;
+      if (this.isCollect) { //当点击收藏时
+        var url = "addCollect";
+        var obj = {
+          rid: 111,
+          img_url: "yuanben1.jpg",
+          title: "原本【空岛】奥帆，禅意智能海景民宿，地铁房",
+          price: 698
+        };
+        this.axios.get(url, { params: obj }).then(res => {});
+      } else { //当取消收藏时
+        var url = "delCollect";
+        var obj = { rid: 111 };
+        this.axios.get(url, { params: obj }).then(res => {});
+      }
     },
     explain0() {
       this.explain = 0;
@@ -532,12 +548,13 @@ export default {
       });
     },
     handleScroll: function() {
-      this.scroll = document.documentElement.scrollTop || document.body.scrollTop;
+      this.scroll =
+        document.documentElement.scrollTop || document.body.scrollTop;
       // console.log(this.scroll)
-      if(this.scroll>=300){
-        this.isWhite=true
-      }else{
-        this.isWhite=false
+      if (this.scroll >= 300) {
+        this.isWhite = true;
+      } else {
+        this.isWhite = false;
       }
     }
   },
@@ -547,6 +564,17 @@ export default {
     window.addEventListener("scroll", this.handleScroll, true); // 监听（绑定）滚轮滚动事件
     var curDate = document.getElementsByClassName("cur_date")[0];
     curDate.innerHTML = "今";
+    // 判断是否已收藏
+    var url = "isCollect";
+    var obj = { rid: 111 };
+    this.axios.get(url, { params: obj }).then(res => {
+      // console.log(res.data.code)
+      if(res.data.code>0){
+        this.isCollect=true;
+      }else{
+        this.isCollect=false;
+      }
+    });
   },
   // 离开页面时
   destroyed() {
@@ -565,23 +593,23 @@ export default {
   line-height: 0.533333rem;
 }
 /* 顶部栏 */
-button.mint-button--default{
+button.mint-button--default {
   color: #fff !important;
 }
-.is_white button.mint-button--default{
+.is_white button.mint-button--default {
   color: #000 !important;
 }
 .mint-header {
   background-color: transparent;
   z-index: 2;
 }
-.is_white{
+.is_white {
   background: #fff;
   border-bottom: 1px solid #ddd;
 }
 .share {
   background-image: url("http://127.0.0.1:5050/images/detail/det_share.png");
-  background-repeat:  no-repeat;
+  background-repeat: no-repeat;
   background-size: 100%;
   width: 0.6rem;
   margin-top: 0.45rem;
@@ -589,19 +617,20 @@ button.mint-button--default{
 }
 .heart {
   background-image: url("http://127.0.0.1:5050/images/detail/det_heart.png");
-  background-repeat:  no-repeat;
+  background-repeat: no-repeat;
   background-size: 100%;
   width: 0.6rem;
 }
 
-.is_white .share{
+.is_white .share {
   background-image: url("http://127.0.0.1:5050/images/detail/det_share_black.png");
 }
-.is_white .heart{
+.is_white .heart {
   background-image: url("http://127.0.0.1:5050/images/detail/det_heart_black.png");
 }
-.detail .is_collect{
+.detail .is_collect {
   background-image: url("http://127.0.0.1:5050/images/detail/det_heart_selected.png");
+   
 }
 .detail_main {
   width: 100%;
@@ -884,7 +913,7 @@ button.mint-button--default{
   color: #000 !important;
   font-size: 14px;
 }
-.info_colunm .mint-button--default{
+.info_colunm .mint-button--default {
   color: #000 !important;
 }
 
@@ -905,7 +934,8 @@ button.mint-button--default{
   width: 0.426667rem;
   height: 0.426667rem;
   margin-right: 0.05333rem;
-  background: url("http://127.0.0.1:5050/images/detail/det_marker_sm.png") no-repeat;
+  background: url("http://127.0.0.1:5050/images/detail/det_marker_sm.png")
+    no-repeat;
   background-size: 100%;
   position: relative;
   top: 0.0366667rem;
@@ -968,7 +998,8 @@ button.mint-button--default{
   display: inline-block;
   width: 0.546667rem;
   height: 0.586667rem;
-  background: url("http://127.0.0.1:5050/images/detail/det_reservation.png") no-repeat;
+  background: url("http://127.0.0.1:5050/images/detail/det_reservation.png")
+    no-repeat;
   background-size: 100%;
   margin-right: 0.323333rem;
   line-height: 0.586667rem;
@@ -1037,7 +1068,8 @@ button.mint-button--default{
   display: block;
   width: 0.6rem;
   height: 0.6rem;
-  background: url("http://127.0.0.1:5050/images/detail/det_message.png") no-repeat;
+  background: url("http://127.0.0.1:5050/images/detail/det_message.png")
+    no-repeat;
   background-size: 100%;
   position: absolute;
   left: 0.2rem;
@@ -1063,7 +1095,7 @@ button.mint-button--default{
   height: 0.6rem;
   vertical-align: text-bottom;
   position: absolute;
-  top: -0.05rem;
+  top: 0.029rem;
 }
 
 #calendar {
