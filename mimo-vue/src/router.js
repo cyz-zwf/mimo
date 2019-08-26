@@ -12,6 +12,8 @@ import Login from './components/Index/Login.vue'
 import Recommend from './components/common/Recommend.vue'
 import Iframe from './components/Details/Iframe.vue'
 import Search from './components/Search/Search.vue'
+import Subscribe from './components/Index/Subscribe.vue'
+
 Vue.use(Router)
 
 export default new Router({
@@ -59,9 +61,13 @@ export default new Router({
       path: '/iframe',
       component: Iframe
    },
-      {
+   {
       path: '/search',
       component: Search,
+   },
+   {
+      path: '/subscribe',
+      component: Subscribe
    }
    ]
 })

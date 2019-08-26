@@ -21,6 +21,7 @@ Vue.prototype.axios = axios
 axios.defaults.withCredentials = true
 Vue.use(MintUi);
 Vue.config.productionTip = false
+Vue.prototype.hostUrl = "http://127.0.0.1:5050/" // 服务端路径初始化
 
 new Vue({
    router,
