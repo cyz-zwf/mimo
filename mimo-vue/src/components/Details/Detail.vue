@@ -441,7 +441,7 @@
         <p>聊天</p>
       </div>
       <div class="order_btn_submit">
-        <span>立即预定</span>
+        <span @click="jumpScribe">立即预定</span>
         <i></i>
       </div>
       <div style="width:20%"></div>
@@ -468,7 +468,8 @@ export default {
     collection() {
       var btn = document.getElementsByClassName("heart")[0];
       this.isCollect = !this.isCollect;
-      if (this.isCollect) { //当点击收藏时
+      if (this.isCollect) {
+        //当点击收藏时
         var url = "addCollect";
         var obj = {
           rid: 111,
@@ -477,7 +478,8 @@ export default {
           price: 698
         };
         this.axios.get(url, { params: obj }).then(res => {});
-      } else { //当取消收藏时
+      } else {
+        //当取消收藏时
         var url = "delCollect";
         var obj = { rid: 111 };
         this.axios.get(url, { params: obj }).then(res => {});
@@ -556,6 +558,9 @@ export default {
       } else {
         this.isWhite = false;
       }
+    },
+    jumpScribe() {
+      this.$router.push("/subscribe");
     }
   },
   mounted() {
@@ -569,10 +574,10 @@ export default {
     var obj = { rid: 111 };
     this.axios.get(url, { params: obj }).then(res => {
       // console.log(res.data.code)
-      if(res.data.code>0){
-        this.isCollect=true;
-      }else{
-        this.isCollect=false;
+      if (res.data.code > 0) {
+        this.isCollect = true;
+      } else {
+        this.isCollect = false;
       }
     });
   },
@@ -630,7 +635,6 @@ button.mint-button--default {
 }
 .detail .is_collect {
   background-image: url("http://127.0.0.1:5050/images/detail/det_heart_selected.png");
-   
 }
 .detail_main {
   width: 100%;
