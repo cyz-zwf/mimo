@@ -30,7 +30,6 @@ export default {
     loadMore(){
       this.axios.get("recommend").then(res=>{
         this.list=res.data.data;
-        console.log(this.list)
       })
     }
   },

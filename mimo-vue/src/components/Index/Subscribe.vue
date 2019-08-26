@@ -1,12 +1,83 @@
 <template>
   <div class="subscribe">
     <div class="scribe-order">
-      <span>
+      <span @click="jumpdetail">
         <img :src="this.hostUrl+'images/inhome/scribeimg/leftjump.png'" class="leftjump" />
       </span>
       <span>立即下单</span>
     </div>
-    <div class="scribe-main">123</div>
+    <div class="scribe-main">
+      <div class="srcibe-main-img">
+        <img :src="this.hostUrl+'images/inhome/scribeimg/8b4f.jpg'" alt />
+      </div>
+      <div class="srcibe-main-info">
+        <span>房山北京西站良乡大学城地铁海洋复古loft屋</span>
+      </div>
+    </div>
+    <div class="scribe-time">
+      <div class="scribe-time-date">
+        <div class="intoTime">
+          <p>入住</p>
+          <p>2018.08.26</p>
+        </div>
+        <div class="throwL">1晚</div>
+        <div class="intoTime">
+          <p class="intoTime-p2">离开</p>
+          <p>2018.08.26</p>
+        </div>
+      </div>
+      <div class="scribe-time-name">
+        <p>预定人：龙猫666</p>
+        <p>+86 18788886666</p>
+      </div>
+    </div>
+    <div class="scribe-vip">
+      <div class="vip-logo">
+        <span>
+          <img :src="this.hostUrl+'images/inhome/scribeimg/vipLogo.png'" />
+          mimo会员
+        </span>
+      </div>
+      <div class="vip-title">
+        <span>开通会员，本单立减</span>
+      </div>
+    </div>
+    <div class="scribe-box">
+      <div class="clearfix">
+        <span>代金卷</span>
+        <span>无代金卷</span>
+      </div>
+      <div class="fapiao clearfix">
+        <span>开具发票</span>
+        <span>
+          <img src="http://127.0.0.1:5050/images/inhome/scribeimg/rightlogo.png" alt />
+        </span>
+      </div>
+      <div class="clearfix">
+        <span>押金</span>
+        <span>￥500.00</span>
+      </div>
+      <div class="paymoney clearfix">
+        <span>需在线支付</span>
+        <span>￥3188.00</span>
+      </div>
+    </div>
+    <div class="scribe-rule">
+      <div class="rules">
+        <p class="ruleName">退订规则</p>
+        <p class="ruleDetail">8月19日14:00前取消，所有金额全部退还，8月19日14:00后取消，扣除未入住首日房费，以及剩余房费的50%</p>
+      </div>
+      <div class="rules">
+        <p class="ruleName">入住规定</p>
+        <p class="ruleDetail">允许做饭,允许带宠物,允许聚会,不允许吸烟,不接待境外人士,宜居10人，允许加客1人，加客费用线下收取</p>
+      </div>
+    </div>
+    <div class="scribe-conctet">
+      <span>我同意《会员服务协议》《mimo服务协议》《房客规则》《意外健康险保险告知书》及房东规定的退订规则和入住要求</span>
+    </div>
+    <div class="scribe-pay">
+      <div class="sure-btn">提交订单￥3188.00</div>
+    </div>
   </div>
 </template>
 
@@ -14,14 +85,25 @@
 export default {
   data() {
     return {};
+  },
+  methods: {
+    jumpdetail() {
+      this.$router.push("/detail");
+    }
   }
 };
 </script>
 
 <style scoped>
+div {
+  box-sizing: border-box;
+}
 .scribe-order {
   width: 100%;
-  display: fixed;
+  display: block;
+  position: fixed;
+  top: 0rem;
+  background: #fff;
   height: 1.2rem;
   line-height: 1.2rem;
   text-align: center;
@@ -51,7 +133,194 @@ export default {
 }
 .scribe-main {
   width: 100%;
-  height: 100px;
-  background: #e0e0e0;
+  /* background: #e0e0e0; */
+  margin-top: 1.1rem;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 0.4rem;
+  border-bottom: 0.0233rem solid #e0e0e0;
+}
+.srcibe-main-img,
+.srcibe-main-info {
+  margin: 0.4rem 0;
+}
+.srcibe-main-img img {
+  width: 3.1222rem;
+}
+.srcibe-main-info span {
+  margin-left: 0.3rem;
+  color: #212121;
+  font-size: 0.426667rem;
+  font-weight: 700;
+  display: block;
+}
+.scribe-time {
+  padding: 0 0.4rem;
+  background: #fafafa;
+}
+.scribe-time-date {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+  align-items: center;
+  border-bottom: 0.0133rem solid #e0e0e0;
+}
+.intoTime p:first-child {
+  color: #757575;
+  font-size: 0.32rem;
+  margin-bottom: 0.266667rem;
+}
+.intoTime p:last-child {
+  color: #212121;
+  font-size: 0.533333rem;
+  font-weight: 700;
+}
+.intoTime .intoTime-p2 {
+  text-align: right;
+}
+.throwL {
+  display: block;
+  width: 13%;
+  border: 0.0233rem solid #e4e6e9;
+  border-radius: 0.3rem;
+  text-align: center;
+  font-size: 0.3888rem;
+  line-height: 0.6rem;
+}
+.scribe-time-name {
+  padding: 0.4rem 0;
+}
+.scribe-time-name p:first-child {
+  margin-bottom: 0.266667rem;
+  font-size: 0.373333rem;
+  color: #212121;
+  font-weight: 700;
+}
+
+.scribe-vip {
+  width: 100%;
+  background: rgba(245, 166, 35, 0.05);
+  margin-top: 10px;
+  padding: 0.266667rem 0.4rem 0.293333rem;
+}
+.vip-logo {
+  width: 2.266667rem;
+  height: 0.533333rem;
+  line-height: 0.533333rem;
+  font-size: 0.32rem;
+  text-align: center;
+  font-weight: 700;
+  color: #212121;
+  border-radius: 0.2666rem;
+  background-image: linear-gradient(180deg, #fad0d7 5%, #faa7b3 52%, #ff8a9c);
+}
+.vip-logo span {
+  display: block;
+}
+.vip-logo span img {
+  width: 0.36rem;
+  height: 0.36rem;
+}
+.vip-title {
+  font-size: 0.373333rem;
+  color: #212121;
+  margin-top: 0.266667rem;
+}
+.scribe-box {
+  padding: 0.666667rem 0;
+  background: #fafafa;
+  margin-top: 0.4rem;
+}
+.scribe-box .clearfix {
+  display: flex;
+  background: #fff;
+  padding: 0.4rem;
+  width: 91%;
+  margin: 0 auto;
+  border: 0.022rem solid #e0e0e0;
+  border-radius: 0.106667rem;
+  justify-content: space-between;
+  margin-bottom: 0.213333rem;
+}
+.scribe-box .fapiao img {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+.scribe-box .paymoney {
+  display: block;
+  border: none;
+  font-size: 0.373333rem;
+  font-weight: 700;
+  color: #eb5381;
+  background: rgba(0, 0, 0, 0);
+  margin-bottom: 0;
+}
+.scribe-box .paymoney span {
+  display: block;
+}
+.scribe-box .paymoney span:last-child {
+  margin-top: 0.1rem;
+  font-size: 0.533333rem;
+}
+.scribe-rule {
+  width: 100%;
+  padding: 0 0.4rem;
+  background: rgba(0, 0, 0, 0);
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.3rem;
+}
+.scribe-rule .rules {
+  display: inline-block;
+  width: 48%;
+  overflow: hidden;
+  background: #faf4f6;
+  padding: 0.233333rem 0.266667rem;
+}
+.rules .ruleName {
+  font-size: 0.426667rem;
+  color: #212121;
+}
+.rules .ruleDetail {
+  font-size: 0.32rem;
+  color: #757575;
+  height: 1.333333rem;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  margin-top: 0.3rem;
+}
+.scribe-conctet {
+  width: 100%;
+  padding: 0.3rem 0.4rem;
+  background: rgba(0, 0, 0, 0);
+  color: #757575;
+  padding-bottom: 1.666667rem;
+}
+.scribe-pay {
+  display: block;
+  width: 100%;
+  position: fixed;
+  bottom: 0rem;
+  background: #fff;
+  z-index: 666;
+  padding: 0.3rem;
+}
+.scribe-pay .sure-btn {
+  display: block;
+  background: #fff;
+  width: 97%;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1rem;
+  border-radius: 0.08rem;
+  border: 0.0266rem solid #bdbdbd;
+  color: #212121;
+  font-weight: 700;
 }
 </style>

@@ -119,7 +119,7 @@ export default {
   methods: {
     loadLogin() {
       this.axios("sessionInfo").then(result => {
-        console.log(result);
+        // console.log(result);
       });
     }
   },
@@ -134,12 +134,12 @@ export default {
   display: none !important;
 }
 .top {
-  height: 8rem;
+  height: 6rem;
   font-family: Avenirregular, sans-serif !important;
   font-size: 0.4rem;
   position: relative;
   color: #fff;
-  background: linear-gradient(to top, #f16b80 0%, rgb(230, 171, 171) 100%);
+  background: linear-gradient(to top, #f16b80 0%, rgb(245, 207, 207) 100%);
 }
 .top::before {
   content: "";
@@ -187,8 +187,7 @@ export default {
 .touxian {
   width: 2.2rem;
   height: 2.2rem;
-  background: url("http://127.0.0.1:5050/images/Me/touxian.jpg");
-  /* background: url("http://127.0.0.1:5050/images/Me/huu.jpg"); */
+  background: url("http://127.0.0.1:5050/images/Me/avar.jpg");
   background-size: 100%;
   border-radius: 50%;
 }
@@ -203,7 +202,7 @@ export default {
     rgb(36, 31, 2) 100%
   );
   margin: 0 0.5rem;
-  margin-top: 6.8rem;
+  margin-top: 4.8rem;
   display: flex;
   align-items: center;
   justify-content: space-around;
