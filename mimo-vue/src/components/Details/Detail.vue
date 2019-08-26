@@ -468,6 +468,22 @@ export default {
     collection() {
       var btn = document.getElementsByClassName("heart")[0];
       this.isCollect = !this.isCollect;
+      if (this.isCollect) {
+        //当点击收藏时
+        var url = "addCollect";
+        var obj = {
+          rid: 111,
+          img_url: "yuanben1.jpg",
+          title: "原本【空岛】奥帆，禅意智能海景民宿，地铁房",
+          price: 698
+        };
+        this.axios.get(url, { params: obj }).then(res => {});
+      } else {
+        //当取消收藏时
+        var url = "delCollect";
+        var obj = { rid: 111 };
+        this.axios.get(url, { params: obj }).then(res => {});
+      }
     },
     explain0() {
       this.explain = 0;
@@ -553,6 +569,17 @@ export default {
     window.addEventListener("scroll", this.handleScroll, true); // 监听（绑定）滚轮滚动事件
     var curDate = document.getElementsByClassName("cur_date")[0];
     curDate.innerHTML = "今";
+    // 判断是否已收藏
+    var url = "isCollect";
+    var obj = { rid: 111 };
+    this.axios.get(url, { params: obj }).then(res => {
+      // console.log(res.data.code)
+      if (res.data.code > 0) {
+        this.isCollect = true;
+      } else {
+        this.isCollect = false;
+      }
+    });
   },
   // 离开页面时
   destroyed() {
@@ -1072,7 +1099,7 @@ button.mint-button--default {
   height: 0.6rem;
   vertical-align: text-bottom;
   position: absolute;
-  top: -0.05rem;
+  top: 0.029rem;
 }
 
 #calendar {

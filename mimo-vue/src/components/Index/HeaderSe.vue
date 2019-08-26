@@ -64,12 +64,12 @@
             <span class="today-tip">明天</span>
           </div>
         </div>
-        <div class="search-panel">
+        <div class="search-panel" >
           <i class="place-icon"></i>
           <span class="place-holder">输入位置、地标、房源标题</span>
         </div>
       </div>
-      <div class="search-button">搜&nbsp;&nbsp;索</div>
+      <div class="search-button" @click="search">搜&nbsp;&nbsp;索</div>
     </div>
     <div style="width:100%;height:200px"></div>
   </div>
@@ -88,6 +88,9 @@ export default {
     },
     jumpLoginCom() {
       this.$router.push("/login");
+    },
+    search(){
+      this.$router.push({path:'/Search'})
     }
   }
 };

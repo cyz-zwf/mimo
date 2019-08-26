@@ -15,7 +15,7 @@
           </div>
         </div>
       </div>
-      <mt-button class="font_14" size="large" plain type="danger">查看更多房源</mt-button>
+      <mt-button class="font_14" size="large" plain type="danger" @click="g_loadMore">查看更多房源</mt-button>
     </div>
     <div class="highScore">
       <div class="f_title">高分体验</div>
@@ -32,7 +32,7 @@
           </div>
         </div>
       </div>
-      <mt-button class="font_14" size="large" plain type="danger">查看更多体验</mt-button>
+      <mt-button class="font_14" size="large" plain type="danger" @click="h_loadMore">查看更多体验</mt-button>
     </div>
   </div>
 </template>
@@ -41,21 +41,30 @@ export default {
   data() {
     return {
       global_list: [],
-      highScore_list:[]
+      highScore_list: [],
+      pno: 0,
+      hno: 0
     };
   },
   methods: {
-    loadMore() {
-      this.axios.get("global").then(res => {
-        this.global_list = res.data.data;
-      });      
-      this.axios.get("highScore").then(res => {
-        this.highScore_list = res.data.data;
+    h_loadMore() {
+      this.hno++;
+      var obj = { pno: this.hno };
+      this.axios.get("highScore", { params: obj }).then(res => {
+        this.highScore_list = this.highScore_list.concat(res.data.data);
+      });
+    },
+    g_loadMore() {
+      this.pno++;
+      var obj = { pno: this.pno };
+      this.axios.get("global", { params: obj }).then(res => {
+        this.global_list = this.global_list.concat(res.data.data);
       });
     }
   },
   mounted() {
-    this.loadMore();
+    this.h_loadMore();
+    this.g_loadMore();
   }
 };
 </script>
@@ -68,7 +77,7 @@ export default {
 .flex {
   display: flex;
 }
-.font_14{
+.font_14 {
   font-size: 0.373333rem;
   font-weight: bold;
 }
@@ -96,7 +105,7 @@ export default {
 }
 .Listing > img {
   width: 100%;
-  height:3.2rem;
+  height: 3.2rem;
 }
 .s_title {
   font-size: 0.36rem;
@@ -113,7 +122,7 @@ export default {
   color: #f16b80;
 }
 .icon {
-  background: url(http://127.0.1:5050/images/inhome/global/5stars.png);
+  background: url(http://127.1:5050/images/inhome/global/5stars.png);
   background-repeat: no-repeat;
   background-size: 3.2rem 0.26666rem;
   height: 0.26666rem;
@@ -123,7 +132,7 @@ export default {
   font-size: 0.32rem;
   margin-left: 0.1rem;
 }
-.highScore{
-  margin-top:1rem;
+.highScore {
+  margin-top: 1rem;
 }
 </style>
