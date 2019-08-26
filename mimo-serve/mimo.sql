@@ -64,3 +64,4 @@ INSERT INTO mimo_collect VALUES
 (null,112,"home2.jpg","日式榻榻米和风影院双人大床",378),
 (null,113,"home7.jpg","天骄嘉园主题度假公寓精品豪华大床房",508),
 (null,114,"home8.jpg","城市森林大床／动物园大马戏",545);
+

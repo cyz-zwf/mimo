@@ -5,7 +5,7 @@
         <span class="ic_btn" @click="back"></span>
       </div>
       <div class="rep">
-        <input type="text" class="search_input" />
+        <input type="text" value="广州" class="search_input" />
         <span class="close"></span>
       </div>
       <div>
@@ -13,17 +13,19 @@
       </div>
     </div>
     <!-- 展示商品 -->
-    <div class="brand">
-      <div class="brand_top">
-        <img src="http://127.0.0.1:5050/images/detail/yuanben1.jpg" alt />
-        <span class="love" :class="{'is_collect':isCollect}" @click="collection"></span>
-        <!-- class="love"  -->
-      </div>
-      <div class="text">
-        <p>整套出租 · 2室一厅 · 2张床 · 宜住4人</p>
-        <p>原本【空岛】奥帆，禅意智能海景民宿，地铁房</p>
-        <p>※ 速订 ※ 长租优惠</p>
-        <p>¥ 414</p>
+    <div class="clearmargin">
+      <div class="brand" v-for="(item,i) of list" :key="i">
+        <div class="brand_top">
+          <img :src="`${url}${item.img_url}`" alt />
+          <span class="love" :class="{'is_collect':isCollect}" @click="collection"></span>
+          <!-- class="love"  -->
+        </div>
+        <div class="text">
+          <p>{{item.subtitle}}</p>
+          <p class="bold">{{item.title}}</p>
+          <p class="color">※ 速订 ※ 长租优惠</p>
+          <p class="bold">¥{{item.price}}</p>
+        </div>
       </div>
     </div>
   </div>
@@ -32,7 +34,9 @@
 export default {
   data() {
     return {
-      isCollect:false,  //此变量用于保存收藏状态
+      isCollect: false, //此变量用于保存收藏状态
+      url: "http://127.0.0.1:5050/images/detail/",
+      list: []
     };
   },
   methods: {
@@ -42,8 +46,22 @@ export default {
     },
     // 点击爱心变颜色,然后加载到收藏
     collection() {
-      this.isCollect=!this.isCollect;  //取当前值的反值
+      this.isCollect = !this.isCollect; //取当前值的反值
+    },
+    LoadMore() {
+      this.axios
+        .get("/recommend")
+        .then(res => {
+          this.list = res.data.data;
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
+  },
+
+  mounted() {
+    this.LoadMore();
   }
 };
 </script>
@@ -53,6 +71,10 @@ export default {
   display: flex;
   justify-content: space-around;
   line-height: 1.5rem;
+  position: fixed;
+  background-color: #fff;
+  width: 100%;
+  top: 0;
 }
 .header :nth-child(1) {
   flex-grow: 2;
@@ -103,6 +125,9 @@ export default {
   box-sizing: border-box;
 }
 /* <!-- 展示商品 --> */
+.clearmargin {
+  margin-top: 1.5rem;
+}
 .brand {
   padding: 0.2rem;
 }
@@ -112,7 +137,7 @@ export default {
 .brand_top img {
   width: 100%;
   height: 6rem;
-  border-radius: 0.5rem;
+  border-radius: 0.2rem;
 }
 .love {
   display: block;
@@ -132,12 +157,12 @@ export default {
 .text p {
   margin-bottom: 0.2rem;
 }
-.text :nth-child(2),
-:nth-child(4) {
+
+.text p.bold {
   font-weight: bold;
   font-size: 0.5rem;
 }
-.text :nth-child(3) {
+.text p.color {
   color: #750124;
 }
 </style>
