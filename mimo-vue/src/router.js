@@ -11,6 +11,7 @@ import Dates from './components/Index/Dates.vue'
 import Login from './components/Index/Login.vue'
 import Recommend from './components/common/Recommend.vue'
 import Iframe from './components/Details/Iframe.vue'
+import Subscribe from './components/Index/Subscribe.vue'
 
 Vue.use(Router)
 
@@ -58,6 +59,10 @@ export default new Router({
       {
          path: '/iframe',
          component: Iframe
+      },
+      {
+         path: '/subscribe',
+         component: Subscribe
       }
    ]
 })
