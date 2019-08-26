@@ -50,10 +50,10 @@ export default {};
   margin-left: 4.5rem;
 }
 .jingzi {
-  width: 1rem;
-  height: 1rem;
+  width: .8rem;
+  height: .8rem;
   position: relative;
-  top: 0.08rem;
+  top: 0.18rem;
   right: 0.1rem;
 }
 .MessageList {
