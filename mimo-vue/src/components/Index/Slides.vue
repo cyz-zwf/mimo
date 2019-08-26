@@ -6,28 +6,28 @@
     </div>
     <swiper :options="swiperOption">
       <swiper-slide>
-        <button @click="test">广州</button>
+        <mt-button @click="test" class="active">广州</mt-button>
       </swiper-slide>
       <swiper-slide>
-        <button>上海</button>
+        <mt-button>上海</mt-button>
       </swiper-slide>
       <swiper-slide>
-        <button>重庆</button>
+        <mt-button>重庆</mt-button>
       </swiper-slide>
       <swiper-slide>
-        <button>深圳</button>
+        <mt-button>深圳</mt-button>
       </swiper-slide>
       <swiper-slide>
-        <button>成都</button>
+        <mt-button>成都</mt-button>
       </swiper-slide>
       <swiper-slide>
-        <button>长沙</button>
+        <mt-button>长沙</mt-button>
       </swiper-slide>
       <swiper-slide>
-        <button>北京</button>
+        <mt-button>北京</mt-button>
       </swiper-slide>
       <swiper-slide>
-        <button>厦门</button>
+        <mt-button>厦门</mt-button>
       </swiper-slide>
     </swiper>
     <cube></cube>
@@ -36,40 +36,40 @@
     </div>
     <swiper :options="swiperOption">
       <swiper-slide>
-        <button @click="test">
+        <mt-button @click="test" class="active">
           <div class="_1il9yl1">成都</div>
           <div class="_s80x8l">26000+房源</div>
-        </button>
+        </mt-button>
       </swiper-slide>
       <swiper-slide>
-        <button>
+        <mt-button>
           <div class="_1il9yl1">上海</div>
-          <div class="_s80x8l">33000+房源</div>
-        </button>
+          <div class="_s80x8l">33000 +房源</div>
+        </mt-button>
       </swiper-slide>
       <swiper-slide>
-        <button>
+        <mt-button>
           <div class="_1il9yl1">重庆</div>
           <div class="_s80x8l">20000+房源</div>
-        </button>
+        </mt-button>
       </swiper-slide>
       <swiper-slide>
-        <button>
+        <mt-button>
           <div class="_1il9yl1">北京</div>
           <div class="_s80x8l">28000+房源</div>
-        </button>
+        </mt-button>
       </swiper-slide>
       <swiper-slide>
-        <button>
+        <mt-button>
           <div class="_1il9yl1">杭州</div>
           <div class="_s80x8l">19000+房源</div>
-        </button>
+        </mt-button>
       </swiper-slide>
       <swiper-slide>
-        <button>
+        <mt-button>
           <div class="_1il9yl1">大理</div>
           <div class="_s80x8l">8000+房源</div>
-        </button>
+        </mt-button>
       </swiper-slide>
     </swiper>
     <ppre></ppre>
@@ -78,10 +78,8 @@
 
 <script>
 import Vue from "vue";
-import VueAwesomeSwiper from "vue-awesome-swiper";
 import Cube from "./Cube";
 import Pre from "./Pre";
-Vue.use(VueAwesomeSwiper);
 import { swiper, swiperSlide } from "vue-awesome-swiper";
 export default {
   data() {
@@ -132,11 +130,19 @@ export default {
   line-height: 19px !important;
 }
 .swiper-slide {
-  width: 10%;
+  width: 15%;
   margin: 0 20px;
 }
+.swiper-slide .active{
+      border: 1px solid #ef4f4f;
+    background-color: transparent;
+    color: #ef4f4f !important;
+}
+.mint-button--default{
+  color:#000 !important;
+}
 .swiper-slide:first-child {
-  margin-left: -80% !important;
+  margin-left: -79% !important;
 }
 .swiper-slide button {
   background-color: #ffffff;
@@ -145,15 +151,14 @@ export default {
   border-color: #d8d8d8;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15);
   height: 48px;
-  width: 72px;
-  font-size: 14px !important;
+  width: 85px;
+  font-size: 16px !important;
   text-align: center !important;
-  font-weight: 900 !important;
+  color: #000;
 }
 ._1il9yl1 {
-  font-size: 14px !important;
+  font-size: 16px !important;
   text-align: center !important;
-  font-weight: 900 !important;
 }
 ._s80x8l {
   font-size: 9px !important;

@@ -12,6 +12,11 @@ import Vant from 'vant';
 import 'vant/lib/index.css';
 Vue.use(Vant);
 
+//引入swiper
+import VueAwesomeSwiper from 'vue-awesome-swiper' 
+import './assets/css/swiper.css'
+Vue.use(VueAwesomeSwiper)
+
 // 配置axios 设置默认路径
 axios.defaults.baseURL = "http://127.0.0.1:5050/"
 // 配置axios 在发生ajax时,保存session信息
