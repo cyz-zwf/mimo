@@ -533,7 +533,6 @@ export default {
     },
     handleScroll: function() {
       this.scroll = document.documentElement.scrollTop || document.body.scrollTop;
-      // console.log(this.scroll)
       if(this.scroll>=300){
         this.isWhite=true
       }else{

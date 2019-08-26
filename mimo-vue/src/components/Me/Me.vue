@@ -119,7 +119,7 @@ export default {
   methods: {
     loadLogin() {
       this.axios("sessionInfo").then(result => {
-        console.log(result);
+        // console.log(result);
       });
     }
   },

@@ -100,7 +100,7 @@
     </swiper>
     <mt-button size="large" plain type="danger">显示更多广州的房源</mt-button>
     <globalHouse style="margin-top:2.5rem"></globalHouse>
-    <recommend style="margin-bottom:1rem"></recommend>
+    <recommend style="margin-bottom:1.5rem"></recommend>
   </div>
 </template>
 
