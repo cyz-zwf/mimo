@@ -1,6 +1,6 @@
 <template>
   <div>
-    <mt-header fixed title="我喜欢的房源" class="top">
+    <mt-header fixed title="收藏" class="top">
       <mt-button icon="more" slot="right"></mt-button>
     </mt-header>
     <div class="collect">
@@ -54,9 +54,10 @@ export default {
 /* 顶部导航栏 */
 .top {
   background: #fff;
-  color: #000;
+  color: #2c3e50;
   height: 1.2rem;
   border-bottom: 0.01rem solid #eee;
+  font-size: 0.4rem;
 }
 /* 收藏主体部分 */
 .collect {
