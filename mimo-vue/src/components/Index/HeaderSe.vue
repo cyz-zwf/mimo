@@ -44,7 +44,7 @@
       <div class="choose-wrapper">
         <div class="location-container">
           <div class="selected-area">
-            <i>上海</i>
+            <i>广州</i>
           </div>
           <div class="located-area">
             <img src="http://127.0.0.1:5050/images/inhome/seimg/addr1.png" alt />
@@ -64,7 +64,7 @@
             <span class="today-tip">明天</span>
           </div>
         </div>
-        <div class="search-panel" >
+        <div class="search-panel">
           <i class="place-icon"></i>
           <span class="place-holder">输入位置、地标、房源标题</span>
         </div>
@@ -89,8 +89,8 @@ export default {
     jumpLoginCom() {
       this.$router.push("/login");
     },
-    search(){
-      this.$router.push({path:'/Search'})
+    search() {
+      this.$router.push({ path: "/Search" });
     }
   }
 };

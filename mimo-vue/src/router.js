@@ -13,61 +13,66 @@ import Recommend from './components/common/Recommend.vue'
 import Iframe from './components/Details/Iframe.vue'
 import Search from './components/Search/Search.vue'
 import Subscribe from './components/Index/Subscribe.vue'
+import Reg from './components/Index/Reg.vue' // 注册
 
 Vue.use(Router)
 
 export default new Router({
    routes: [{
-      path: '/home',
-      component: Home
-   },
-   {
-      path: '/detail',
-      component: Detail
-   },
-   {
-      path: '/',
-      component: Home
-   },
-   {
-      path: '/headerse',
-      component: HeaderSe
-   },
-   {
-      path: '/GlobalHouse',
-      component: GlobalHouse
-   },
-   {
-      path: '/map',
-      component: Map
-   },
-   {
-      path: '/test',
-      component: Test
-   },
-   {
-      path: '/dates',
-      component: Dates
-   },
-   {
-      path: '/login',
-      component: Login
-   },
-   {
-      path: '/Recommend',
-      component: Recommend
-   },
-   {
-      path: '/iframe',
-      component: Iframe
-   },
-   {
-      path: '/search',
-      component: Search,
-   },
-   {
-      path: '/subscribe',
-      component: Subscribe
-   }
+         path: '/home',
+         component: Home
+      },
+      {
+         path: '/detail',
+         component: Detail
+      },
+      {
+         path: '/',
+         component: Home
+      },
+      {
+         path: '/headerse',
+         component: HeaderSe
+      },
+      {
+         path: '/GlobalHouse',
+         component: GlobalHouse
+      },
+      {
+         path: '/map',
+         component: Map
+      },
+      {
+         path: '/test',
+         component: Test
+      },
+      {
+         path: '/dates',
+         component: Dates
+      },
+      {
+         path: '/login',
+         component: Login
+      },
+      {
+         path: '/Recommend',
+         component: Recommend
+      },
+      {
+         path: '/iframe',
+         component: Iframe
+      },
+      {
+         path: '/search',
+         component: Search,
+      },
+      {
+         path: '/subscribe',
+         component: Subscribe
+      },
+      {
+         path: '/reg',
+         component: Reg
+      }
    ]
 })

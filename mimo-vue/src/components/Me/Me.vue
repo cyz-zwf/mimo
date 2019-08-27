@@ -4,7 +4,7 @@
       <div class="imgSZ"></div>
       <div class="middle">
         <div class="lt">
-          <div>您好，{{$store.getters.getCartCount}}</div>
+          <div>您好，请先登录</div>
           <div class="jiaoyin"></div>
           <div class="qiandao">签到</div>
         </div>
@@ -119,7 +119,7 @@ export default {
   methods: {
     loadLogin() {
       this.axios("sessionInfo").then(result => {
-        // console.log(result);
+        console.log(result.data);
       });
     }
   },
