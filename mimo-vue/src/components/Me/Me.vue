@@ -119,6 +119,8 @@ export default {
   methods: {
     loadLogin() {
       this.axios("sessionInfo").then(result => {
+        // 没登录时会显示查询失败，
+        // 登录后才会显示成功，并显示数据
         console.log(result.data);
       });
     }

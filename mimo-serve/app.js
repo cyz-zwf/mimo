@@ -159,7 +159,6 @@ app.get('/reginfo', (req, res) => {
    })
 })
 
-
 //主页全球热门房源
 app.get("/global", (req, res) => {
    //接收客户端两个参数pno 页码  pageSize 页大小
@@ -271,6 +270,7 @@ app.get("/collect", (req, res) => {
       res.send(result);
    })
 })
+
 app.get("/isCollect", (req, res) => {
    var rid = req.query.rid;
    var sql = "SELECT id FROM mimo_collect WHERE rid=?";
@@ -289,6 +289,7 @@ app.get("/isCollect", (req, res) => {
       }
    })
 })
+
 app.get("/addCollect", (req, res) => {
    var rid = req.query.rid;
    var img_url = req.query.img_url;
