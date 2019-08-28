@@ -10,6 +10,8 @@ CREATE TABLE mimo_login(
     unamePhone VARCHAR(11)
 );
 INSERT INTO mimo_login VALUES(null,'赵飞燕','123456','18866665555');
+INSERT INTO mimo_login VALUES(null,'ya','123456','13189953623');
+INSERT INTO mimo_login VALUES(null,'mianma','123456','15096381993');
 
 /*特惠房源*/
 CREATE TABLE preferential_house(
