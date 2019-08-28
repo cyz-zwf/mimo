@@ -66,7 +66,7 @@
         </div>
         <div class="search-panel">
           <i class="place-icon"></i>
-          <span class="place-holder">输入位置、地标、房源标题</span>
+          <input class="place-holder" placeholder="输入位置、地标、房源标题">
         </div>
       </div>
       <div class="search-button" @click="search">搜&nbsp;&nbsp;索</div>
@@ -276,15 +276,15 @@ export default {
   width: 100%;
   height: 44px;
   font-size: 16px;
-  color: #ccc;
+  color: #999;
   line-height: 44px;
+  border:0;
 }
 /* 搜索按钮 */
 .search-button {
   width: 100%;
   font-size: 16px;
   color: #fff;
-
   text-align: center;
   line-height: 40px;
   background-image: linear-gradient(90deg, #f16b80 100%, #e64966 0%);

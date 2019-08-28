@@ -50,6 +50,7 @@ export default {
           .get("reginfo", { params: { unames, upwdse, unamePhone } })
           .then(res => {
             console.log(res.data);
+            this.$router.push("/login");
           });
       } else {
         this.$toast({ message: "两次密码输入不一致!", duration: 1000 });

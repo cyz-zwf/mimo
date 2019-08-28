@@ -4,84 +4,25 @@
       <p class="_gxyluf">秋季特惠房源</p>
       <p class="_jd04iq">低至 8 折，可叠加使用礼券</p>
     </div>
-    <swiper :options="swiperOption">
-      <swiper-slide>
-        <button @click="test">广州</button>
-      </swiper-slide>
-      <swiper-slide>
-        <button>上海</button>
-      </swiper-slide>
-      <swiper-slide>
-        <button>重庆</button>
-      </swiper-slide>
-      <swiper-slide>
-        <button>深圳</button>
-      </swiper-slide>
-      <swiper-slide>
-        <button>成都</button>
-      </swiper-slide>
-      <swiper-slide>
-        <button>长沙</button>
-      </swiper-slide>
-      <swiper-slide>
-        <button>北京</button>
-      </swiper-slide>
-      <swiper-slide>
-        <button>厦门</button>
-      </swiper-slide>
-    </swiper>
-    <cube></cube>
     <div>
+      <swiper :options="swiperOption">
+        <swiper-slide v-for="(item,i) of pname" :key="i" >
+          <mt-button v-text="item.pname" @click="btn(i)" :class="{active:Background==i}"></mt-button>
+        </swiper-slide>
+      </swiper>
+    </div>
+    <cube :arr="arr" :i="i"></cube>
+         <div>
       <p class="_gxyluf">国内热门目的地</p>
     </div>
-    <swiper :options="swiperOption">
-      <swiper-slide>
-        <button @click="test">
-          <div class="_1il9yl1">成都</div>
-          <div class="_s80x8l">26000+房源</div>
-        </button>
-      </swiper-slide>
-      <swiper-slide>
-        <button>
-          <div class="_1il9yl1">上海</div>
-          <div class="_s80x8l">33000+房源</div>
-        </button>
-      </swiper-slide>
-      <swiper-slide>
-        <button>
-          <div class="_1il9yl1">重庆</div>
-          <div class="_s80x8l">20000+房源</div>
-        </button>
-      </swiper-slide>
-      <swiper-slide>
-        <button>
-          <div class="_1il9yl1">北京</div>
-          <div class="_s80x8l">28000+房源</div>
-        </button>
-      </swiper-slide>
-      <swiper-slide>
-        <button>
-          <div class="_1il9yl1">杭州</div>
-          <div class="_s80x8l">19000+房源</div>
-        </button>
-      </swiper-slide>
-      <swiper-slide>
-        <button>
-          <div class="_1il9yl1">大理</div>
-          <div class="_s80x8l">8000+房源</div>
-        </button>
-      </swiper-slide>
-    </swiper>
-    <ppre></ppre>
+    <ppre :pname="pname"></ppre>
   </div>
 </template>
 
 <script>
 import Vue from "vue";
-import VueAwesomeSwiper from "vue-awesome-swiper";
 import Cube from "./Cube";
 import Pre from "./Pre";
-Vue.use(VueAwesomeSwiper);
 import { swiper, swiperSlide } from "vue-awesome-swiper";
 export default {
   data() {
@@ -94,8 +35,28 @@ export default {
           el: ".swiper-pagination",
           clickable: true
         }
-      }
+      },
+      pname: [],
+      Background: 0,
+      arr:[],
+      pid:1,
+      i:1,
     };
+  },
+  created() {
+    this.axios
+      .get("/preferential", { params: { pname: this.pname } })
+      .then(res => {
+        // console.log(res.data.data);
+        this.pname = res.data.data;
+        // console.log(this.pname);
+      });
+      var pid=this.i
+      console.log(pid)
+        this.axios("/house", { params: { pid: pid} }).then(res => {
+        this.arr = res.data.data;
+        console.log(this.arr)
+      });
   },
   components: {
     swiper,
@@ -104,10 +65,18 @@ export default {
     ppre: Pre
   },
   methods: {
-    test() {
-      this.backgroundColor = "#008489";
-      // alert(this.background);
-    }
+    btn(i) {
+        if(this.Background != i) {
+        this.Background = i;
+        this.i = i+1;
+        var pid=this.i
+        console.log(pid)
+        this.axios("/house", { params: { pid: pid} }).then(res => {
+        this.arr = res.data.data;
+        console.log(this.arr)
+      });
+      }
+    },
   }
 };
 </script>
@@ -132,12 +101,20 @@ export default {
   line-height: 19px !important;
 }
 .swiper-slide {
-  width: 10%;
+  width: 15%;
   margin: 0 20px;
 }
-.swiper-slide:first-child {
-  margin-left: -80% !important;
+.swiper-slide .active {
+  border: 1px solid #f16b80;
+  background-image: linear-gradient(90deg, #f16b80 100%, #e64966 0%);
+  color:#fff !important;
 }
+.mint-button--default {
+  color: #000 !important;
+}
+.swiper-slide:first-child { 
+  margin-left: -60% !important;
+} 
 .swiper-slide button {
   background-color: #ffffff;
   border-radius: 3px;
@@ -145,15 +122,17 @@ export default {
   border-color: #d8d8d8;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15);
   height: 48px;
-  width: 72px;
-  font-size: 14px !important;
+  width: 85px;
+  font-size: 16px !important;
   text-align: center !important;
-  font-weight: 900 !important;
+  color: #000;
+}
+.swiper-container {
+  padding: 5px !important;
 }
 ._1il9yl1 {
-  font-size: 14px !important;
+  font-size: 16px !important;
   text-align: center !important;
-  font-weight: 900 !important;
 }
 ._s80x8l {
   font-size: 9px !important;

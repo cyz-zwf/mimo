@@ -94,12 +94,6 @@ export default {
         //   three: { pic: "ic_ms.png", title: "打开门锁", desc: "预定后可使用" }
         // },
         {
-          title: "我的订单",
-          one: { pic: "ic_dd.png", title: "全部订单", desc: "查看全部订单" },
-          two: { pic: "ic_fp.png", title: "开具发票", desc: "发票历史及抬头" },
-          three: { pic: "ic_ms.png", title: "打开门锁", desc: "预定后可使用" }
-        },
-        {
           title: "我的钱包",
           one: { pic: "ic_fx.png", title: "邀请好友", desc: "代金券多邀多得" },
           two: { pic: "ic_djj.png", title: "代金券", desc: "¥ 0" },

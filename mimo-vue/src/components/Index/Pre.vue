@@ -1,99 +1,28 @@
 <template>
   <div id="pre">
+    <div id="hot">
+      <swiper :options="swiperOption">
+        <swiper-slide v-for="(item,i) of pname" :key="i">
+          <mt-button @click="hot(i)" :class="{active:Background==i}">
+            <div class="_1il9yl1" v-text="item.pname"></div>
+            <div class="_s80x8l" v-text="item.pnum"></div>
+          </mt-button>
+        </swiper-slide>
+      </swiper>
+    </div>
     <swiper :options="swiperOption">
-      <swiper-slide>
+      <swiper-slide v-for="(item,i) of arr" :key="i">
         <a href="javascript:;">
-          <div style="background-image: url(http://127.1:5050/images/inhome/homeimg/slide1.jpg);"></div>
-          <div class="_q1e9ikp" style="color:#714e33">整套公寓 · 1室1卫1床</div>
-          <div class="_8ij7mvh">MOHUANG|对面就是太古里春熙路和地铁站 下楼就吃小龙坎</div>
+           <div  v-bind:style="{ 'background-image': 'url(http://127.0.0.1:5050/'+item.pic+ ')' }" ></div>
+          <div class="_q1e9ikp" style="color:#714e33">{{item.title}}</div>
+          <div class="_8ij7mvh">{{item.subtitle}}</div>
           <div class="_1c084z5a">
-            <span>￥198</span>
-            <!-- <s style="color:#aaa;">￥196</s> -->
+            <span>￥{{item.price}}</span>
             每晚
           </div>
           <div class="comment">
             <span class="_1b3pg289"></span>
-            <span class="_j6pj0i">196</span>
-          </div>
-        </a>
-      </swiper-slide>
-      <swiper-slide>
-        <a href="javascript:;">
-          <div style="background-image: url(http://127.1:5050/images/inhome/homeimg/slide2.jpg);"></div>
-          <div class="_q1e9ikp" style="color:#714e33">整套公寓 · 1室1卫2床</div>
-          <div class="_8ij7mvh">漫漫|拿铁 楼下就是太古里春熙路/市中心双地铁/家庭影院/北欧风精致套房</div>
-          <div class="_1c084z5a">
-            <span>￥298</span>
-            <!-- <s style="color:#aaa;">￥228</s> -->
-            每晚
-          </div>
-          <div class="comment">
-            <span class="_1b3pg289"></span>
-            <span class="_j6pj0i">210</span>
-          </div>
-        </a>
-      </swiper-slide>
-      <swiper-slide>
-        <a href="javascript:;">
-          <div style="background-image: url(http://127.1:5050/images/inhome/homeimg/slide3.jpg);"></div>
-          <div class="_q1e9ikp" style="color:#714e33">整套公寓 · 1室1卫1床</div>
-          <div class="_8ij7mvh">【北尧.幸】传统日式 和服秀榻榻米 步行春熙太古宽窄巷子/天府广场/锦里/武侯祠 地铁</div>
-          <div class="_1c084z5a">
-            <span>￥309</span>
-            <!-- <s style="color:#aaa;">￥228</s> -->
-            每晚
-          </div>
-          <div class="comment">
-            <span class="_1b3pg289"></span>
-            <span class="_j6pj0i">182</span>
-          </div>
-        </a>
-      </swiper-slide>
-      <swiper-slide>
-        <a href="javascript:;">
-          <div style="background-image: url(http://127.1:5050/images/inhome/homeimg/slide4.jpg);"></div>
-          <div class="_q1e9ikp" style="color:#714e33">整套公寓 · 1室1卫1床</div>
-          <div class="_8ij7mvh">留白 清新北欧风 靠近地铁站 地铁3､4号线市二医院站可到达 走路可到太古里 春熙路哦</div>
-          <div class="_1c084z5a">
-            <span>￥238</span>
-            <!-- <s style="color:#aaa;">￥228</s> -->
-            每晚
-          </div>
-          <div class="comment">
-            <span class="_1b3pg289"></span>
-            <span class="_j6pj0i">128</span>
-          </div>
-        </a>
-      </swiper-slide>
-      <swiper-slide>
-        <a href="javascript:;">
-          <div style="background-image: url(http://127.1:5050/images/inhome/homeimg/slide5.jpg);"></div>
-          <div class="_q1e9ikp" style="color:#714e33">整套公寓 · 1室1卫1床</div>
-          <div class="_8ij7mvh">(当幸福来敲门)高层落地窗,近IFS.太古里,迷人夜景,市中心地铁口｡</div>
-          <div class="_1c084z5a">
-            <span>￥208</span>
-            <!-- <s style="color:#aaa;">￥228</s> -->
-            每晚
-          </div>
-          <div class="comment">
-            <span class="_1b3pg289"></span>
-            <span class="_j6pj0i">207</span>
-          </div>
-        </a>
-      </swiper-slide>
-      <swiper-slide>
-        <a href="javascript:;">
-          <div style="background-image: url(http://127.1:5050/images/inhome/homeimg/slide6.jpg);"></div>
-          <div class="_q1e9ikp" style="color:#714e33">整套公寓 · 1室1卫1床</div>
-          <div class="_8ij7mvh">【和の町】春熙/太古里/兰桂坊 传统日式-和服主题-metro line2/3</div>
-          <div class="_1c084z5a">
-            <span>￥229</span>
-            <!-- <s style="color:#aaa;">￥228</s> -->
-            每晚
-          </div>
-          <div class="comment">
-            <span class="_1b3pg289"></span>
-            <span class="_j6pj0i">81</span>
+            <span class="_j6pj0i">{{item.evaluate}}</span>
           </div>
         </a>
       </swiper-slide>
@@ -106,10 +35,8 @@
 
 <script>
 import Vue from "vue";
-import VueAwesomeSwiper from "vue-awesome-swiper";
 import GlobalHouse from "./GlobalHouse.vue";
 import Recommend from "../common/Recommend";
-Vue.use(VueAwesomeSwiper);
 import { swiper, swiperSlide } from "vue-awesome-swiper";
 import { Button } from "mint-ui";
 Vue.component(Button.name, Button);
@@ -123,16 +50,44 @@ export default {
           el: ".swiper-pagination",
           clickable: true
         }
-      }
-    };
+      },
+      Background: 0,
+      arr:[],
+      pid:1,
+      i:1,
+    }
   },
   components: {
     globalHouse: GlobalHouse,
     recommend: Recommend
+  },
+  props:["pname"],
+    created() {
+      var pid=this.i
+      console.log(pid)
+        this.axios("/house", { params: { pid: pid} }).then(res => {
+        this.arr = res.data.data;
+        console.log(this.arr)
+      });
+  },
+  methods: {
+         hot(i) {
+            if(this.Background != i) {
+                 this.Background = i;
+                this.i = i+1;
+                var pid=this.i;
+                console.log(pid)
+                  this.axios("/house", { params: { pid: pid} }).then(res => {
+                        this.arr = res.data.data;
+                        console.log(this.arr)
+                     });
+             }
+      }
   }
-};
+}
 </script>
 <style scoped>
+@import url(../../assets/css/swiper.min.css);
 #pre {
   position: relative;
   top: 20px;
@@ -152,6 +107,7 @@ a {
   padding-top: 66.7% !important;
 }
 ._q1e9ikp {
+  padding-top: 5px;
   font-weight: bold !important;
   font-size: 10px !important;
   line-height: 13px !important;
@@ -211,11 +167,41 @@ a {
   position: absolute;
   display: block;
   width: 100%;
-  top: 220px;
   font-size: 14px;
   color: #008489;
   font-weight: 600;
   background: #fff;
   border: 1px solid #008489;
+}
+
+#pre #hot .swiper-slide {
+  width: 15% !important;
+  margin: 0 30px;
+} 
+#pre #hot .swiper-slide .active {
+  border: 1px solid #f16b80;
+  background-image: linear-gradient(90deg, #f16b80 100%, #e64966 0%);
+  color:#fff !important;
+}
+#pre #hot .mint-button--default {
+  color: #000 !important;
+}
+#pre #hot .swiper-slide:first-child {
+  margin-left: -1% !important;
+}
+#pre #hot .swiper-slide button {
+  background-color: #ffffff;
+  border-radius: 3px;
+  border: 1px solid;
+  border-color: #d8d8d8;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15);
+  height: 48px;
+  width: 105px;
+  font-size: 16px !important;
+  text-align: center !important;
+  color: #000;
+}
+#pre #hot .swiper-container {
+  padding: 5px !important;
 }
 </style>
