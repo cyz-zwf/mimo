@@ -87,11 +87,16 @@ export default {
   methods: {
     jumpdetail() {
       this.$messagebox
-        .confirm("别离开太久，我拍被人订走")
-        .then(action => {
-          this.$router.push("/detail");
+        .confirm("", {
+          title: "mimo提示",
+          message: "别离开太久，我怕被人订走",
+          confirmButtonText: "留下来",
+          cancelButtonText: "先离开"
         })
-        .catch(err => {});
+        .then(action => {})
+        .catch(action => {
+          this.$router.push("/detail");
+        });
     },
     turn() {
       var btn = document.getElementsByClassName("sure-btn")[0];
@@ -105,9 +110,14 @@ export default {
     },
     submit() {
       this.$toast({
-        message: "预定成功",
-        // iconClass: "icon icon-success"
-      });
+          message: "预定成功",
+          duration: 1500
+          // iconClass: "icon icon-success"
+        });
+      setTimeout(() => {
+        this.$router.push("/")
+      }, 1500);
+      
     }
   }
 };
