@@ -4,7 +4,7 @@
       <div class="imgSZ"></div>
       <div class="middle">
         <div class="lt">
-          <div>{{isLogin?login:"您好,请先登录"}}</div>
+          <div @click="Login">{{isLogin>0?login:logout}}</div>
           <div class="jiaoyin"></div>
           <div class="qiandao">签到</div>
         </div>
@@ -73,7 +73,7 @@
         </ul>
       </div>
       <!-- 我要成为房东 -->
-      <div class="change">我要成为房东</div>
+      <div class="change" @click="Logout">{{isLogin?Exit:none}}</div>
     </div>
   </div>
 </template>
@@ -81,8 +81,11 @@
 export default {
   data() {
     return {
-      isLogin:false,
-      login:"hi",
+      isLogin:0,
+      login: "",
+      logout: "您好,请先登录",
+      Exit: "退出登录",
+      none: "我要成为房东",
       list: [
         // {
         //   title: "我的订单",
@@ -119,17 +122,26 @@ export default {
     };
   },
   methods: {
+    Login(){
+      this.$router.push("/login")
+    },
     loadLogin() {
       this.axios("sessionInfo").then(result => {
-        // 没登录时会显示查询失败，
-        // 登录后才会显示成功，并显示数据
-        if(this.isLogin){
-          this.login=false;
+       // console.log(result.data.msg[0].uname)
+        if(result.data.msg[0].uname==undefined){
+          this.isLogin = 0;  
         }else{
-          this.isLogin=true;
-          this.login="hi "+result.data.msg[0].uname        
-        }      
+          this.isLogin= 1;
+          this.login = "hi "+result.data.msg[0].uname;
+        }
+        // 没登录时会显示查询失败，
+        // 登录后才会显示成功，并显示数据     
       });
+    },
+    Logout(){
+      this.axios("/logout").then(result=>{
+        this.isLogin = 0; 
+      })
     }
   },
   mounted() {},
