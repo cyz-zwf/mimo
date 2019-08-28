@@ -274,6 +274,15 @@ app.get("/sessionInfo", (req, res) => {
       }
    })
 })
+app.get("/logout", (req, res) => {
+   // console.log("我是info:", req.session)
+   var unamePhone = req.session.unamePhone;
+   unamePhone=null;
+   res.send({
+      code: 1,
+      msg: "退出成功"
+   });
+})
 
 // 收藏房源
 app.get("/collect", (req, res) => {

@@ -79,7 +79,7 @@
           <div class="frame-box">
             <div class="log-tab-icon log-tab-codeicon"></div>
             <input
-              type="text"
+              type="password"
               maxlength="6"
               class="log-tab-input"
               placeholder="请输入密码"
@@ -172,7 +172,15 @@ export default {
         .then(res => {
           let userData = res.data.msg[0];
           this.$store.commit("info", userData);
-          this.$router.push("/");
+          this.$toast({
+            message: "登录成功",
+            duration: 1500
+            // iconClass: "icon icon-success"
+          });
+          // 1.5秒后跳回原来页面
+          setTimeout(() => {
+            this.$router.push("/");
+          }, 1500);
         });
     }
   },
