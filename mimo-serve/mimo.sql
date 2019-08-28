@@ -9,6 +9,7 @@ CREATE TABLE mimo_login(
     upwd VARCHAR(32),
     unamePhone VARCHAR(11)
 );
+INSERT INTO mimo_login VALUES(null,'赵飞燕','123456','18866665555');
 
 /*全球热门房源*/
 CREATE TABLE global_house(
