@@ -6,7 +6,8 @@ USE mimo;
 CREATE TABLE mimo_login(
     id INT PRIMARY KEY AUTO_INCREMENT,
     uname VARCHAR(50),
-    upwd VARCHAR(32)
+    upwd VARCHAR(32),
+    unamePhone VARCHAR(11)
 );
 
 /*全球热门房源*/

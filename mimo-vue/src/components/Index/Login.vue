@@ -1,8 +1,11 @@
 <template>
   <div class="log-main-box">
     <div class="log-box">
+      <div class="log-right-icons" @click="jumpIndexs">
+        <img :src="this.hostUrl+'images/inhome/scribeimg/leftjump.png'" />
+      </div>
       <div class="top-wrap">
-        <span>注册</span>
+        <span>&nbsp;</span>
       </div>
       <div class="top-logo">
         <img src="http://127.0.0.1:5050/images/inhome/seimg/toplogo.png" alt />
@@ -20,6 +23,7 @@
         </div>
         <!-- 短信验证登录 -->
         <div class="log-tab" v-show="!isDiv">
+          <div class="res-info">未注册的手机号验证后将自动创建该账号</div>
           <div class="frame-box">
             <div class="log-tab-icon"></div>
             <input
@@ -31,7 +35,7 @@
               @blur="handle"
             />
           </div>
-          <div class="log-tab-info" v-show="!isClassCode">
+          <div class="log-tab-info infos" v-show="!isClassCode">
             <span class="tab-info-icon"></span>
             手机号格式错误,请输入11位有效数字
           </div>
@@ -79,10 +83,10 @@
               maxlength="6"
               class="log-tab-input"
               placeholder="请输入密码"
-              v-model="phoneCode"
+              v-model="mimaCode"
             />
           </div>
-          <div class="login-btn" @click="loginCode">登录</div>
+          <div class="login-btn" @click="logonMIma">登录</div>
         </div>
       </div>
     </div>
@@ -97,6 +101,7 @@ export default {
       phoneNum: "", // 手机号码
       phoneCode: "", // 前台输入验证码
       codeNum: "", // 后台发送的验证码
+      mimaCode: "", // 密码
       intervalId: "",
       isDiv: true, // 显示普通或者短信登录
       isClassCode: true
@@ -123,8 +128,14 @@ export default {
         this.axios
           .get("sedsms", { params: { phone: this.phoneNum } })
           .then(res => {
-            // console.log(res);
-            this.codeNum = res.data;
+            console.log(res.data);
+            this.codeNum = res.data.msg;
+            let codes = res.data.code;
+            let phoneN = res.data.phoneCode;
+            if (codes == -1) {
+              this.$store.commit("userName", phoneN);
+              this.$router.push("/reg");
+            }
           });
       }
     },
@@ -147,6 +158,22 @@ export default {
           duration: 1500
         });
       }
+    },
+    jumpIndexs() {
+      this.$router.push("/");
+    },
+    logonMIma() {
+      this.phoneNum;
+
+      this.axios
+        .get("mimaCode", {
+          params: { phone: this.phoneNum, mima: this.mimaCode }
+        })
+        .then(res => {
+          let userData = res.data.msg[0];
+          this.$store.commit("info", userData);
+          this.$router.push("/");
+        });
     }
   },
   computed: {
@@ -154,12 +181,6 @@ export default {
       return /^1[3-9]\d{9}$/.test(this.phoneNum);
     }
   }
-
-  //   watch: {
-  //     phoneNum() {
-  //       console.log(this.phoneNum);
-  //     }
-  //   }
 };
 </script>
 <style scoped>
@@ -171,6 +192,15 @@ export default {
   height: 518px;
   margin: 0 auto;
   /* background: #eee; */
+}
+.log-box .log-right-icons {
+  position: absolute;
+  top: 13px;
+  left: 12px;
+}
+.log-right-icons img {
+  width: 12px;
+  height: 16px;
 }
 .log-box .top-wrap {
   display: flex;
@@ -212,8 +242,17 @@ export default {
   font-size: 0.3rem;
   color: #f05b72;
 }
+.log-tab .infos {
+  top: 2.1rem;
+}
 .log-tab .nowphone {
   display: block;
+}
+.res-info {
+  color: #aaaaaa;
+  font-size: 0.4rem;
+  text-align: center;
+  margin-bottom: 0.4rem;
 }
 .frame-box .log-tab-input {
   width: 100%;

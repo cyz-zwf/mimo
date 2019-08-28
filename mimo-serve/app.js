@@ -54,7 +54,7 @@ let smsClient = new SMSClient({
    secretAccessKey
 })
 
-//收到前端get请求
+//收到前端get请求(短信登录)
 app.get('/sedsms', function (req, res) {
    // console.log(req.stack);
    console.log(req.query);
@@ -63,12 +63,12 @@ app.get('/sedsms', function (req, res) {
    var $res = res;
    // console.log(req.url);
    // console.log(req.query);
-   var code = ('000000' + Math.floor(Math.random() * 999999)).slice(-6);
+   var $code = ('000000' + Math.floor(Math.random() * 999999)).slice(-6);
    var info = {
       PhoneNumbers: req.query.phone, //必填:待发送手机号,支持以逗号分隔的形式进行批量调用，目前从前端获取手机号码
       SignName: 'mimo小分队', //必填:短信签名-可在短信控制台中找到
       TemplateCode: 'SMS_172885298', //必填:短信模板-可在短信控制台中找到
-      TemplateParam: `{"code":"${code}"}` //可选:模板中的变量替换JSON串,目前不用
+      TemplateParam: `{"code":"${$code}"}` //可选:模板中的变量替换JSON串,目前不用
    }
    //发送短信
    smsClient
@@ -81,18 +81,29 @@ app.get('/sedsms', function (req, res) {
             //处理返回参数
             console.log(res)
             var phone = $req.query.phone;
-            var sql = "select uname from mimo_login where uname=?";
+            var sql = "select uname,upwd,unamePhone from mimo_login where unamePhone=?";
             pool.query(sql, [phone], (err, result) => {
                if (err) throw err;
                if (result.length == 0) {
-                  var sql = `INSERT INTO mimo_login VALUES(null,${phone},123456)`;
-                  pool.query(sql, (err, result) => {
-                     if (err) throw err;
-                     $req.session.uname = phone;
-                     console.log("我是session中的:", $req.session.uname)
+                  $res.send({
+                     code: -1,
+                     msg: $code,
+                     phoneCode: phone
                   })
+                  // var sql = `INSERT INTO mimo_login VALUES(null,${phone},123456)`;
+                  // pool.query(sql, (err, result) => {
+                  //    if (err) throw err;
+                  //    $req.session.co = 1;
+                  //    $req.session.uname = phone;
+                  //    console.log("我是session中的:", $req.session.uname)
+                  // })
                } else {
-                  $req.session.uname = phone;
+                  $req.session.unamePhone = phone;
+                  $res.send({
+                     code: 1,
+                     msg: $code,
+                     phoneCode: result
+                  })
                }
             })
          }
@@ -100,10 +111,52 @@ app.get('/sedsms', function (req, res) {
          console.log(err);
          return;
       })
-      .then(() => {
-         res.send(code);
-      })
 
+
+})
+
+//密码登录
+app.get('/mimaCode', (req, res) => {
+
+   let $phone = req.query.phone;
+   let $mima = req.query.mima;
+   let sql = "select uname,upwd,unamePhone from mimo_login where unamePhone=? and upwd=?"
+   pool.query(sql, [$phone, $mima], (err, result) => {
+
+      if (err) throw err;
+      console.log(result)
+      if (result.length > 0) {
+         req.session.unamePhone = $phone
+         res.send({
+            code: 1,
+            msg: result
+         });
+         return;
+      }
+      res.send({
+         code: -1,
+         msg: "用户名或密码错误"
+      });
+   })
+
+})
+
+// 用户注册
+app.get('/reginfo', (req, res) => {
+
+   let $unames = req.query.unames;
+   let $upwdse = req.query.upwdse;
+   let $unamePhone = req.query.unamePhone;
+   let sql = "INSERT INTO mimo_login VALUES(null,?,?,?)"
+   pool.query(sql, [$unames, $upwdse, $unamePhone], (err, result) => {
+      if (err) throw err;
+      if (result.affectedRows > 0) {
+         res.send({
+            code: 1,
+            msg: "注册成功"
+         })
+      }
+   })
 })
 
 //主页全球热门房源
@@ -112,15 +165,19 @@ app.get("/global", (req, res) => {
    var p = req.query.pno;
    var ps = req.query.pageSize;
    //设置参数默认值 pno:1 pageSize:4
-   if (!p) { p = 1 }
-   if (!ps) { ps = 4 }
+   if (!p) {
+      p = 1
+   }
+   if (!ps) {
+      ps = 4
+   }
    //创建变量offset 计算数据库偏移量
-   var offset = (p-1)*ps;
+   var offset = (p - 1) * ps;
    //对pageSize转换整形 否则nodejs报错
    ps = parseInt(ps);
    //创建sql语句
    var sql = "SELECT img_url,title,subtitle,price,comment FROM global_house LIMIT ?,?";
-   pool.query(sql, [offset,ps],(err, result) => {
+   pool.query(sql, [offset, ps], (err, result) => {
       if (err) throw err;
       res.send({
          code: 1,
@@ -136,15 +193,19 @@ app.get("/highScore", (req, res) => {
    var p = req.query.pno;
    var ps = req.query.pageSize;
    //设置参数默认值 pno:1 pageSize:4
-   if (!p) { p = 1 }
-   if (!ps) { ps = 4 }
+   if (!p) {
+      p = 1
+   }
+   if (!ps) {
+      ps = 4
+   }
    //创建变量offset 计算数据库偏移量
-   var offset = (p-1)*ps;
+   var offset = (p - 1) * ps;
    //对pageSize转换整形 否则nodejs报错
    ps = parseInt(ps);
    //创建sql语句
    var sql = "SELECT img_url,title,subtitle,price,comment from high_score LIMIT ?,?";
-   pool.query(sql, [offset,ps],(err, result) => {
+   pool.query(sql, [offset, ps], (err, result) => {
       if (err) throw err;
       res.send({
          code: 1,
@@ -191,11 +252,12 @@ app.get("/highScore", (req, res) => {
    });
 })
 
+// 查询session信息
 app.get("/sessionInfo", (req, res) => {
-
-   var uname = req.session.uname;
-   var sql = "SELECT uname from mimo_login where uname=?";
-   pool.query(sql, [uname], (err, result) => {
+   // console.log("我是info:", req.session)
+   var unamePhone = req.session.unamePhone;
+   var sql = "SELECT uname,upwd,unamePhone from mimo_login where unamePhone=?";
+   pool.query(sql, [unamePhone], (err, result) => {
 
       if (err) throw err;
       if (result.length == 0) {
@@ -207,7 +269,7 @@ app.get("/sessionInfo", (req, res) => {
       } else {
          res.send({
             code: 1,
-            msg: uname
+            msg: result
          });
       }
    })
@@ -221,18 +283,26 @@ app.get("/collect", (req, res) => {
       res.send(result);
    })
 })
+
 app.get("/isCollect", (req, res) => {
    var rid = req.query.rid;
    var sql = "SELECT id FROM mimo_collect WHERE rid=?";
    pool.query(sql, [rid], (err, result) => {
       if (err) throw err;
       if (result.length > 0) {
-         res.send({ code: 1, msg: "已收藏" })
+         res.send({
+            code: 1,
+            msg: "已收藏"
+         })
       } else {
-         res.send({ code: -1, msg: "未收藏" })
+         res.send({
+            code: -1,
+            msg: "未收藏"
+         })
       }
    })
 })
+
 app.get("/addCollect", (req, res) => {
    var rid = req.query.rid;
    var img_url = req.query.img_url;
@@ -241,7 +311,10 @@ app.get("/addCollect", (req, res) => {
    var sql = "INSERT INTO mimo_collect VALUES (null,?,?,?,?)";
    pool.query(sql, [rid, img_url, title, price], (err, result) => {
       if (err) throw err;
-      res.send({ code: 1, msg: "添加成功" })
+      res.send({
+         code: 1,
+         msg: "添加成功"
+      })
    })
 })
 //http://127.0.0.1:5050/addCollect?rid=116&img_url=home8.jpg&title=城市森林大床／动物园大马戏&price=545
@@ -250,6 +323,9 @@ app.get("/delCollect", (req, res) => {
    var sql = "DELETE FROM mimo_collect WHERE rid=?"
    pool.query(sql, [rid], (err, result) => {
       if (err) throw err;
-      res.send({ code: 1, msg: "删除成功" })
+      res.send({
+         code: 1,
+         msg: "删除成功"
+      })
    })
 })
