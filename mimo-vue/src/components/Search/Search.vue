@@ -16,8 +16,10 @@
     <div class="clearmargin">
       <div class="brand" v-for="(item,i) of list" :key="i">
         <div class="brand_top">
-          <img :src="`${url}${item.img_url}`" alt />
-          <span class="love" :class="{'is_collect':isCollect}" @click="collection"></span>
+          <img :src="`${url}${item.img_url}`" @click="toDet"/>
+          <img :src="`${item.statu?'http://127.0.0.1:5050/images/detail/det_heart_selected.png':'http://127.0.0.1:5050/images/detail/det_heart.png'}`" 
+            class="love" @click="collection" :data-id="item.id" :data-i=i
+          >
           <!-- class="love"  -->
         </div>
         <div class="text">
@@ -34,7 +36,6 @@
 export default {
   data() {
     return {
-      isCollect: false, //此变量用于保存收藏状态
       url: "http://127.0.0.1:5050/images/detail/",
       list: []
     };
@@ -42,17 +43,34 @@ export default {
   methods: {
     //返回按钮
     back() {
-      history.go(-1);
+      this.$router.push("/")
     },
-    // 点击爱心变颜色,然后加载到收藏
-    collection() {
-      this.isCollect = !this.isCollect; //取当前值的反值
+    toDet(){
+      this.$router.push("/detail")
+    },
+    // 点击爱心变颜色
+    collection(e) {
+      var id=parseInt(e.target.dataset.id);
+      var i=parseInt(e.target.dataset.i);
+      this.list[i].statu=!this.list[i].statu;
+      var url="updateStatu";
+      var obj={statu:this.list[i].statu?1:0,id};
+      // console.log(obj)
+      this.axios.get(url,{params:obj}).then(res=>{
+        // console.log(res)
+      });
     },
     LoadMore() {
       this.axios
         .get("/recommend")
         .then(res => {
           this.list = res.data.data;
+          // console.log(this.list);
+          for(var item of this.list){
+            if(item.statu){
+
+            }
+          }
         })
         .catch(err => {
           console.log(err);
@@ -139,17 +157,12 @@ export default {
   height: 6rem;
   border-radius: 0.2rem;
 }
-.love {
-  display: block;
+.brand_top img.love {
+  border-radius:0;
   width: 0.7rem;
   height: 0.7rem;
-  background: url("http://127.0.0.1:5050/images/detail/det_heart.png") no-repeat;
-  background-size: 100%;
   margin-left: -1.2rem;
   margin-top: 0.5rem;
-}
-.is_collect {
-  background-image: url("http://127.0.0.1:5050/images/detail/det_heart_selected.png");
 }
 .text {
   margin: 0.2rem;

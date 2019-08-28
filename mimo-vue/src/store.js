@@ -5,16 +5,30 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
    state: {
-      users: "请先登录"
+      users: "请先登录",
+      phoneNumber: "",
+      usersinfo: ""
    },
    mutations: {
       increment(state, phoneNum) { // 购物车数量+1
          state.users = phoneNum;
       },
+      userName(state, phoneCode) {
+         state.phoneNumber = phoneCode
+      },
+      info(state, userData) {
+         state.usersinfo = userData
+      }
    },
    getters: { // 添加 获取数据函数
       getCartCount(state) {
          return state.users;
+      },
+      getPhone(state) {
+         return state.phoneNumber;
+      },
+      getUserInfo(state) {
+         return state.usersinfo
       }
    },
    actions: {

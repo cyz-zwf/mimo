@@ -4,7 +4,7 @@
       <div class="imgSZ"></div>
       <div class="middle">
         <div class="lt">
-          <div>您好，{{$store.getters.getCartCount}}</div>
+          <div>{{isLogin?login:"您好,请先登录"}}</div>
           <div class="jiaoyin"></div>
           <div class="qiandao">签到</div>
         </div>
@@ -81,6 +81,8 @@
 export default {
   data() {
     return {
+      isLogin:false,
+      login:"hi",
       list: [
         // {
         //   title: "我的订单",
@@ -119,7 +121,14 @@ export default {
   methods: {
     loadLogin() {
       this.axios("sessionInfo").then(result => {
-        // console.log(result);
+        // 没登录时会显示查询失败，
+        // 登录后才会显示成功，并显示数据
+        if(this.isLogin){
+          this.login=false;
+        }else{
+          this.isLogin=true;
+          this.login="hi "+result.data.msg[0].uname        
+        }      
       });
     }
   },
