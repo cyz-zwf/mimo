@@ -2,7 +2,7 @@
   <div class="detail" id="div">
     <!-- 顶部条 -->
     <mt-header fixed :class="{'is_white':isWhite}">
-      <router-link to="/" slot="left">
+      <router-link to="/Search" slot="left">
         <mt-button icon="back"></mt-button>
       </router-link>
       <mt-button slot="right" class="share"></mt-button>
@@ -465,6 +465,9 @@ export default {
     recommend: Recommend
   },
   methods: {
+    toPrev(){
+      history.go(-1)
+    },
     collection() {
       var btn = document.getElementsByClassName("heart")[0];
       this.isCollect = !this.isCollect;

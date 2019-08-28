@@ -217,13 +217,26 @@ app.get("/highScore", (req, res) => {
 
 //推荐房源
 app.get("/recommend", (req, res) => {
-   var sql = "SELECT img_url,title,subtitle,price from recommend";
+   var sql = "SELECT id,img_url,title,subtitle,price,statu from recommend";
    pool.query(sql, (err, result) => {
       if (err) throw err;
       res.send({
          code: 1,
          msg: "查询成功",
          data: result
+      })
+   });
+})
+// 修改收藏状态
+app.get("/updateStatu", (req, res) => {
+   var id=parseInt(req.query.id);
+   var statu=req.query.statu;
+   var sql = "UPDATE recommend SET statu=? WHERE id=?";
+   pool.query(sql,[statu,id], (err, result) => {
+      if (err) throw err;
+      res.send({
+         code: 1,
+         msg: "修改成功"
       })
    });
 })
