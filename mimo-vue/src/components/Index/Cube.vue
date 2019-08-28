@@ -2,7 +2,7 @@
   <div id="slide">
     <swiper :options="swiperOption">
       <swiper-slide v-for="(item,n) of arr" :key="n">
-        <a href="javascript:;">
+        <router-link to="/detail">
           <div  v-bind:style="{ 'background-image': 'url(http://127.0.0.1:5050/'+item.pic+ ')' }" ></div>
           <div class="_q1e9ikp" style="color:#714e33">{{item.title}}</div>
           <div class="_8ij7mvh">{{item.subtitle}}</div>
@@ -13,7 +13,7 @@
             <span class="comment"></span>
             <span class="_j6pj0i">{{item.evaluate}}</span>
           </div>
-        </a>
+        </router-link>
       </swiper-slide>
     </swiper>
     <router-link to="/iframe">
