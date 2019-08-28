@@ -4,7 +4,7 @@
       <div class="imgSZ"></div>
       <div class="middle">
         <div class="lt">
-          <div @click="Login">{{isLogin>0?login:logout}}</div>
+          <div @click="Login" style="font-size:.45rem">{{isLogin>0?login:logout}}</div>
           <div class="jiaoyin"></div>
           <div class="qiandao">签到</div>
         </div>
@@ -81,7 +81,7 @@
 export default {
   data() {
     return {
-      isLogin:0,
+      isLogin: 0,
       login: "",
       logout: "您好,请先登录",
       Exit: "退出登录",
@@ -116,26 +116,29 @@ export default {
     };
   },
   methods: {
-    Login(){
-      this.$router.push("/login")
+    Login() {
+      if(this.isLogin){
+        this.$toast({ message: "去主页看看吧", duration: 1500 });
+      }else{
+        this.$router.push("/login");
+      }
     },
     loadLogin() {
       this.axios("sessionInfo").then(result => {
-       // console.log(result.data.msg[0].uname)
-        if(result.data.msg[0].uname==undefined){
-          this.isLogin = 0;  
-        }else{
-          this.isLogin= 1;
-          this.login = "hi "+result.data.msg[0].uname;
+        // console.log(result.data.msg[0].uname)
+        if (result.data.msg[0].uname == undefined) {
+          this.isLogin = 0; // 没登录时会显示查询失败，
+        } else {
+          this.isLogin = 1; // 登录后才会显示成功，并显示数据
+          this.login = "hi~ " + result.data.msg[0].uname;
         }
-        // 没登录时会显示查询失败，
-        // 登录后才会显示成功，并显示数据     
       });
     },
-    Logout(){
-      this.axios("/logout").then(result=>{
-        this.isLogin = 0; 
-      })
+    Logout() {
+      this.axios("/logout").then(result => {
+        this.isLogin = 0;
+        this.$toast("退出成功");
+      });
     }
   },
   mounted() {},
@@ -194,7 +197,7 @@ export default {
 .qiandao {
   width: 1rem;
   border: 0.02rem solid #fff;
-  margin-top: 0.7rem;
+  margin-top: 0.6rem;
   padding: 0.2rem 0 0.2rem 0.9rem;
   font-size: 0.1rem;
   border-radius: 0.21rem;
@@ -229,7 +232,7 @@ export default {
   height: 60%;
   color: #000;
   font-size: 0.1rem;
-  padding: 0.19rem;
+  padding: 0.1rem 0.19rem;
   border-radius: 1rem;
   background: linear-gradient(
     to left,
