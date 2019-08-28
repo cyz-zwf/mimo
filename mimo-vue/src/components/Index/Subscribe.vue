@@ -115,9 +115,8 @@ export default {
           // iconClass: "icon icon-success"
         });
       setTimeout(() => {
-        this.$router.push("/detail")
-      }, 1500);
-      
+        this.$router.push("/OrderList")
+      }, 1500);      
     }
   }
 };

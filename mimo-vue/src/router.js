@@ -14,6 +14,7 @@ import Iframe from './components/Details/Iframe.vue'
 import Search from './components/Search/Search.vue'
 import Subscribe from './components/Index/Subscribe.vue'
 import Reg from './components/Index/Reg.vue' // 注册
+import OrderList from './components/common/OrderList.vue' //订单界面
 
 Vue.use(Router)
 
@@ -73,6 +74,10 @@ export default new Router({
       {
          path: '/reg',
          component: Reg
+      },
+      {
+         path:'/OrderList',
+         component:OrderList
       }
    ]
 })
