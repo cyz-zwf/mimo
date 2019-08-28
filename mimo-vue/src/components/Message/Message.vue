@@ -16,7 +16,7 @@
       <div class="MessageRight">
         <div class="active">
           优惠活动
-          <span>2019-8-9</span>
+          <span>2019-8-31</span>
         </div>
         <div class="mg-t">新店开业 .0元免费试睡,房券4折/晚</div>
       </div>
@@ -26,7 +26,7 @@
       <div class="MessageRight">
         <div class="active">
           mimo订房助手
-          <span>2019-8-10</span>
+          <span>2019-8-30</span>
         </div>
         <div class="mg-t">为您推荐位于广州的优秀房源,下单即可...</div>
       </div>

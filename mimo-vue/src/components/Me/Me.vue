@@ -118,7 +118,7 @@ export default {
   methods: {
     Login() {
       if(this.isLogin){
-        this.$toast({ message: "去主页看看吧", duration: 1500 });
+        this.$toast({ message: "去首页看看吧", duration: 1500 });
       }else{
         this.$router.push("/login");
       }
