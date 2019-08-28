@@ -57,8 +57,8 @@ let smsClient = new SMSClient({
 //收到前端get请求(短信登录)
 app.get('/sedsms', function (req, res) {
    // console.log(req.stack);
-   console.log(req.query);
-   console.log(req.query.phone);
+   // console.log(req.query);
+   // console.log(req.query.phone);
    var $req = req;
    var $res = res;
    // console.log(req.url);
@@ -79,7 +79,7 @@ app.get('/sedsms', function (req, res) {
          } = res
          if (Code === 'OK') {
             //处理返回参数
-            console.log(res)
+            // console.log(res)
             var phone = $req.query.phone;
             var sql = "select uname,upwd,unamePhone from mimo_login where unamePhone=?";
             pool.query(sql, [phone], (err, result) => {
@@ -108,7 +108,7 @@ app.get('/sedsms', function (req, res) {
             })
          }
       }, (err) => {
-         console.log(err);
+         // console.log(err);
          return;
       })
 
@@ -124,7 +124,7 @@ app.get('/mimaCode', (req, res) => {
    pool.query(sql, [$phone, $mima], (err, result) => {
 
       if (err) throw err;
-      console.log(result)
+      // console.log(result)
       if (result.length > 0) {
          req.session.unamePhone = $phone
          res.send({
@@ -356,11 +356,11 @@ app.get("/house", (req, res) => {
    if (!pid) { 
       pid = 1;
    }
-   console.log(pid)
+   // console.log(pid)
    var sql = "SELECT * FROM house_laptop where house_id=?"
    pool.query(sql, [pid], (err, result) => {
       if (err) throw err;
-      console.log(result)
+      // console.log(result)
       res.send({
          data: result
       })
