@@ -4,75 +4,18 @@
       <p class="_gxyluf">秋季特惠房源</p>
       <p class="_jd04iq">低至 8 折，可叠加使用礼券</p>
     </div>
-    <swiper :options="swiperOption">
-      <swiper-slide>
-        <mt-button @click="test" class="active">广州</mt-button>
-      </swiper-slide>
-      <swiper-slide>
-        <mt-button>上海</mt-button>
-      </swiper-slide>
-      <swiper-slide>
-        <mt-button>重庆</mt-button>
-      </swiper-slide>
-      <swiper-slide>
-        <mt-button>深圳</mt-button>
-      </swiper-slide>
-      <swiper-slide>
-        <mt-button>成都</mt-button>
-      </swiper-slide>
-      <swiper-slide>
-        <mt-button>长沙</mt-button>
-      </swiper-slide>
-      <swiper-slide>
-        <mt-button>北京</mt-button>
-      </swiper-slide>
-      <swiper-slide>
-        <mt-button>厦门</mt-button>
-      </swiper-slide>
-    </swiper>
-    <cube></cube>
     <div>
+      <swiper :options="swiperOption">
+        <swiper-slide v-for="(item,i) of pname" :key="i" >
+          <mt-button v-text="item.pname" @click="btn(i)" :class="{active:Background==i}"></mt-button>
+        </swiper-slide>
+      </swiper>
+    </div>
+    <cube :arr="arr" :i="i"></cube>
+         <div>
       <p class="_gxyluf">国内热门目的地</p>
     </div>
-    <swiper :options="swiperOption">
-      <swiper-slide>
-        <mt-button @click="test" class="active">
-          <div class="_1il9yl1">成都</div>
-          <div class="_s80x8l">26000+房源</div>
-        </mt-button>
-      </swiper-slide>
-      <swiper-slide>
-        <mt-button>
-          <div class="_1il9yl1">上海</div>
-          <div class="_s80x8l">33000 +房源</div>
-        </mt-button>
-      </swiper-slide>
-      <swiper-slide>
-        <mt-button>
-          <div class="_1il9yl1">重庆</div>
-          <div class="_s80x8l">20000+房源</div>
-        </mt-button>
-      </swiper-slide>
-      <swiper-slide>
-        <mt-button>
-          <div class="_1il9yl1">北京</div>
-          <div class="_s80x8l">28000+房源</div>
-        </mt-button>
-      </swiper-slide>
-      <swiper-slide>
-        <mt-button>
-          <div class="_1il9yl1">杭州</div>
-          <div class="_s80x8l">19000+房源</div>
-        </mt-button>
-      </swiper-slide>
-      <swiper-slide>
-        <mt-button>
-          <div class="_1il9yl1">大理</div>
-          <div class="_s80x8l">8000+房源</div>
-        </mt-button>
-      </swiper-slide>
-    </swiper>
-    <ppre></ppre>
+    <ppre :pname="pname"></ppre>
   </div>
 </template>
 
@@ -92,8 +35,28 @@ export default {
           el: ".swiper-pagination",
           clickable: true
         }
-      }
+      },
+      pname: [],
+      Background: 0,
+      arr:[],
+      pid:1,
+      i:1,
     };
+  },
+  created() {
+    this.axios
+      .get("/preferential", { params: { pname: this.pname } })
+      .then(res => {
+        // console.log(res.data.data);
+        this.pname = res.data.data;
+        // console.log(this.pname);
+      });
+      var pid=this.i
+      console.log(pid)
+        this.axios("/house", { params: { pid: pid} }).then(res => {
+        this.arr = res.data.data;
+        console.log(this.arr)
+      });
   },
   components: {
     swiper,
@@ -102,10 +65,18 @@ export default {
     ppre: Pre
   },
   methods: {
-    test() {
-      this.backgroundColor = "#008489";
-      // alert(this.background);
-    }
+    btn(i) {
+        if(this.Background != i) {
+        this.Background = i;
+        this.i = i+1;
+        var pid=this.i
+        console.log(pid)
+        this.axios("/house", { params: { pid: pid} }).then(res => {
+        this.arr = res.data.data;
+        console.log(this.arr)
+      });
+      }
+    },
   }
 };
 </script>
@@ -133,17 +104,17 @@ export default {
   width: 15%;
   margin: 0 20px;
 }
-.swiper-slide .active{
-      border: 1px solid #ef4f4f;
-    background-color: transparent;
-    color: #ef4f4f !important;
+.swiper-slide .active {
+  border: 1px solid #f16b80;
+  background-image: linear-gradient(90deg, #f16b80 100%, #e64966 0%);
+  color:#fff !important;
 }
-.mint-button--default{
-  color:#000 !important;
+.mint-button--default {
+  color: #000 !important;
 }
-.swiper-slide:first-child {
-  margin-left: -79% !important;
-}
+.swiper-slide:first-child { 
+  margin-left: -60% !important;
+} 
 .swiper-slide button {
   background-color: #ffffff;
   border-radius: 3px;
@@ -155,6 +126,9 @@ export default {
   font-size: 16px !important;
   text-align: center !important;
   color: #000;
+}
+.swiper-container {
+  padding: 5px !important;
 }
 ._1il9yl1 {
   font-size: 16px !important;

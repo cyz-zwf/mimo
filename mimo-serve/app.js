@@ -112,15 +112,19 @@ app.get("/global", (req, res) => {
    var p = req.query.pno;
    var ps = req.query.pageSize;
    //设置参数默认值 pno:1 pageSize:4
-   if (!p) { p = 1 }
-   if (!ps) { ps = 4 }
+   if (!p) {
+      p = 1
+   }
+   if (!ps) {
+      ps = 4
+   }
    //创建变量offset 计算数据库偏移量
-   var offset = (p-1)*ps;
+   var offset = (p - 1) * ps;
    //对pageSize转换整形 否则nodejs报错
    ps = parseInt(ps);
    //创建sql语句
    var sql = "SELECT img_url,title,subtitle,price,comment FROM global_house LIMIT ?,?";
-   pool.query(sql, [offset,ps],(err, result) => {
+   pool.query(sql, [offset, ps], (err, result) => {
       if (err) throw err;
       res.send({
          code: 1,
@@ -136,15 +140,19 @@ app.get("/highScore", (req, res) => {
    var p = req.query.pno;
    var ps = req.query.pageSize;
    //设置参数默认值 pno:1 pageSize:4
-   if (!p) { p = 1 }
-   if (!ps) { ps = 4 }
+   if (!p) {
+      p = 1
+   }
+   if (!ps) {
+      ps = 4
+   }
    //创建变量offset 计算数据库偏移量
-   var offset = (p-1)*ps;
+   var offset = (p - 1) * ps;
    //对pageSize转换整形 否则nodejs报错
    ps = parseInt(ps);
    //创建sql语句
    var sql = "SELECT img_url,title,subtitle,price,comment from high_score LIMIT ?,?";
-   pool.query(sql, [offset,ps],(err, result) => {
+   pool.query(sql, [offset, ps], (err, result) => {
       if (err) throw err;
       res.send({
          code: 1,
@@ -214,9 +222,15 @@ app.get("/isCollect", (req, res) => {
    pool.query(sql, [rid], (err, result) => {
       if (err) throw err;
       if (result.length > 0) {
-         res.send({ code: 1, msg: "已收藏" })
+         res.send({
+            code: 1,
+            msg: "已收藏"
+         })
       } else {
-         res.send({ code: -1, msg: "未收藏" })
+         res.send({
+            code: -1,
+            msg: "未收藏"
+         })
       }
    })
 })
@@ -228,7 +242,10 @@ app.get("/addCollect", (req, res) => {
    var sql = "INSERT INTO mimo_collect VALUES (null,?,?,?,?)";
    pool.query(sql, [rid, img_url, title, price], (err, result) => {
       if (err) throw err;
-      res.send({ code: 1, msg: "添加成功" })
+      res.send({
+         code: 1,
+         msg: "添加成功"
+      })
    })
 })
 //http://127.0.0.1:5050/addCollect?rid=116&img_url=home8.jpg&title=城市森林大床／动物园大马戏&price=545
@@ -237,6 +254,36 @@ app.get("/delCollect", (req, res) => {
    var sql = "DELETE FROM mimo_collect WHERE rid=?"
    pool.query(sql, [rid], (err, result) => {
       if (err) throw err;
-      res.send({ code: 1, msg: "删除成功" })
+      res.send({
+         code: 1,
+      })
    })
+})
+
+
+app.get("/preferential", (req, res) => {
+   var sql = "SELECT pname,pid,pnum FROM preferential_house";
+   pool.query(sql, [], (err, result) => {
+      if (err) throw err
+      res.send({
+         data: result
+      })
+   })
+})
+
+app.get("/house", (req, res) => {
+   var pid = req.query.pid;
+   console.log(pid)
+   if (!pid) { 
+      pid = 1;
+   }
+   console.log(pid)
+   var sql = "SELECT * FROM house_laptop where house_id=?"
+   pool.query(sql, [pid], (err, result) => {
+      if (err) throw err;
+      console.log(result)
+      res.send({
+         data: result
+      })
+   }) 
 })
