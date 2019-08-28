@@ -8,22 +8,22 @@
     </div>
     <div class="scribe-main">
       <div class="srcibe-main-img">
-        <img :src="this.hostUrl+'images/inhome/scribeimg/8b4f.jpg'" alt />
+        <img :src="this.hostUrl+'images/inhome/scribeimg/yuanben1.jpg'" alt />
       </div>
       <div class="srcibe-main-info">
-        <span>房山北京西站良乡大学城地铁海洋复古loft屋</span>
+        <span>原本【空岛】奥帆，禅意智能海景民宿，地铁房</span>
       </div>
     </div>
     <div class="scribe-time">
       <div class="scribe-time-date">
         <div class="intoTime">
           <p>入住</p>
-          <p>2018.08.26</p>
+          <p>2018.08.31</p>
         </div>
-        <div class="throwL">1晚</div>
+        <div class="throwL">2晚</div>
         <div class="intoTime">
           <p class="intoTime-p2">离开</p>
-          <p>2018.08.26</p>
+          <p>2018.09.02</p>
         </div>
       </div>
       <div class="scribe-time-name">
@@ -32,20 +32,16 @@
       </div>
     </div>
     <div class="scribe-vip">
-      <div class="vip-logo">
-        <span>
-          <img :src="this.hostUrl+'images/inhome/scribeimg/vipLogo.png'" />
-          mimo会员
-        </span>
+      <div class="vip-left">
+        <span class="vip-logo">mimo会员</span>
+        <span class="vip-title">开通会员，本单立减￥159元</span>
       </div>
-      <div class="vip-title">
-        <span>开通会员，本单立减</span>
-      </div>
+      <mt-switch class="switch" v-model="value" @change="turn"></mt-switch>
     </div>
     <div class="scribe-box">
       <div class="clearfix">
-        <span>代金卷</span>
-        <span>无代金卷</span>
+        <span>代金券</span>
+        <span>无代金券</span>
       </div>
       <div class="fapiao clearfix">
         <span>开具发票</span>
@@ -76,7 +72,7 @@
       <span>我同意《会员服务协议》《mimo服务协议》《房客规则》《意外健康险保险告知书》及房东规定的退订规则和入住要求</span>
     </div>
     <div class="scribe-pay">
-      <div class="sure-btn">提交订单￥3188.00</div>
+      <div class="sure-btn" @click="submit">{{value?"提交订单￥3188.00":"提交订单￥3029.00"}}</div>
     </div>
   </div>
 </template>
@@ -84,11 +80,34 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      value: false
+    };
   },
   methods: {
     jumpdetail() {
-      this.$router.push("/detail");
+      this.$messagebox
+        .confirm("别离开太久，我拍被人订走")
+        .then(action => {
+          this.$router.push("/detail");
+        })
+        .catch(err => {});
+    },
+    turn() {
+      var btn = document.getElementsByClassName("sure-btn")[0];
+      if (this.value) {
+        btn.style.backgroundColor = "#f16b80";
+        btn.style.color = "#fff";
+      } else {
+        btn.style.backgroundColor = "#fff";
+        btn.style.color = "#f16b80";
+      }
+    },
+    submit() {
+      this.$toast({
+        message: "预定成功",
+        // iconClass: "icon icon-success"
+      });
     }
   }
 };
@@ -146,7 +165,7 @@ div {
   margin: 0.4rem 0;
 }
 .srcibe-main-img img {
-  width: 3.1222rem;
+  width: 3.8222rem;
 }
 .srcibe-main-info span {
   margin-left: 0.3rem;
@@ -198,14 +217,20 @@ div {
   color: #212121;
   font-weight: 700;
 }
-
 .scribe-vip {
   width: 100%;
-  background: rgba(245, 166, 35, 0.05);
+  background: rgb(250, 248, 233);
   margin-top: 10px;
-  padding: 0.266667rem 0.4rem 0.293333rem;
+  padding: 0.466667rem 0.4rem;
+}
+.vip-left {
+  display: inline-block;
+  width: 5.8rem;
+  font-size: 0.373333rem;
+  color: #212121;
 }
 .vip-logo {
+  display: block;
   width: 2.266667rem;
   height: 0.533333rem;
   line-height: 0.533333rem;
@@ -216,17 +241,8 @@ div {
   border-radius: 0.2666rem;
   background-image: linear-gradient(180deg, #fad0d7 5%, #faa7b3 52%, #ff8a9c);
 }
-.vip-logo span {
-  display: block;
-}
-.vip-logo span img {
-  width: 0.36rem;
-  height: 0.36rem;
-}
-.vip-title {
-  font-size: 0.373333rem;
-  color: #212121;
-  margin-top: 0.266667rem;
+.switch {
+  float: right;
 }
 .scribe-box {
   padding: 0.666667rem 0;
@@ -239,7 +255,7 @@ div {
   padding: 0.4rem;
   width: 91%;
   margin: 0 auto;
-  border: 0.022rem solid #e0e0e0;
+  border: 0.022rem solid #ddd;
   border-radius: 0.106667rem;
   justify-content: space-between;
   margin-bottom: 0.213333rem;
@@ -319,8 +335,14 @@ div {
   text-align: center;
   line-height: 1rem;
   border-radius: 0.08rem;
-  border: 0.0266rem solid #bdbdbd;
-  color: #212121;
+  border: 0.0266rem solid #f16b80;
+  color: #f16b80;
   font-weight: 700;
+}
+</style>
+<style>
+.mint-switch-input:checked + .mint-switch-core {
+  border-color: #f16b80 !important;
+  background-color: #f16b80 !important;
 }
 </style>
