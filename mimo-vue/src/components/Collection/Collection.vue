@@ -61,22 +61,27 @@ export default {
 }
 /* 收藏主体部分 */
 .collect {
+  width:90%;
+  margin:0 auto;
   margin-top: 1.2rem;
   margin-bottom: 1.8rem;
 }
 /* 收藏单项 */
 .coll-item {
+  padding-top: .1rem;
   margin-bottom: 0.4rem;
   position: relative;
 }
 /* 单项上部分 */
 .item-top {
-  height: 6.666667rem;
+  height: 5.966667rem;
   position: relative;
 }
 /* 图片 */
 .image {
   width: 100%;
+  height: 5.966667rem;
+  border-radius: 0.1rem;
 }
 .price {
   background: rgba(0, 0, 0, 0.6); /* 半透明背景 */
@@ -86,6 +91,7 @@ export default {
   color: #fff;
   font-size: 0.53333rem;
   padding: 0.166667rem 0.266667rem 0.153333rem 0.186667rem;
+  border-bottom-left-radius: 0.1rem;
 }
 .title {
   color: #333;
