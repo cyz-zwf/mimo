@@ -23,7 +23,6 @@ export default new Vuex.Store({
          state.usersinfo = userData
       },
       dateinfo(state, dateobj) { // 获取住房日期
-
          state.dateobj = dateobj
       },
       changeBack(state) {
@@ -49,16 +48,12 @@ export default new Vuex.Store({
       },
       getDateInfo(state) {
          return state.dateobj
-
       },
       getBack(state) {
          return state.back;
       },
       getCollection(state) {
          return state.collection;
-      },
-      actions: {
-
       }
    }
 })

@@ -159,7 +159,7 @@ export default {
         // time
       };
       this.date_init = date;
-      console.log(this.date_init);
+      // console.log(this.date_init);
     },
     /**
      * 加载显示日期v2.0 */
@@ -253,11 +253,11 @@ export default {
         // time
       };
       this.date = date;
-      console.log(this.date);
+      // console.log(this.date);
       // 设置当前时间为本月01日,获取此天的星期标记
       let firstDay = now.setDate(1);
-      console.log(now);
-      console.log(now.getDay());
+      // console.log(now);
+      // console.log(now.getDay());
       // 实际排列日期,在本月01日(周n)前插入n-1个空,达到实际排列效果
       let count = now.getDay();
       if (count == 0) {
@@ -274,10 +274,10 @@ export default {
       //入住还是退房状态
       let cs = this.choose_status;
       // 如果是本月分则
-      console.log(this.date.isThisMonth);
+      // console.log(this.date.isThisMonth);
       if (this.date.isThisMonth) {
         // 点击今日前的日期则返回
-        console.log(this.date_init.day);
+        //   console.log(this.date_init.day);
         if (n < this.date_init.day) return;
       }
       // 两次都点同一天入住
@@ -303,7 +303,7 @@ export default {
         }
       }
       this.choose_status = !cs;
-      console.log(this.day_in, this.day_out);
+      // console.log(this.day_in, this.day_out);
     },
     getDate() {
       var dateNum = this.day_out - this.day_in;
