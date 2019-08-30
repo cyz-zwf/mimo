@@ -68,7 +68,7 @@ export default {
   },
   data() {
     return {
-      active: "Find",
+      active: this.$store.getters.getCollection ||this.$store.getters.getBack ||"Find",
       currentIndex: [
         { isSelect: true },
         { isSelect: false },
@@ -87,11 +87,27 @@ export default {
           this.currentIndex[i].isSelect = false;
         }
       }
+    },
+    load(){
+      this.$store.commit("recoverBack")
     }
+  },
+  created() {
+    if(this.$store.getters.getBack){
+      this.change(3);
+    }
+    if(this.$store.getters.getCollection){
+      this.change(1);
+    }
+    this.load();
   }
 };
 </script>
 <style scoped>
+.mint-tabbar{
+  max-width: 14rem;
+  margin:0 auto;
+}
 /* 底部导航条组件默认样式  */
 .main_body .mint-tabbar > .mint-tab-item {
   color: #999;
