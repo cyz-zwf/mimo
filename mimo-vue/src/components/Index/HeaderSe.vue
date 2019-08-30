@@ -51,22 +51,22 @@
             <span>我的足迹</span>
           </div>
         </div>
-        <div class="date-container">
+        <div class="date-container" @click="selectDate">
           <div class="data-today">
-            <span class="today-value">08月24日</span>
-            <span class="today-tip">今天</span>
+            <span class="today-value">{{dateInto.dateToday}}</span>
+            <span class="today-tip">入住</span>
           </div>
           <div class="data-night">
-            <span class="night-count">1晚</span>
+            <span class="night-count">{{dateInto.dateNum}}晚</span>
           </div>
           <div class="data-tomorrow">
-            <span class="today-value">08月24日</span>
-            <span class="today-tip">明天</span>
+            <span class="today-value">{{dateInto.dateTomorrow}}</span>
+            <span class="today-tip">退房</span>
           </div>
         </div>
         <div class="search-panel">
-          <i class="place-icon"></i>
-          <input class="place-holder" placeholder="输入位置、地标、房源标题">
+          <!-- <i class="place-icon"></i> -->
+          <input class="place-holder" placeholder="输入位置、地标、房源标题" @click="search" />
         </div>
       </div>
       <div class="search-button" @click="search">搜&nbsp;&nbsp;索</div>
@@ -79,7 +79,8 @@
 export default {
   data() {
     return {
-      show: false
+      show: false,
+      dateInto: {}
     };
   },
   methods: {
@@ -91,7 +92,13 @@ export default {
     },
     search() {
       this.$router.push({ path: "/Search" });
+    },
+    selectDate() {
+      this.$router.push("/datebook");
     }
+  },
+  mounted() {
+    this.dateInto = this.$store.getters.getDateInfo;
   }
 };
 </script>
@@ -278,7 +285,7 @@ export default {
   font-size: 16px;
   color: #999;
   line-height: 44px;
-  border:0;
+  border: 0;
 }
 /* 搜索按钮 */
 .search-button {

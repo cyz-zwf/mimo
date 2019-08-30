@@ -14,11 +14,13 @@ import Iframe from './components/Details/Iframe.vue'
 import Search from './components/Search/Search.vue'
 import Subscribe from './components/Index/Subscribe.vue'
 import Reg from './components/Index/Reg.vue' // 注册
-
+import Datebook from './components/Index/Dateboook.vue' // 日历
 Vue.use(Router)
 
 export default new Router({
-   routes: [{
+   routes: [
+
+      {
          path: '/home',
          component: Home
       },
@@ -73,6 +75,10 @@ export default new Router({
       {
          path: '/reg',
          component: Reg
-      }
+      },
+      {
+         path: '/datebook',
+         component: Datebook
+      },
    ]
 })

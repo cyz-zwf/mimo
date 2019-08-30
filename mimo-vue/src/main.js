@@ -13,7 +13,7 @@ import 'vant/lib/index.css';
 Vue.use(Vant);
 
 //引入swiper
-import VueAwesomeSwiper from 'vue-awesome-swiper' 
+import VueAwesomeSwiper from 'vue-awesome-swiper'
 import './assets/css/swiper.css'
 Vue.use(VueAwesomeSwiper)
 
@@ -27,6 +27,35 @@ axios.defaults.withCredentials = true
 Vue.use(MintUi);
 Vue.config.productionTip = false
 Vue.prototype.hostUrl = "http://127.0.0.1:5050/" // 服务端路径初始化
+
+Vue.filter('weekFilter', (val) => {
+   let znWeek = '';
+   switch (val) {
+      case 1:
+         znWeek = '一';
+         break;
+      case 2:
+         znWeek = '二';
+         break;
+      case 3:
+         znWeek = '三';
+         break;
+      case 4:
+         znWeek = '四';
+         break;
+      case 5:
+         znWeek = '五';
+         break;
+      case 6:
+         znWeek = '六';
+         break;
+      case 7:
+         znWeek = '日';
+         break;
+   }
+   return znWeek;
+})
+
 
 new Vue({
    router,
