@@ -55,7 +55,7 @@
       </div>
       <div class="paymoney clearfix">
         <span>需在线支付</span>
-        <span>￥3188.00</span>
+        <span>{{value?"￥3029.00":"￥3188.00"}}</span>
       </div>
     </div>
     <div class="scribe-rule">
@@ -72,7 +72,7 @@
       <span>我同意《会员服务协议》《mimo服务协议》《房客规则》《意外健康险保险告知书》及房东规定的退订规则和入住要求</span>
     </div>
     <div class="scribe-pay">
-      <div class="sure-btn" @click="submit">{{value?"提交订单￥3188.00":"提交订单￥3029.00"}}</div>
+      <div class="sure-btn" @click="submit">{{value?"提交订单￥3029.00":"提交订单￥3188.00"}}</div>
     </div>
   </div>
 </template>
@@ -115,9 +115,8 @@ export default {
           // iconClass: "icon icon-success"
         });
       setTimeout(() => {
-        this.$router.push("/detail")
-      }, 1500);
-      
+        this.$router.push("/OrderList")
+      }, 1500);      
     }
   }
 };

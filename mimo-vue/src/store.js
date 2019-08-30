@@ -8,7 +8,9 @@ export default new Vuex.Store({
       users: "请先登录",
       phoneNumber: "",
       usersinfo: "",
-      dateobj: {} // 入住与退房时间
+      dateobj: {}, // 入住与退房时间
+      back: null,
+      collection: null
    },
    mutations: {
       increment(state, phoneNum) { // 购物车数量+1
@@ -23,6 +25,16 @@ export default new Vuex.Store({
       dateinfo(state, dateobj) { // 获取住房日期
 
          state.dateobj = dateobj
+      },
+      changeBack(state) {
+         state.back = "Mine";
+      },
+      recoverBack(state) {
+         state.back = null;
+      },
+
+      changeCollection(state) {
+         state.collection = "Collection"
       }
    },
    getters: { // 添加 获取数据函数
@@ -37,9 +49,16 @@ export default new Vuex.Store({
       },
       getDateInfo(state) {
          return state.dateobj
-      }
-   },
-   actions: {
 
+      },
+      getBack(state) {
+         return state.back;
+      },
+      getCollection(state) {
+         return state.collection;
+      },
+      actions: {
+
+      }
    }
 })

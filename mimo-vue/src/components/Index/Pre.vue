@@ -12,7 +12,7 @@
     </div>
     <swiper :options="swiperOption">
       <swiper-slide v-for="(item,i) of arr" :key="i">
-        <a href="javascript:;">
+        <router-link to="/detail">
            <div  v-bind:style="{ 'background-image': 'url(http://127.0.0.1:5050/'+item.pic+ ')' }" ></div>
           <div class="_q1e9ikp" style="color:#714e33">{{item.title}}</div>
           <div class="_8ij7mvh">{{item.subtitle}}</div>
@@ -24,7 +24,7 @@
             <span class="_1b3pg289"></span>
             <span class="_j6pj0i">{{item.evaluate}}</span>
           </div>
-        </a>
+        </router-link>
       </swiper-slide>
     </swiper>
     <mt-button size="large" plain type="danger">显示更多广州的房源</mt-button>
@@ -64,10 +64,10 @@ export default {
   props:["pname"],
     created() {
       var pid=this.i
-      console.log(pid)
+      // console.log(pid)
         this.axios("/house", { params: { pid: pid} }).then(res => {
         this.arr = res.data.data;
-        console.log(this.arr)
+        // console.log(this.arr)
       });
   },
   methods: {
@@ -76,10 +76,10 @@ export default {
                  this.Background = i;
                 this.i = i+1;
                 var pid=this.i;
-                console.log(pid)
+                // console.log(pid)
                   this.axios("/house", { params: { pid: pid} }).then(res => {
                         this.arr = res.data.data;
-                        console.log(this.arr)
+                        // console.log(this.arr)
                      });
              }
       }

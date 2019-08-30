@@ -16,11 +16,11 @@
       </div>
       <div class="reg-box">
         <div class="reg-box-icon regIcon"></div>
-        <input type="text" placeholder="请输入密码" class="infofix" v-model="upwds" />
+        <input type="password" placeholder="请输入密码" class="infofix" v-model="upwds" />
       </div>
       <div class="reg-box">
         <div class="reg-box-icon regIcon"></div>
-        <input type="text" placeholder="请确认密码" class="infofix" v-model="upwdse" />
+        <input type="password" placeholder="请确认密码" class="infofix" v-model="upwdse" />
       </div>
     </div>
     <div class="reg-btn" @click="regInfo">注册</div>
@@ -50,6 +50,7 @@ export default {
           .get("reginfo", { params: { unames, upwdse, unamePhone } })
           .then(res => {
             console.log(res.data);
+            this.$toast("注册成功，请登录")
             this.$router.push("/login");
           });
       } else {

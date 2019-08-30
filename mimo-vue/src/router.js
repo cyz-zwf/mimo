@@ -15,6 +15,8 @@ import Search from './components/Search/Search.vue'
 import Subscribe from './components/Index/Subscribe.vue'
 import Reg from './components/Index/Reg.vue' // 注册
 import Datebook from './components/Index/Dateboook.vue' // 日历
+import OrderList from './components/common/OrderList.vue' //订单界面
+
 Vue.use(Router)
 
 export default new Router({
@@ -80,5 +82,9 @@ export default new Router({
          path: '/datebook',
          component: Datebook
       },
+      {
+         path: '/OrderList',
+         component: OrderList
+      }
    ]
 })

@@ -52,10 +52,10 @@ export default {
         // console.log(this.pname);
       });
       var pid=this.i
-      console.log(pid)
+      // console.log(pid)
         this.axios("/house", { params: { pid: pid} }).then(res => {
         this.arr = res.data.data;
-        console.log(this.arr)
+        // console.log(this.arr)
       });
   },
   components: {
@@ -70,10 +70,10 @@ export default {
         this.Background = i;
         this.i = i+1;
         var pid=this.i
-        console.log(pid)
+        // console.log(pid)
         this.axios("/house", { params: { pid: pid} }).then(res => {
         this.arr = res.data.data;
-        console.log(this.arr)
+        // console.log(this.arr)
       });
       }
     },
