@@ -63,8 +63,8 @@ export default {
     me: Me,
     headerse: HeaderSe,
     slides: Slides,
-    collection:Collection ,
-    message:Message,
+    collection: Collection,
+    message: Message
   },
   data() {
     return {

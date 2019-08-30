@@ -7,7 +7,7 @@ import HeaderSe from './components/Index/HeaderSe.vue' // 主页轮播图
 import GlobalHouse from "./components/Index/GlobalHouse.vue"
 import Map from './components/Details/Map.vue'
 import Test from './components/Details/test.vue' //主页面
-import Dates from './components/Index/Dates.vue'
+import Datebook from './components/Index/Datebook.vue' // 日历
 import Login from './components/Index/Login.vue'
 import Recommend from './components/common/Recommend.vue'
 import Iframe from './components/Details/Iframe.vue'
@@ -47,8 +47,8 @@ export default new Router({
          component: Test
       },
       {
-         path: '/dates',
-         component: Dates
+         path: '/datebook',
+         component: Datebook
       },
       {
          path: '/login',

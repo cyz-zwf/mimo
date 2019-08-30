@@ -49,7 +49,7 @@ export default {
 
           .get("reginfo", { params: { unames, upwdse, unamePhone } })
           .then(res => {
-            console.log(res.data);
+            // console.log(res.data);
             this.$router.push("/login");
           });
       } else {
