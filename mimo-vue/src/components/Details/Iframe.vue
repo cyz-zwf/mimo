@@ -13,7 +13,7 @@ export default {
   data() {
     return {
       src:
-        "https://www.thingjs.com/guide/sampleindex.html?m=oLX7p01Wd9WbZdUM77I8sJU-IXCA/mimo.js"
+        "http://www.thingjs.com/guide/sampleindex.html?m=oLX7p01Wd9WbZdUM77I8sJU-IXCA/mimo1.js"
     };
   }
 };
