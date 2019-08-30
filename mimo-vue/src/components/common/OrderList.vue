@@ -9,7 +9,6 @@
       <mt-tab-item id="1">进行中</mt-tab-item>
       <mt-tab-item id="2">已结束</mt-tab-item>
     </mt-navbar>
-
     <!-- tab-container -->
     <mt-tab-container v-model="selected">
       <mt-tab-container-item id="1">
