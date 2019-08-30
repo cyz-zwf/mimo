@@ -7,7 +7,9 @@ export default new Vuex.Store({
    state: {
       users: "请先登录",
       phoneNumber: "",
-      usersinfo: ""
+      usersinfo: "",
+      back:null,
+      collection:null
    },
    mutations: {
       increment(state, phoneNum) { // 购物车数量+1
@@ -18,6 +20,15 @@ export default new Vuex.Store({
       },
       info(state, userData) {
          state.usersinfo = userData
+      },
+      changeBack(state){
+         state.back="Mine";
+      },
+      recoverBack(state){
+         state.back=null;
+      },
+      changeCollection(state){
+         state.collection="Collection"
       }
    },
    getters: { // 添加 获取数据函数
@@ -29,6 +40,12 @@ export default new Vuex.Store({
       },
       getUserInfo(state) {
          return state.usersinfo
+      },
+      getBack(state){
+         return state.back;
+      },
+      getCollection(state){
+         return state.collection;
       }
    },
    actions: {
