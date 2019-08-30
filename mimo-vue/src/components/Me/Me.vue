@@ -23,7 +23,7 @@
         <div>我的订单</div>
         <div>
           <ul>
-            <li>
+            <li @click="toOrder">
               <img src="http://127.0.0.1:5050/images/Me/ic_dd.png" />
               <p>全部订单</p>
               <p class="bg_list">查看订单详情</p>
@@ -116,6 +116,9 @@ export default {
     };
   },
   methods: {
+    toOrder(){
+      this.$router.push("/orderList")
+    },
     Login() {
       if(this.isLogin){
         this.$toast({ message: "去首页看看吧", duration: 1500 });

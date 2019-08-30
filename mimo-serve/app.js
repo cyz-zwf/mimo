@@ -352,7 +352,7 @@ app.get("/preferential", (req, res) => {
 
 app.get("/house", (req, res) => {
    var pid = req.query.pid;
-   console.log(pid)
+   // console.log(pid)
    if (!pid) { 
       pid = 1;
    }
