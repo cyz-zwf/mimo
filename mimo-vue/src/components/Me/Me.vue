@@ -5,8 +5,9 @@
       <div class="middle">
         <div class="lt">
           <div @click="Login" style="font-size:.45rem">{{isLogin>0?login:logout}}</div>
-          <div class="jiaoyin"></div>
-          <div class="qiandao">签到</div>
+          <div class="qiandao">签到
+            <div class="jiaoyin"></div>
+          </div>
         </div>
         <div class="rt">
           <div class="touxian"></div>
@@ -194,10 +195,11 @@ export default {
   width: 0.5rem;
   height: 0.5rem;
   position: absolute;
-  top: 1.43rem;
+  top: 0.12rem;
   left: 0.3rem;
 }
 .qiandao {
+  position: relative;
   width: 1rem;
   border: 0.02rem solid #fff;
   margin-top: 0.6rem;
@@ -280,7 +282,7 @@ export default {
 }
 .order ul li p.bg_list {
   color: #999;
-  font-size: 0.15rem;
+  font-size: 0.3rem;
 }
 /* 轮播图 */
 .swipe {
