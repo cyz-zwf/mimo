@@ -66,7 +66,7 @@
         </div>
         <div class="search-panel">
           <!-- <i class="place-icon"></i> -->
-          <input class="place-holder" placeholder="输入位置、地标、房源标题" @click="search" />
+          <input class="place-holder" placeholder="输入位置、地标、房源标题" />
         </div>
       </div>
       <div class="search-button" @click="search">搜&nbsp;&nbsp;索</div>

@@ -99,7 +99,7 @@ export default {
 }
 .header :nth-child(2) {
   flex-grow: 8;
-  position: relative;
+  /* position: relative; */
 }
 .header :nth-child(3) {
   flex-grow: 2;
@@ -122,7 +122,9 @@ export default {
   margin-left: 0.4rem;
   margin-top: 0.4rem;
 }
-
+.rep{
+  position: relative;
+}
 .close {
   display: block;
   width: 0.7rem;
@@ -130,8 +132,9 @@ export default {
   background: url("http://127.0.0.1:5050/images/Search/ic_clock.png") no-repeat;
   background-size: 100%;
   position: absolute;
-  top: -1.1rem;
-  left: 6rem;
+  top: .4rem;
+  /* left: 6rem; */
+  right: 0;
 }
 .search_input {
   width: 100%;

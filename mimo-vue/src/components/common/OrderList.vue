@@ -2,7 +2,7 @@
   <div>
     <mt-header title="订单列表">
       <router-link to="/" slot="left">
-        <mt-button icon="back" style="font-size:0.4rem" @click="back"></mt-button>
+        <mt-button icon="back" style="font-size:0.4rem"></mt-button>
       </router-link>
     </mt-header>
     <mt-navbar v-model="selected">
@@ -33,9 +33,9 @@ export default {
     };
   },
   methods: {
-    back(){
-      this.$store.commit("changeBack")
-    }
+    // back(){
+    //   this.$store.commit("changeBack")
+    // }
   },
 };
 </script>
